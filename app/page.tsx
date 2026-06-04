@@ -1,206 +1,268 @@
-const workflow = [
+import { ArrowRight, BarChart3, CheckCircle2, Leaf, Map, PackageCheck, QrCode, ShieldCheck, Sprout, TrendingUp } from 'lucide-react';
+
+const stats = [
+  { label: 'Batch Panen Aktif', value: '342' },
+  { label: 'Petani Terhubung', value: '128' },
+  { label: 'Pembeli B2B', value: '46' },
+];
+
+const features = [
   {
-    title: "Catat hasil panen",
-    text: "Petani mengisi komoditas, jumlah panen, tanggal panen, lokasi asal, foto produk, dan harga harapan.",
+    title: 'Catat panen secara digital',
+    text: 'Petani mencatat komoditas, jumlah, tanggal panen, lokasi asal, foto produk, dan harga harapan dalam satu dashboard sederhana.',
+    icon: Sprout,
   },
   {
-    title: "Validasi batch",
-    text: "AGRI-EYE meninjau data petani, kualitas produk, lalu memberikan grade mutu sederhana A/B/C.",
+    title: 'QR keterlacakan per batch',
+    text: 'Setiap batch yang lolos validasi mendapatkan QR Code berisi asal produk, grade mutu, dan riwayat distribusi.',
+    icon: QrCode,
   },
   {
-    title: "Buat QR Code",
-    text: "Batch yang disetujui mendapatkan halaman QR keterlacakan publik berisi asal-usul dan riwayat produk.",
-  },
-  {
-    title: "Jual ke B2B",
-    text: "Produk terverifikasi ditampilkan untuk restoran, hotel, katering, UMKM pangan, dan distributor.",
+    title: 'Marketplace B2B berbasis data',
+    text: 'Produk terverifikasi dapat ditawarkan ke restoran, hotel, katering, UMKM pangan, toko modern, dan distributor.',
+    icon: PackageCheck,
   },
 ];
 
+const timeline = [
+  'Panen dicatat oleh petani',
+  'Batch divalidasi AGRI-EYE',
+  'QR keterlacakan dibuat',
+  'Produk masuk marketplace B2B',
+];
+
 const products = [
-  {
-    name: "Cabai Merah — Grade A",
-    meta: "Boyolali · stok 100 kg · panen 10 Jun 2026",
-    price: "Rp32rb/kg",
-  },
-  {
-    name: "Tomat Segar — Grade B",
-    meta: "Karo · stok 240 kg · QR keterlacakan tersedia",
-    price: "Rp11rb/kg",
-  },
-  {
-    name: "Sawi Hijau — Grade A",
-    meta: "Bandung · stok 80 kg · batch terverifikasi",
-    price: "Rp9rb/kg",
-  },
+  { name: 'Cabai Merah Grade A', origin: 'Boyolali', stock: '100 kg', status: 'QR aktif' },
+  { name: 'Kopi Arabika', origin: 'Kintamani', stock: '420 kg', status: 'Grade A' },
+  { name: 'Tomat Segar', origin: 'Karo', stock: '240 kg', status: 'Validasi' },
 ];
 
 export default function Home() {
   return (
-    <main className="page-shell">
-      <div className="container">
-        <nav className="navbar">
-          <a className="logo" href="#top" aria-label="Beranda AGRI-EYE">
-            <span className="logo-mark">A</span>
-            <span>AGRI-EYE</span>
+    <main className="min-h-screen bg-slate-50 text-slate-900 antialiased">
+      <nav className="sticky top-0 z-50 border-b border-slate-100 bg-slate-50/85 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
+          <a href="#top" className="flex items-center gap-3">
+            <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-600 text-white shadow-sm">
+              <Leaf className="h-5 w-5" />
+            </span>
+            <span className="text-lg font-bold tracking-tight text-slate-900">AGRI-EYE</span>
           </a>
 
-          <div className="nav-links" aria-label="Navigasi utama">
-            <a href="#product">Produk</a>
-            <a href="#traceability">Keterlacakan</a>
-            <a href="#marketplace">Marketplace</a>
-            <a href="#workflow">Alur Kerja</a>
+          <div className="hidden items-center gap-8 text-sm font-medium text-slate-500 lg:flex">
+            <a href="#platform" className="transition-colors hover:text-slate-900">Platform</a>
+            <a href="#trace" className="transition-colors hover:text-slate-900">Keterlacakan</a>
+            <a href="#market" className="transition-colors hover:text-slate-900">Marketplace</a>
+            <a href="/dashboard" className="transition-colors hover:text-slate-900">Dashboard</a>
           </div>
 
-          <div className="nav-actions">
-            <a href="#login">Masuk</a>
-            <a className="btn btn-primary" href="#start">Mulai Sekarang</a>
+          <div className="flex items-center gap-3">
+            <a href="/dashboard" className="hidden rounded-2xl border border-slate-100 bg-white px-4 py-3 text-sm font-medium text-slate-600 shadow-sm transition-all duration-200 ease-in-out hover:shadow-md sm:inline-flex">
+              Lihat Demo
+            </a>
+            <a href="#start" className="inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 text-sm font-bold text-white shadow-sm transition-all duration-200 ease-in-out hover:bg-emerald-700 hover:shadow-md">
+              Mulai Sekarang
+              <ArrowRight className="h-4 w-4" />
+            </a>
           </div>
-        </nav>
+        </div>
+      </nav>
 
-        <section className="hero" id="top">
+      <section id="top" className="relative overflow-hidden px-6 py-16 lg:px-8 lg:py-24">
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(16,185,129,0.12),transparent_30%),radial-gradient(circle_at_80%_15%,rgba(15,23,42,0.06),transparent_24%)]" />
+
+        <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
           <div>
-            <span className="eyebrow">Keterlacakan pangan berbasis QR untuk hasil panen lokal</span>
-            <h1>Panen lebih transparan. Pasokan lebih terpercaya. Nilai jual meningkat.</h1>
-            <p>
-              AGRI-EYE membantu petani mencatat data hasil panen, membuat QR Code keterlacakan produk,
-              dan menghubungkan produk pertanian lokal dengan pembeli B2B.
-            </p>
-
-            <div className="hero-actions">
-              <a className="btn btn-primary" href="#start">Mulai sebagai Petani</a>
-              <a className="btn btn-secondary" href="#marketplace">Jelajahi Marketplace</a>
+            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-100 bg-white px-4 py-2 text-sm font-medium text-emerald-700 shadow-sm">
+              <CheckCircle2 className="h-4 w-4" />
+              Food traceability untuk hasil panen lokal
             </div>
 
-            <div className="stats-row" aria-label="Sorotan platform">
-              <div className="stat-card">
-                <strong>3</strong>
-                <span>peran utama: petani, pembeli, admin</span>
-              </div>
-              <div className="stat-card">
-                <strong>QR</strong>
-                <span>keterlacakan publik untuk setiap batch panen</span>
-              </div>
-              <div className="stat-card">
-                <strong>B2B</strong>
-                <span>akses pasar untuk produk lokal terverifikasi</span>
-              </div>
+            <h1 className="mt-8 max-w-4xl text-5xl font-bold tracking-[-0.06em] text-slate-900 sm:text-6xl lg:text-7xl">
+              Kelola panen, asal produk, dan pasar B2B dalam satu platform cerdas.
+            </h1>
+
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-500">
+              AGRI-EYE membantu petani mencatat data hasil panen, membuat QR Code keterlacakan,
+              dan menjual produk terverifikasi ke pembeli B2B secara lebih transparan.
+            </p>
+
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <a href="#start" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-6 py-4 text-sm font-bold text-white shadow-sm transition-all duration-200 ease-in-out hover:bg-emerald-700 hover:shadow-md">
+                Mulai sebagai Petani
+                <ArrowRight className="h-4 w-4" />
+              </a>
+              <a href="/dashboard" className="inline-flex items-center justify-center rounded-2xl border border-slate-100 bg-white px-6 py-4 text-sm font-bold text-slate-700 shadow-sm transition-all duration-200 ease-in-out hover:shadow-md">
+                Buka Dashboard Demo
+              </a>
+            </div>
+
+            <div className="mt-12 grid max-w-xl grid-cols-3 gap-4">
+              {stats.map((item) => (
+                <div key={item.label} className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+                  <p className="text-2xl font-bold tracking-tight text-slate-900">{item.value}</p>
+                  <p className="mt-2 text-xs font-medium leading-5 text-slate-500">{item.label}</p>
+                </div>
+              ))}
             </div>
           </div>
 
-          <div className="visual-stack" aria-label="Preview keterlacakan produk">
-            <div className="visual-card">
-              <div className="visual-top">
-                <span className="badge">Batch Terverifikasi</span>
-                <div className="qr-box" aria-hidden="true">
-                  {Array.from({ length: 16 }).map((_, index) => (
-                    <span key={index} style={{ opacity: index % 3 === 0 ? 0.35 : 0.95 }} />
-                  ))}
+          <div className="relative">
+            <div className="rounded-[2rem] border border-slate-100 bg-white p-4 shadow-sm lg:p-5">
+              <div className="overflow-hidden rounded-[1.5rem] border border-slate-100 bg-slate-50">
+                <div className="flex items-center justify-between border-b border-slate-100 bg-white px-5 py-4">
+                  <div>
+                    <p className="text-sm font-bold text-slate-900">Peta Keterlacakan</p>
+                    <p className="text-xs font-medium text-slate-500">Monitoring batch panen aktif</p>
+                  </div>
+                  <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700">Live</span>
+                </div>
+
+                <div className="relative h-[430px] bg-slate-50">
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_30%,rgba(16,185,129,0.22),transparent_20%),radial-gradient(circle_at_75%_28%,rgba(16,185,129,0.13),transparent_22%),radial-gradient(circle_at_52%_72%,rgba(15,23,42,0.08),transparent_24%)]" />
+                  <div className="absolute left-8 top-8 rounded-2xl border border-slate-100 bg-white/90 p-4 shadow-sm backdrop-blur">
+                    <div className="flex items-center gap-2 text-emerald-600">
+                      <Map className="h-4 w-4" />
+                      <span className="text-xs font-bold uppercase tracking-wide">Area prioritas</span>
+                    </div>
+                    <p className="mt-2 text-lg font-bold text-slate-900">Jawa Tengah</p>
+                    <p className="mt-1 text-sm font-medium text-slate-500">126 batch tervalidasi</p>
+                  </div>
+
+                  <div className="absolute bottom-8 right-8 w-64 rounded-2xl bg-slate-900 p-5 text-white shadow-sm">
+                    <p className="text-xs font-medium text-slate-300">Skor kesiapan jual</p>
+                    <div className="mt-3 flex items-end justify-between">
+                      <p className="text-3xl font-bold">87</p>
+                      <p className="text-sm font-medium text-emerald-300">+12%</p>
+                    </div>
+                    <div className="mt-4 h-2 rounded-full bg-white/10">
+                      <div className="h-2 w-[87%] rounded-full bg-emerald-400" />
+                    </div>
+                  </div>
+
+                  <div className="absolute left-[35%] top-[48%] h-5 w-5 rounded-full bg-emerald-600 shadow-[0_0_0_12px_rgba(16,185,129,0.13)]" />
+                  <div className="absolute right-[24%] top-[32%] h-4 w-4 rounded-full bg-emerald-500 shadow-[0_0_0_10px_rgba(16,185,129,0.10)]" />
+                  <div className="absolute bottom-[28%] left-[55%] h-4 w-4 rounded-full bg-slate-900 shadow-[0_0_0_10px_rgba(15,23,42,0.08)]" />
                 </div>
               </div>
-
-              <h2 className="batch-title">Cabai Merah — Batch #AGRI-2026-001</h2>
-              <p className="batch-meta">Pak Suyanto · Boyolali, Jawa Tengah · Grade A</p>
-
-              <div className="timeline">
-                <div className="timeline-item"><span className="dot" /> Panen dicatat oleh petani</div>
-                <div className="timeline-item"><span className="dot" /> Data divalidasi oleh AGRI-EYE</div>
-                <div className="timeline-item"><span className="dot" /> Tampil di marketplace B2B</div>
-                <div className="timeline-item"><span className="dot" /> Siap menerima pesanan pembeli</div>
-              </div>
             </div>
 
-            <div className="floating-card">
-              <span>Skor kesiapan jual</span>
-              <strong>87/100</strong>
-              <p>Data lengkap, foto jelas, asal produk terverifikasi, dan kualitas Grade A.</p>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <section className="section" id="product">
-        <div className="container">
-          <div className="section-header">
-            <h2>Lapisan kepercayaan untuk pasokan pertanian lokal.</h2>
-            <p>
-              AGRI-EYE bukan sekadar marketplace. Setiap batch panen memiliki identitas digital
-              agar asal produk, tanggal panen, grade, dan status distribusi lebih mudah diverifikasi.
-            </p>
-          </div>
-
-          <div className="grid-3">
-            <div className="info-card">
-              <h3>Untuk Petani</h3>
-              <p>Catat data panen, dapatkan QR keterlacakan, dan akses pembeli B2B di luar jalur perantara tradisional.</p>
-            </div>
-            <div className="info-card">
-              <h3>Untuk Pembeli B2B</h3>
-              <p>Temukan produk lokal terverifikasi dengan informasi asal, grade, stok, dan tanggal panen yang lebih jelas.</p>
-            </div>
-            <div className="info-card">
-              <h3>Untuk Admin AGRI-EYE</h3>
-              <p>Validasi data petani, beri grade batch panen, kelola listing produk, dan pantau alur pesanan.</p>
+            <div className="absolute -bottom-8 left-6 hidden w-72 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm lg:block">
+              <p className="text-xs font-medium text-slate-500">Batch terbaru</p>
+              <p className="mt-2 text-base font-bold text-slate-900">Cabai Merah Grade A</p>
+              <p className="mt-1 text-sm font-medium text-slate-500">Boyolali · 100 kg · QR aktif</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section" id="workflow">
-        <div className="container">
-          <div className="section-header">
-            <h2>Dari data panen menjadi kepercayaan pasar.</h2>
-            <p>Pipeline MVP yang sederhana: catat, validasi, buat keterlacakan, lalu jual ke pembeli B2B.</p>
+      <section id="platform" className="px-6 py-16 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-2xl">
+            <p className="text-sm font-bold text-emerald-600">Platform</p>
+            <h2 className="mt-3 text-4xl font-bold tracking-[-0.05em] text-slate-900 lg:text-5xl">
+              Dari catatan panen menjadi data yang bisa dipercaya pasar.
+            </h2>
           </div>
 
-          <div className="workflow">
-            {workflow.map((item, index) => (
-              <div className="step" key={item.title}>
-                <div className="step-number">{index + 1}</div>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </div>
-            ))}
+          <div className="mt-10 grid gap-6 lg:grid-cols-3">
+            {features.map((feature) => {
+              const Icon = feature.icon;
+              return (
+                <article key={feature.title} className="rounded-2xl border border-slate-100 bg-white p-8 shadow-sm transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-md">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-7 text-xl font-bold tracking-tight text-slate-900">{feature.title}</h3>
+                  <p className="mt-4 text-sm leading-7 text-slate-500">{feature.text}</p>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      <section className="section" id="marketplace">
-        <div className="container marketplace-preview">
-          <div className="section-header">
-            <h2>Marketplace yang dibangun dengan keterlacakan.</h2>
-            <p>
-              Pembeli tidak hanya melihat harga dan stok. Mereka juga dapat mengecek asal batch,
-              tanggal panen, profil petani, grade, dan status validasi AGRI-EYE sebelum memesan.
+      <section id="trace" className="px-6 py-16 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.85fr_1.15fr]">
+          <div className="rounded-[2rem] bg-slate-900 p-8 text-white shadow-sm">
+            <p className="text-sm font-bold text-emerald-300">QR Keterlacakan</p>
+            <h2 className="mt-4 text-4xl font-bold tracking-[-0.05em] lg:text-5xl">
+              Bukti asal produk yang mudah dipindai.
+            </h2>
+            <p className="mt-6 text-sm leading-7 text-slate-300">
+              Setiap batch panen memiliki halaman publik yang menampilkan asal produk, tanggal panen,
+              petani, grade mutu, dan status distribusi tanpa mengklaim sebagai sertifikasi resmi.
             </p>
           </div>
 
-          <div className="product-list">
-            {products.map((product) => (
-              <div className="product-card" key={product.name}>
-                <div>
-                  <span className="badge">QR Keterlacakan</span>
-                  <h3>{product.name}</h3>
-                  <p>{product.meta}</p>
+          <div className="rounded-[2rem] border border-slate-100 bg-white p-8 shadow-sm">
+            <div className="flex items-center justify-between gap-6">
+              <div>
+                <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700">Batch Terverifikasi</span>
+                <h3 className="mt-5 text-2xl font-bold tracking-tight text-slate-900">Kopi Arabika — Batch #AGRI-2026-014</h3>
+                <p className="mt-2 text-sm font-medium text-slate-500">Kintamani, Bali · Grade A · Panen 04 Jun 2026</p>
+              </div>
+              <div className="grid h-24 w-24 shrink-0 grid-cols-4 gap-1 rounded-2xl bg-slate-900 p-3">
+                {Array.from({ length: 16 }).map((_, index) => (
+                  <span key={index} className={`rounded-sm bg-white ${index % 3 === 0 ? 'opacity-40' : 'opacity-95'}`} />
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-8 grid gap-4">
+              {timeline.map((item, index) => (
+                <div key={item} className="flex items-center gap-4 rounded-2xl border border-slate-100 bg-slate-50 p-4">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-600 text-xs font-bold text-white">{index + 1}</span>
+                  <span className="text-sm font-medium text-slate-700">{item}</span>
                 </div>
-                <div className="product-price">{product.price}</div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="cta-section" id="start">
-        <div className="container">
-          <div className="cta-box">
+      <section id="market" className="px-6 py-16 lg:px-8">
+        <div className="mx-auto max-w-7xl rounded-[2rem] border border-slate-100 bg-white p-6 shadow-sm lg:p-8">
+          <div className="flex flex-col gap-4 border-b border-slate-100 pb-6 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <h2>Ubah data panen menjadi kepercayaan pasar.</h2>
-              <p>
-                AGRI-EYE membantu petani lokal mengubah hasil panen menjadi produk transparan berbasis data
-                yang lebih siap memenuhi kebutuhan pembeli B2B.
+              <p className="text-sm font-bold text-emerald-600">Marketplace B2B</p>
+              <h2 className="mt-3 text-4xl font-bold tracking-[-0.05em] text-slate-900">Produk lokal yang siap dipasok.</h2>
+            </div>
+            <a href="/dashboard" className="inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 text-sm font-bold text-white transition-all duration-200 ease-in-out hover:bg-emerald-700 hover:shadow-md">
+              Kelola Marketplace
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
+
+          <div className="mt-6 grid gap-4">
+            {products.map((product) => (
+              <div key={product.name} className="grid gap-4 rounded-2xl border border-slate-100 bg-white p-5 transition-all duration-200 ease-in-out hover:bg-slate-50 hover:shadow-sm md:grid-cols-[1.1fr_0.6fr_0.5fr_0.4fr] md:items-center">
+                <div>
+                  <p className="font-bold text-slate-900">{product.name}</p>
+                  <p className="mt-1 text-sm font-medium text-slate-500">Asal: {product.origin}</p>
+                </div>
+                <div className="text-sm font-medium text-slate-500">Stok: <span className="font-bold text-slate-900">{product.stock}</span></div>
+                <div><span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700">{product.status}</span></div>
+                <div className="md:text-right"><ArrowRight className="inline h-5 w-5 text-slate-400" /></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="start" className="px-6 py-20 lg:px-8">
+        <div className="mx-auto max-w-7xl rounded-[2rem] bg-emerald-600 p-8 text-white shadow-sm lg:p-12">
+          <div className="grid gap-8 lg:grid-cols-[1fr_0.45fr] lg:items-center">
+            <div>
+              <h2 className="text-4xl font-bold tracking-[-0.05em] lg:text-6xl">Ubah data panen menjadi kepercayaan pasar.</h2>
+              <p className="mt-6 max-w-2xl text-sm leading-7 text-emerald-50">
+                AGRI-EYE membantu petani dan pembeli B2B bekerja dengan data yang lebih jelas, transparan, dan mudah diverifikasi.
               </p>
             </div>
-            <a className="btn" href="#top">Bangun MVP</a>
+            <a href="/dashboard" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-6 py-4 text-sm font-bold text-emerald-700 transition-all duration-200 ease-in-out hover:shadow-md">
+              Lihat Dashboard
+              <BarChart3 className="h-4 w-4" />
+            </a>
           </div>
         </div>
       </section>
