@@ -1,8 +1,8 @@
+import AgriEyeLogo from '@/components/agri-eye-logo';
 import {
   ArrowRight,
   BarChart3,
   CheckCircle2,
-  Leaf,
   Map,
   PackageCheck,
   QrCode,
@@ -44,11 +44,8 @@ export default function Home() {
     <main className="min-h-screen bg-[#F7F4ED] text-slate-900 antialiased">
       <nav className="sticky top-0 z-50 border-b border-[#E8DDC7]/70 bg-[#F7F4ED]/85 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
-          <a href="#top" className="flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-600 text-white shadow-sm">
-              <Leaf className="h-5 w-5" />
-            </span>
-            <span className="text-lg font-bold tracking-tight text-slate-900">AGRI-EYE</span>
+          <a href="#top">
+            <AgriEyeLogo compact />
           </a>
 
           <div className="hidden items-center gap-8 text-sm font-medium text-slate-500 lg:flex">
