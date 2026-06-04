@@ -1,7 +1,16 @@
-import { ArrowRight, BarChart3, CheckCircle2, Leaf, Map, PackageCheck, QrCode, ShieldCheck, Sprout } from 'lucide-react';
+import {
+  ArrowRight,
+  BarChart3,
+  CheckCircle2,
+  Leaf,
+  Map,
+  PackageCheck,
+  QrCode,
+  Sprout,
+} from 'lucide-react';
 
 const stats = [
-  { label: 'Batch Panen Aktif', value: '342' },
+  { label: 'Data Panen Aktif', value: '342' },
   { label: 'Petani Terhubung', value: '128' },
   { label: 'Pembeli B2B', value: '46' },
 ];
@@ -13,8 +22,8 @@ const features = [
     icon: Sprout,
   },
   {
-    title: 'QR keterlacakan per batch',
-    text: 'Setiap batch yang lolos validasi mendapatkan QR Code berisi asal produk, grade mutu, dan riwayat distribusi.',
+    title: 'QR Produk per Data Panen',
+    text: 'Setiap Data Panen yang lolos validasi mendapatkan QR Produk berisi asal produk, grade mutu, dan riwayat distribusi.',
     icon: QrCode,
   },
   {
@@ -22,13 +31,6 @@ const features = [
     text: 'Produk terverifikasi dapat ditawarkan ke restoran, hotel, katering, UMKM pangan, toko modern, dan distributor.',
     icon: PackageCheck,
   },
-];
-
-const timeline = [
-  'Panen dicatat oleh petani',
-  'Batch divalidasi AGRI-EYE',
-  'QR keterlacakan dibuat',
-  'Produk masuk marketplace B2B',
 ];
 
 const products = [
@@ -53,15 +55,15 @@ export default function Home() {
             <a href="#platform" className="transition-colors hover:text-slate-900">Platform</a>
             <a href="#trace" className="transition-colors hover:text-slate-900">Keterlacakan</a>
             <a href="#market" className="transition-colors hover:text-slate-900">Marketplace</a>
-            <a href="/dashboard" className="transition-colors hover:text-slate-900">Dashboard</a>
+            <a href="/farmer" className="transition-colors hover:text-slate-900">Petani</a>
           </div>
 
           <div className="flex items-center gap-3">
             <a href="/dashboard" className="hidden rounded-2xl border border-[#E8DDC7] bg-white/80 px-4 py-3 text-sm font-medium text-slate-600 shadow-sm transition-all duration-200 ease-in-out hover:bg-white hover:shadow-md sm:inline-flex">
               Lihat Demo
             </a>
-            <a href="#start" className="inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 text-sm font-bold text-white shadow-sm transition-all duration-200 ease-in-out hover:bg-emerald-700 hover:shadow-md">
-              Mulai Sekarang
+            <a href="/farmer" className="inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 text-sm font-bold text-white shadow-sm transition-all duration-200 ease-in-out hover:bg-emerald-700 hover:shadow-md">
+              Mulai sebagai Petani
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
@@ -83,12 +85,11 @@ export default function Home() {
             </h1>
 
             <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-500">
-              AGRI-EYE membantu petani mencatat data hasil panen, membuat QR Code keterlacakan,
-              dan menjual produk terverifikasi ke pembeli B2B secara lebih transparan.
+              AGRI-EYE membantu petani mencatat Data Panen, membuat QR Produk, dan menjual produk terverifikasi ke pembeli B2B secara lebih transparan.
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <a href="#start" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-6 py-4 text-sm font-bold text-white shadow-sm transition-all duration-200 ease-in-out hover:bg-emerald-700 hover:shadow-md">
+              <a href="/farmer" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-6 py-4 text-sm font-bold text-white shadow-sm transition-all duration-200 ease-in-out hover:bg-emerald-700 hover:shadow-md">
                 Mulai sebagai Petani
                 <ArrowRight className="h-4 w-4" />
               </a>
@@ -113,7 +114,7 @@ export default function Home() {
                 <div className="flex items-center justify-between border-b border-[#E8DDC7]/80 bg-white/90 px-5 py-4">
                   <div>
                     <p className="text-sm font-bold text-slate-900">Peta Keterlacakan</p>
-                    <p className="text-xs font-medium text-slate-500">Monitoring batch panen aktif</p>
+                    <p className="text-xs font-medium text-slate-500">Monitoring Data Panen aktif</p>
                   </div>
                   <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700">Live</span>
                 </div>
@@ -126,7 +127,7 @@ export default function Home() {
                       <span className="text-xs font-bold uppercase tracking-wide">Area prioritas</span>
                     </div>
                     <p className="mt-2 text-lg font-bold text-slate-900">Jawa Tengah</p>
-                    <p className="mt-1 text-sm font-medium text-slate-500">126 batch tervalidasi</p>
+                    <p className="mt-1 text-sm font-medium text-slate-500">126 Data Panen tervalidasi</p>
                   </div>
 
                   <div className="absolute bottom-8 right-8 w-64 rounded-2xl bg-[#0F3D2E] p-5 text-white shadow-sm">
@@ -139,16 +140,12 @@ export default function Home() {
                       <div className="h-2 w-[87%] rounded-full bg-emerald-400" />
                     </div>
                   </div>
-
-                  <div className="absolute left-[35%] top-[48%] h-5 w-5 rounded-full bg-emerald-600 shadow-[0_0_0_12px_rgba(16,185,129,0.13)]" />
-                  <div className="absolute right-[24%] top-[32%] h-4 w-4 rounded-full bg-emerald-500 shadow-[0_0_0_10px_rgba(16,185,129,0.10)]" />
-                  <div className="absolute bottom-[28%] left-[55%] h-4 w-4 rounded-full bg-[#0F3D2E] shadow-[0_0_0_10px_rgba(15,61,46,0.10)]" />
                 </div>
               </div>
             </div>
 
             <div className="absolute -bottom-8 left-6 hidden w-72 rounded-2xl border border-[#E8DDC7] bg-white/90 p-5 shadow-sm backdrop-blur lg:block">
-              <p className="text-xs font-medium text-slate-500">Batch terbaru</p>
+              <p className="text-xs font-medium text-slate-500">Data Panen terbaru</p>
               <p className="mt-2 text-base font-bold text-slate-900">Cabai Merah Grade A</p>
               <p className="mt-1 text-sm font-medium text-slate-500">Boyolali · 100 kg · QR aktif</p>
             </div>
@@ -185,21 +182,20 @@ export default function Home() {
       <section id="trace" className="px-6 py-16 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="rounded-[2rem] bg-[#0F3D2E] p-8 text-white shadow-sm">
-            <p className="text-sm font-bold text-emerald-200">QR Keterlacakan</p>
+            <p className="text-sm font-bold text-emerald-200">QR Produk</p>
             <h2 className="mt-4 text-4xl font-bold tracking-[-0.05em] lg:text-5xl">
               Bukti asal produk yang mudah dipindai.
             </h2>
             <p className="mt-6 text-sm leading-7 text-white/70">
-              Setiap batch panen memiliki halaman publik yang menampilkan asal produk, tanggal panen,
-              petani, grade mutu, dan status distribusi tanpa mengklaim sebagai sertifikasi resmi.
+              Setiap Data Panen memiliki halaman publik yang menampilkan asal produk, tanggal panen, petani, grade mutu, dan status distribusi tanpa mengklaim sebagai sertifikasi resmi.
             </p>
           </div>
 
           <div className="rounded-[2rem] border border-[#E8DDC7] bg-white/85 p-8 shadow-sm backdrop-blur">
             <div className="flex items-center justify-between gap-6">
               <div>
-                <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700">Batch Terverifikasi</span>
-                <h3 className="mt-5 text-2xl font-bold tracking-tight text-slate-900">Kopi Arabika — Batch #AGRI-2026-014</h3>
+                <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700">Data Panen Terverifikasi</span>
+                <h3 className="mt-5 text-2xl font-bold tracking-tight text-slate-900">Kopi Arabika — Kode Panen #AGRI-2026-014</h3>
                 <p className="mt-2 text-sm font-medium text-slate-500">Kintamani, Bali · Grade A · Panen 04 Jun 2026</p>
               </div>
               <div className="grid h-24 w-24 shrink-0 grid-cols-4 gap-1 rounded-2xl bg-[#0F3D2E] p-3">
@@ -207,15 +203,6 @@ export default function Home() {
                   <span key={index} className={`rounded-sm bg-white ${index % 3 === 0 ? 'opacity-40' : 'opacity-95'}`} />
                 ))}
               </div>
-            </div>
-
-            <div className="mt-8 grid gap-4">
-              {timeline.map((item, index) => (
-                <div key={item} className="flex items-center gap-4 rounded-2xl border border-[#E8DDC7] bg-[#FBFAF6] p-4">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-600 text-xs font-bold text-white">{index + 1}</span>
-                  <span className="text-sm font-medium text-slate-700">{item}</span>
-                </div>
-              ))}
             </div>
           </div>
         </div>
@@ -228,8 +215,8 @@ export default function Home() {
               <p className="text-sm font-bold text-emerald-600">Marketplace B2B</p>
               <h2 className="mt-3 text-4xl font-bold tracking-[-0.05em] text-slate-900">Produk lokal yang siap dipasok.</h2>
             </div>
-            <a href="/dashboard" className="inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 text-sm font-bold text-white transition-all duration-200 ease-in-out hover:bg-emerald-700 hover:shadow-md">
-              Kelola Marketplace
+            <a href="/farmer" className="inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 text-sm font-bold text-white transition-all duration-200 ease-in-out hover:bg-emerald-700 hover:shadow-md">
+              Kelola Data Panen
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
@@ -259,8 +246,8 @@ export default function Home() {
                 AGRI-EYE membantu petani dan pembeli B2B bekerja dengan data yang lebih jelas, transparan, dan mudah diverifikasi.
               </p>
             </div>
-            <a href="/dashboard" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-6 py-4 text-sm font-bold text-emerald-700 transition-all duration-200 ease-in-out hover:shadow-md">
-              Lihat Dashboard
+            <a href="/farmer" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-6 py-4 text-sm font-bold text-emerald-700 transition-all duration-200 ease-in-out hover:shadow-md">
+              Masuk Dashboard Petani
               <BarChart3 className="h-4 w-4" />
             </a>
           </div>
