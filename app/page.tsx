@@ -1,4 +1,4 @@
-import { ArrowRight, BarChart3, CheckCircle2, Leaf, Map, PackageCheck, QrCode, ShieldCheck, Sprout, TrendingUp } from 'lucide-react';
+import { ArrowRight, BarChart3, CheckCircle2, Leaf, Map, PackageCheck, QrCode, ShieldCheck, Sprout } from 'lucide-react';
 
 const stats = [
   { label: 'Batch Panen Aktif', value: '342' },
@@ -39,8 +39,8 @@ const products = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-slate-50 text-slate-900 antialiased">
-      <nav className="sticky top-0 z-50 border-b border-slate-100 bg-slate-50/85 backdrop-blur-xl">
+    <main className="min-h-screen bg-[#F7F4ED] text-slate-900 antialiased">
+      <nav className="sticky top-0 z-50 border-b border-[#E8DDC7]/70 bg-[#F7F4ED]/85 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
           <a href="#top" className="flex items-center gap-3">
             <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-600 text-white shadow-sm">
@@ -57,7 +57,7 @@ export default function Home() {
           </div>
 
           <div className="flex items-center gap-3">
-            <a href="/dashboard" className="hidden rounded-2xl border border-slate-100 bg-white px-4 py-3 text-sm font-medium text-slate-600 shadow-sm transition-all duration-200 ease-in-out hover:shadow-md sm:inline-flex">
+            <a href="/dashboard" className="hidden rounded-2xl border border-[#E8DDC7] bg-white/80 px-4 py-3 text-sm font-medium text-slate-600 shadow-sm transition-all duration-200 ease-in-out hover:bg-white hover:shadow-md sm:inline-flex">
               Lihat Demo
             </a>
             <a href="#start" className="inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 text-sm font-bold text-white shadow-sm transition-all duration-200 ease-in-out hover:bg-emerald-700 hover:shadow-md">
@@ -69,11 +69,11 @@ export default function Home() {
       </nav>
 
       <section id="top" className="relative overflow-hidden px-6 py-16 lg:px-8 lg:py-24">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(16,185,129,0.12),transparent_30%),radial-gradient(circle_at_80%_15%,rgba(15,23,42,0.06),transparent_24%)]" />
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_18%,rgba(16,185,129,0.13),transparent_30%),radial-gradient(circle_at_80%_12%,rgba(232,221,199,0.9),transparent_30%),radial-gradient(circle_at_50%_90%,rgba(255,255,255,0.8),transparent_28%)]" />
 
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-100 bg-white px-4 py-2 text-sm font-medium text-emerald-700 shadow-sm">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#E8DDC7] bg-white/80 px-4 py-2 text-sm font-medium text-emerald-700 shadow-sm">
               <CheckCircle2 className="h-4 w-4" />
               Food traceability untuk hasil panen lokal
             </div>
@@ -92,14 +92,14 @@ export default function Home() {
                 Mulai sebagai Petani
                 <ArrowRight className="h-4 w-4" />
               </a>
-              <a href="/dashboard" className="inline-flex items-center justify-center rounded-2xl border border-slate-100 bg-white px-6 py-4 text-sm font-bold text-slate-700 shadow-sm transition-all duration-200 ease-in-out hover:shadow-md">
+              <a href="/dashboard" className="inline-flex items-center justify-center rounded-2xl border border-[#E8DDC7] bg-white/80 px-6 py-4 text-sm font-bold text-slate-700 shadow-sm transition-all duration-200 ease-in-out hover:bg-white hover:shadow-md">
                 Buka Dashboard Demo
               </a>
             </div>
 
             <div className="mt-12 grid max-w-xl grid-cols-3 gap-4">
               {stats.map((item) => (
-                <div key={item.label} className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+                <div key={item.label} className="rounded-2xl border border-[#E8DDC7] bg-white/80 p-5 shadow-sm backdrop-blur transition-all duration-200 ease-in-out hover:bg-white hover:shadow-md">
                   <p className="text-2xl font-bold tracking-tight text-slate-900">{item.value}</p>
                   <p className="mt-2 text-xs font-medium leading-5 text-slate-500">{item.label}</p>
                 </div>
@@ -108,9 +108,9 @@ export default function Home() {
           </div>
 
           <div className="relative">
-            <div className="rounded-[2rem] border border-slate-100 bg-white p-4 shadow-sm lg:p-5">
-              <div className="overflow-hidden rounded-[1.5rem] border border-slate-100 bg-slate-50">
-                <div className="flex items-center justify-between border-b border-slate-100 bg-white px-5 py-4">
+            <div className="rounded-[2rem] border border-[#E8DDC7] bg-white/85 p-4 shadow-sm backdrop-blur lg:p-5">
+              <div className="overflow-hidden rounded-[1.5rem] border border-[#E8DDC7] bg-[#FBFAF6]">
+                <div className="flex items-center justify-between border-b border-[#E8DDC7]/80 bg-white/90 px-5 py-4">
                   <div>
                     <p className="text-sm font-bold text-slate-900">Peta Keterlacakan</p>
                     <p className="text-xs font-medium text-slate-500">Monitoring batch panen aktif</p>
@@ -118,9 +118,9 @@ export default function Home() {
                   <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700">Live</span>
                 </div>
 
-                <div className="relative h-[430px] bg-slate-50">
+                <div className="relative h-[430px] bg-[#F2EEE4]">
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_30%,rgba(16,185,129,0.22),transparent_20%),radial-gradient(circle_at_75%_28%,rgba(16,185,129,0.13),transparent_22%),radial-gradient(circle_at_52%_72%,rgba(15,23,42,0.08),transparent_24%)]" />
-                  <div className="absolute left-8 top-8 rounded-2xl border border-slate-100 bg-white/90 p-4 shadow-sm backdrop-blur">
+                  <div className="absolute left-8 top-8 rounded-2xl border border-[#E8DDC7] bg-white/90 p-4 shadow-sm backdrop-blur">
                     <div className="flex items-center gap-2 text-emerald-600">
                       <Map className="h-4 w-4" />
                       <span className="text-xs font-bold uppercase tracking-wide">Area prioritas</span>
@@ -129,11 +129,11 @@ export default function Home() {
                     <p className="mt-1 text-sm font-medium text-slate-500">126 batch tervalidasi</p>
                   </div>
 
-                  <div className="absolute bottom-8 right-8 w-64 rounded-2xl bg-slate-900 p-5 text-white shadow-sm">
-                    <p className="text-xs font-medium text-slate-300">Skor kesiapan jual</p>
+                  <div className="absolute bottom-8 right-8 w-64 rounded-2xl bg-[#0F3D2E] p-5 text-white shadow-sm">
+                    <p className="text-xs font-medium text-white/70">Skor kesiapan jual</p>
                     <div className="mt-3 flex items-end justify-between">
                       <p className="text-3xl font-bold">87</p>
-                      <p className="text-sm font-medium text-emerald-300">+12%</p>
+                      <p className="text-sm font-medium text-emerald-200">+12%</p>
                     </div>
                     <div className="mt-4 h-2 rounded-full bg-white/10">
                       <div className="h-2 w-[87%] rounded-full bg-emerald-400" />
@@ -142,12 +142,12 @@ export default function Home() {
 
                   <div className="absolute left-[35%] top-[48%] h-5 w-5 rounded-full bg-emerald-600 shadow-[0_0_0_12px_rgba(16,185,129,0.13)]" />
                   <div className="absolute right-[24%] top-[32%] h-4 w-4 rounded-full bg-emerald-500 shadow-[0_0_0_10px_rgba(16,185,129,0.10)]" />
-                  <div className="absolute bottom-[28%] left-[55%] h-4 w-4 rounded-full bg-slate-900 shadow-[0_0_0_10px_rgba(15,23,42,0.08)]" />
+                  <div className="absolute bottom-[28%] left-[55%] h-4 w-4 rounded-full bg-[#0F3D2E] shadow-[0_0_0_10px_rgba(15,61,46,0.10)]" />
                 </div>
               </div>
             </div>
 
-            <div className="absolute -bottom-8 left-6 hidden w-72 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm lg:block">
+            <div className="absolute -bottom-8 left-6 hidden w-72 rounded-2xl border border-[#E8DDC7] bg-white/90 p-5 shadow-sm backdrop-blur lg:block">
               <p className="text-xs font-medium text-slate-500">Batch terbaru</p>
               <p className="mt-2 text-base font-bold text-slate-900">Cabai Merah Grade A</p>
               <p className="mt-1 text-sm font-medium text-slate-500">Boyolali · 100 kg · QR aktif</p>
@@ -169,7 +169,7 @@ export default function Home() {
             {features.map((feature) => {
               const Icon = feature.icon;
               return (
-                <article key={feature.title} className="rounded-2xl border border-slate-100 bg-white p-8 shadow-sm transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-md">
+                <article key={feature.title} className="rounded-2xl border border-[#E8DDC7] bg-white/85 p-8 shadow-sm backdrop-blur transition-all duration-200 ease-in-out hover:-translate-y-1 hover:bg-white hover:shadow-md">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600">
                     <Icon className="h-5 w-5" />
                   </div>
@@ -184,25 +184,25 @@ export default function Home() {
 
       <section id="trace" className="px-6 py-16 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.85fr_1.15fr]">
-          <div className="rounded-[2rem] bg-slate-900 p-8 text-white shadow-sm">
-            <p className="text-sm font-bold text-emerald-300">QR Keterlacakan</p>
+          <div className="rounded-[2rem] bg-[#0F3D2E] p-8 text-white shadow-sm">
+            <p className="text-sm font-bold text-emerald-200">QR Keterlacakan</p>
             <h2 className="mt-4 text-4xl font-bold tracking-[-0.05em] lg:text-5xl">
               Bukti asal produk yang mudah dipindai.
             </h2>
-            <p className="mt-6 text-sm leading-7 text-slate-300">
+            <p className="mt-6 text-sm leading-7 text-white/70">
               Setiap batch panen memiliki halaman publik yang menampilkan asal produk, tanggal panen,
               petani, grade mutu, dan status distribusi tanpa mengklaim sebagai sertifikasi resmi.
             </p>
           </div>
 
-          <div className="rounded-[2rem] border border-slate-100 bg-white p-8 shadow-sm">
+          <div className="rounded-[2rem] border border-[#E8DDC7] bg-white/85 p-8 shadow-sm backdrop-blur">
             <div className="flex items-center justify-between gap-6">
               <div>
                 <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700">Batch Terverifikasi</span>
                 <h3 className="mt-5 text-2xl font-bold tracking-tight text-slate-900">Kopi Arabika — Batch #AGRI-2026-014</h3>
                 <p className="mt-2 text-sm font-medium text-slate-500">Kintamani, Bali · Grade A · Panen 04 Jun 2026</p>
               </div>
-              <div className="grid h-24 w-24 shrink-0 grid-cols-4 gap-1 rounded-2xl bg-slate-900 p-3">
+              <div className="grid h-24 w-24 shrink-0 grid-cols-4 gap-1 rounded-2xl bg-[#0F3D2E] p-3">
                 {Array.from({ length: 16 }).map((_, index) => (
                   <span key={index} className={`rounded-sm bg-white ${index % 3 === 0 ? 'opacity-40' : 'opacity-95'}`} />
                 ))}
@@ -211,7 +211,7 @@ export default function Home() {
 
             <div className="mt-8 grid gap-4">
               {timeline.map((item, index) => (
-                <div key={item} className="flex items-center gap-4 rounded-2xl border border-slate-100 bg-slate-50 p-4">
+                <div key={item} className="flex items-center gap-4 rounded-2xl border border-[#E8DDC7] bg-[#FBFAF6] p-4">
                   <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-600 text-xs font-bold text-white">{index + 1}</span>
                   <span className="text-sm font-medium text-slate-700">{item}</span>
                 </div>
@@ -222,8 +222,8 @@ export default function Home() {
       </section>
 
       <section id="market" className="px-6 py-16 lg:px-8">
-        <div className="mx-auto max-w-7xl rounded-[2rem] border border-slate-100 bg-white p-6 shadow-sm lg:p-8">
-          <div className="flex flex-col gap-4 border-b border-slate-100 pb-6 lg:flex-row lg:items-end lg:justify-between">
+        <div className="mx-auto max-w-7xl rounded-[2rem] border border-[#E8DDC7] bg-white/85 p-6 shadow-sm backdrop-blur lg:p-8">
+          <div className="flex flex-col gap-4 border-b border-[#E8DDC7] pb-6 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <p className="text-sm font-bold text-emerald-600">Marketplace B2B</p>
               <h2 className="mt-3 text-4xl font-bold tracking-[-0.05em] text-slate-900">Produk lokal yang siap dipasok.</h2>
@@ -236,7 +236,7 @@ export default function Home() {
 
           <div className="mt-6 grid gap-4">
             {products.map((product) => (
-              <div key={product.name} className="grid gap-4 rounded-2xl border border-slate-100 bg-white p-5 transition-all duration-200 ease-in-out hover:bg-slate-50 hover:shadow-sm md:grid-cols-[1.1fr_0.6fr_0.5fr_0.4fr] md:items-center">
+              <div key={product.name} className="grid gap-4 rounded-2xl border border-[#E8DDC7] bg-white/80 p-5 transition-all duration-200 ease-in-out hover:bg-white hover:shadow-sm md:grid-cols-[1.1fr_0.6fr_0.5fr_0.4fr] md:items-center">
                 <div>
                   <p className="font-bold text-slate-900">{product.name}</p>
                   <p className="mt-1 text-sm font-medium text-slate-500">Asal: {product.origin}</p>
@@ -251,11 +251,11 @@ export default function Home() {
       </section>
 
       <section id="start" className="px-6 py-20 lg:px-8">
-        <div className="mx-auto max-w-7xl rounded-[2rem] bg-emerald-600 p-8 text-white shadow-sm lg:p-12">
+        <div className="mx-auto max-w-7xl rounded-[2rem] bg-[#0F3D2E] p-8 text-white shadow-sm lg:p-12">
           <div className="grid gap-8 lg:grid-cols-[1fr_0.45fr] lg:items-center">
             <div>
               <h2 className="text-4xl font-bold tracking-[-0.05em] lg:text-6xl">Ubah data panen menjadi kepercayaan pasar.</h2>
-              <p className="mt-6 max-w-2xl text-sm leading-7 text-emerald-50">
+              <p className="mt-6 max-w-2xl text-sm leading-7 text-white/75">
                 AGRI-EYE membantu petani dan pembeli B2B bekerja dengan data yang lebih jelas, transparan, dan mudah diverifikasi.
               </p>
             </div>
