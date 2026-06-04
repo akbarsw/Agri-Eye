@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import {
   CalendarDays,
   CheckCircle2,
@@ -13,9 +14,9 @@ import {
 } from 'lucide-react';
 
 type TracePageProps = {
-  params: {
+  params: Promise<{
     kodePanen: string;
-  };
+  }>;
 };
 
 const traceSteps = [
@@ -56,8 +57,9 @@ function getTraceData(kodePanen: string) {
   };
 }
 
-export default function TracePage({ params }: TracePageProps) {
-  const data = getTraceData(params.kodePanen);
+export default async function TracePage({ params }: TracePageProps) {
+  const { kodePanen } = await params;
+  const data = getTraceData(kodePanen);
 
   return (
     <main className="min-h-screen bg-[#F7F4ED] text-slate-900 antialiased">
@@ -165,7 +167,7 @@ export default function TracePage({ params }: TracePageProps) {
   );
 }
 
-function InfoCard({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
+function InfoCard({ icon, label, value }: { icon: ReactNode; label: string; value: string }) {
   return (
     <div className="rounded-2xl border border-[#E8DDC7] bg-[#FBFAF6] p-5">
       <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-slate-400">
