@@ -1,37 +1,37 @@
 const workflow = [
   {
-    title: "Record harvest",
-    text: "Farmers submit commodity, quantity, harvest date, origin, photo, and expected price.",
+    title: "Catat hasil panen",
+    text: "Petani mengisi komoditas, jumlah panen, tanggal panen, lokasi asal, foto produk, dan harga harapan.",
   },
   {
-    title: "Validate batch",
-    text: "AGRI-EYE reviews farmer data, product quality, and assigns a simple A/B/C grade.",
+    title: "Validasi batch",
+    text: "AGRI-EYE meninjau data petani, kualitas produk, lalu memberikan grade mutu sederhana A/B/C.",
   },
   {
-    title: "Generate QR",
-    text: "Approved batches receive a public QR traceability page with product origin and timeline.",
+    title: "Buat QR Code",
+    text: "Batch yang disetujui mendapatkan halaman QR keterlacakan publik berisi asal-usul dan riwayat produk.",
   },
   {
-    title: "Sell to B2B",
-    text: "Verified produce is listed for restaurants, hotels, caterers, food MSMEs, and distributors.",
+    title: "Jual ke B2B",
+    text: "Produk terverifikasi ditampilkan untuk restoran, hotel, katering, UMKM pangan, dan distributor.",
   },
 ];
 
 const products = [
   {
-    name: "Red Chili — Grade A",
-    meta: "Boyolali · 100 kg available · Harvested 10 Jun 2026",
-    price: "Rp32k/kg",
+    name: "Cabai Merah — Grade A",
+    meta: "Boyolali · stok 100 kg · panen 10 Jun 2026",
+    price: "Rp32rb/kg",
   },
   {
-    name: "Fresh Tomato — Grade B",
-    meta: "Karo · 240 kg available · QR traceability ready",
-    price: "Rp11k/kg",
+    name: "Tomat Segar — Grade B",
+    meta: "Karo · stok 240 kg · QR keterlacakan tersedia",
+    price: "Rp11rb/kg",
   },
   {
-    name: "Green Mustard — Grade A",
-    meta: "Bandung · 80 kg available · Verified batch",
-    price: "Rp9k/kg",
+    name: "Sawi Hijau — Grade A",
+    meta: "Bandung · stok 80 kg · batch terverifikasi",
+    price: "Rp9rb/kg",
   },
 ];
 
@@ -40,58 +40,58 @@ export default function Home() {
     <main className="page-shell">
       <div className="container">
         <nav className="navbar">
-          <a className="logo" href="#top" aria-label="AGRI-EYE home">
+          <a className="logo" href="#top" aria-label="Beranda AGRI-EYE">
             <span className="logo-mark">A</span>
             <span>AGRI-EYE</span>
           </a>
 
-          <div className="nav-links" aria-label="Main navigation">
-            <a href="#product">Product</a>
-            <a href="#traceability">Traceability</a>
+          <div className="nav-links" aria-label="Navigasi utama">
+            <a href="#product">Produk</a>
+            <a href="#traceability">Keterlacakan</a>
             <a href="#marketplace">Marketplace</a>
-            <a href="#workflow">Workflow</a>
+            <a href="#workflow">Alur Kerja</a>
           </div>
 
           <div className="nav-actions">
-            <a href="#login">Login</a>
-            <a className="btn btn-primary" href="#start">Get Started</a>
+            <a href="#login">Masuk</a>
+            <a className="btn btn-primary" href="#start">Mulai Sekarang</a>
           </div>
         </nav>
 
         <section className="hero" id="top">
           <div>
-            <span className="eyebrow">QR-based food traceability for local harvests</span>
-            <h1>Traceable harvests. Trusted supply. Better value.</h1>
+            <span className="eyebrow">Keterlacakan pangan berbasis QR untuk hasil panen lokal</span>
+            <h1>Panen lebih transparan. Pasokan lebih terpercaya. Nilai jual meningkat.</h1>
             <p>
-              AGRI-EYE helps farmers digitize harvest data, generate QR-based food traceability,
-              and connect verified produce with B2B buyers.
+              AGRI-EYE membantu petani mencatat data hasil panen, membuat QR Code keterlacakan produk,
+              dan menghubungkan produk pertanian lokal dengan pembeli B2B.
             </p>
 
             <div className="hero-actions">
-              <a className="btn btn-primary" href="#start">Start as Farmer</a>
-              <a className="btn btn-secondary" href="#marketplace">Explore Marketplace</a>
+              <a className="btn btn-primary" href="#start">Mulai sebagai Petani</a>
+              <a className="btn btn-secondary" href="#marketplace">Jelajahi Marketplace</a>
             </div>
 
-            <div className="stats-row" aria-label="Platform highlights">
+            <div className="stats-row" aria-label="Sorotan platform">
               <div className="stat-card">
                 <strong>3</strong>
-                <span>core roles: farmer, buyer, admin</span>
+                <span>peran utama: petani, pembeli, admin</span>
               </div>
               <div className="stat-card">
                 <strong>QR</strong>
-                <span>public traceability per harvest batch</span>
+                <span>keterlacakan publik untuk setiap batch panen</span>
               </div>
               <div className="stat-card">
                 <strong>B2B</strong>
-                <span>market access for verified local produce</span>
+                <span>akses pasar untuk produk lokal terverifikasi</span>
               </div>
             </div>
           </div>
 
-          <div className="visual-stack" aria-label="Traceability preview mockup">
+          <div className="visual-stack" aria-label="Preview keterlacakan produk">
             <div className="visual-card">
               <div className="visual-top">
-                <span className="badge">Verified Batch</span>
+                <span className="badge">Batch Terverifikasi</span>
                 <div className="qr-box" aria-hidden="true">
                   {Array.from({ length: 16 }).map((_, index) => (
                     <span key={index} style={{ opacity: index % 3 === 0 ? 0.35 : 0.95 }} />
@@ -99,21 +99,21 @@ export default function Home() {
                 </div>
               </div>
 
-              <h2 className="batch-title">Red Chili — Batch #AGRI-2026-001</h2>
-              <p className="batch-meta">Pak Suyanto · Boyolali, Central Java · Grade A</p>
+              <h2 className="batch-title">Cabai Merah — Batch #AGRI-2026-001</h2>
+              <p className="batch-meta">Pak Suyanto · Boyolali, Jawa Tengah · Grade A</p>
 
               <div className="timeline">
-                <div className="timeline-item"><span className="dot" /> Harvest recorded by farmer</div>
-                <div className="timeline-item"><span className="dot" /> Data validated by AGRI-EYE</div>
-                <div className="timeline-item"><span className="dot" /> Listed on B2B marketplace</div>
-                <div className="timeline-item"><span className="dot" /> Ready for buyer order</div>
+                <div className="timeline-item"><span className="dot" /> Panen dicatat oleh petani</div>
+                <div className="timeline-item"><span className="dot" /> Data divalidasi oleh AGRI-EYE</div>
+                <div className="timeline-item"><span className="dot" /> Tampil di marketplace B2B</div>
+                <div className="timeline-item"><span className="dot" /> Siap menerima pesanan pembeli</div>
               </div>
             </div>
 
             <div className="floating-card">
-              <span>Sell readiness score</span>
+              <span>Skor kesiapan jual</span>
               <strong>87/100</strong>
-              <p>Complete data, clear photo, verified origin, and Grade A quality.</p>
+              <p>Data lengkap, foto jelas, asal produk terverifikasi, dan kualitas Grade A.</p>
             </div>
           </div>
         </section>
@@ -122,25 +122,25 @@ export default function Home() {
       <section className="section" id="product">
         <div className="container">
           <div className="section-header">
-            <h2>A trust layer for local agricultural supply.</h2>
+            <h2>Lapisan kepercayaan untuk pasokan pertanian lokal.</h2>
             <p>
-              AGRI-EYE is not just a marketplace. It gives each harvest batch a digital identity,
-              making origin, harvest date, grade, and distribution status easier to verify.
+              AGRI-EYE bukan sekadar marketplace. Setiap batch panen memiliki identitas digital
+              agar asal produk, tanggal panen, grade, dan status distribusi lebih mudah diverifikasi.
             </p>
           </div>
 
           <div className="grid-3">
             <div className="info-card">
-              <h3>For farmers</h3>
-              <p>Record harvest data, receive QR traceability, and access B2B buyers beyond traditional middlemen.</p>
+              <h3>Untuk Petani</h3>
+              <p>Catat data panen, dapatkan QR keterlacakan, dan akses pembeli B2B di luar jalur perantara tradisional.</p>
             </div>
             <div className="info-card">
-              <h3>For B2B buyers</h3>
-              <p>Find verified local produce with clearer origin, grade, stock, and harvest information.</p>
+              <h3>Untuk Pembeli B2B</h3>
+              <p>Temukan produk lokal terverifikasi dengan informasi asal, grade, stok, dan tanggal panen yang lebih jelas.</p>
             </div>
             <div className="info-card">
-              <h3>For AGRI-EYE admin</h3>
-              <p>Validate farmer data, grade harvest batches, manage listings, and monitor order workflows.</p>
+              <h3>Untuk Admin AGRI-EYE</h3>
+              <p>Validasi data petani, beri grade batch panen, kelola listing produk, dan pantau alur pesanan.</p>
             </div>
           </div>
         </div>
@@ -149,8 +149,8 @@ export default function Home() {
       <section className="section" id="workflow">
         <div className="container">
           <div className="section-header">
-            <h2>From harvest data to market trust.</h2>
-            <p>A simple pipeline designed for MVP: record, validate, generate traceability, and sell.</p>
+            <h2>Dari data panen menjadi kepercayaan pasar.</h2>
+            <p>Pipeline MVP yang sederhana: catat, validasi, buat keterlacakan, lalu jual ke pembeli B2B.</p>
           </div>
 
           <div className="workflow">
@@ -168,10 +168,10 @@ export default function Home() {
       <section className="section" id="marketplace">
         <div className="container marketplace-preview">
           <div className="section-header">
-            <h2>Marketplace built around traceability.</h2>
+            <h2>Marketplace yang dibangun dengan keterlacakan.</h2>
             <p>
-              Buyers do not only see price and stock. They can also check batch origin, harvest date,
-              farmer profile, grade, and AGRI-EYE validation status before ordering.
+              Pembeli tidak hanya melihat harga dan stok. Mereka juga dapat mengecek asal batch,
+              tanggal panen, profil petani, grade, dan status validasi AGRI-EYE sebelum memesan.
             </p>
           </div>
 
@@ -179,7 +179,7 @@ export default function Home() {
             {products.map((product) => (
               <div className="product-card" key={product.name}>
                 <div>
-                  <span className="badge">QR Traceability</span>
+                  <span className="badge">QR Keterlacakan</span>
                   <h3>{product.name}</h3>
                   <p>{product.meta}</p>
                 </div>
@@ -194,13 +194,13 @@ export default function Home() {
         <div className="container">
           <div className="cta-box">
             <div>
-              <h2>Turn harvest data into market trust.</h2>
+              <h2>Ubah data panen menjadi kepercayaan pasar.</h2>
               <p>
-                AGRI-EYE helps local farmers transform produce into transparent, data-backed products
-                that are more ready for B2B demand.
+                AGRI-EYE membantu petani lokal mengubah hasil panen menjadi produk transparan berbasis data
+                yang lebih siap memenuhi kebutuhan pembeli B2B.
               </p>
             </div>
-            <a className="btn" href="#top">Build MVP</a>
+            <a className="btn" href="#top">Bangun MVP</a>
           </div>
         </div>
       </section>
