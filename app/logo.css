@@ -1,13 +1,18 @@
-/* Final AGRI-EYE branding override uses PNG asset. */
+/* Final AGRI-EYE branding override uses transparent SVG asset. */
 a[href="/"] > span.flex:first-child,
 a[href="#top"] > span.flex:first-child {
-  background: #ffffff url('/agri-eye-logo.png') center / 132% no-repeat !important;
+  background: transparent url('/agri-eye-logo.svg') center / contain no-repeat !important;
   color: transparent !important;
-  border: 1px solid #e8ddc7;
+  border: none !important;
+}
+
+a[href="/"] > span.flex:first-child svg,
+a[href="#top"] > span.flex:first-child svg {
+  display: none !important;
 }
 
 .logo-mark {
-  background: #ffffff url('/agri-eye-logo.png') center / 132% no-repeat !important;
+  background: transparent url('/agri-eye-logo.svg') center / contain no-repeat !important;
   color: transparent !important;
-  border: 1px solid #e8ddc7;
+  border: none !important;
 }
