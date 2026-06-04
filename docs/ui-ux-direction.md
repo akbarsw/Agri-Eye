@@ -1,168 +1,217 @@
-# UI/UX Direction — AGRI-EYE
+# Arah UI/UX — AGRI-EYE
 
-## 1. Design Positioning
+## 1. Positioning Desain
 
-AGRI-EYE should look like a serious B2B agritech SaaS platform, not a casual farmer marketplace.
+AGRI-EYE menggunakan gaya **profesional, minimalis, bersih, dan B2B SaaS**. Tampilan platform tidak dibuat terlalu ramai dengan visual pertanian, tetapi lebih menonjolkan data, kepercayaan, keterlacakan, dan alur rantai pasok.
 
-**Design concept:** Clean agritech dashboard with traceability-first experience.
+**Konsep utama:**  
+Clean agritech dashboard with traceability-first experience.
 
-## 2. Visual Style
+## 2. Prinsip Desain
 
-- Professional
-- Minimalist
-- Clean
-- Data-driven
-- B2B SaaS feel
-- Soft agriculture tone
+1. **Minimalis dan mudah dipahami**  
+   UI harus sederhana, terutama untuk pengguna petani yang belum tentu terbiasa dengan aplikasi kompleks.
 
-Avoid overly decorative farming visuals, bright neon green, crowded illustrations, and informal marketplace styling.
+2. **Data-driven**  
+   Tampilkan informasi penting seperti jumlah panen, status validasi, grade mutu, stok, pesanan, dan riwayat distribusi dalam bentuk card, tabel, dan badge.
 
-## 3. Color Direction
+3. **Trust-first**  
+   Elemen QR Code, status validasi, dan halaman keterlacakan harus terlihat kredibel dan rapi.
 
-| Usage | Suggested Color |
+4. **B2B professional**  
+   Marketplace tidak boleh terlihat seperti toko online biasa. Fokusnya adalah pasokan, mutu, lokasi asal, jumlah stok, dan kejelasan produk.
+
+## 3. Bahasa Platform
+
+Seluruh UI menggunakan **Bahasa Indonesia**.
+
+Istilah utama:
+
+| Istilah | Penggunaan di Platform |
 |---|---|
-| Primary | Deep green / forest green |
-| Background | Warm white / off-white |
-| Secondary | Earth beige / sand |
-| Text | Charcoal / near-black |
-| Border | Soft gray |
-| Accent | Subtle amber or lime |
+| Farmer | Petani |
+| B2B Buyer | Pembeli B2B |
+| Harvest Batch | Batch Panen |
+| Traceability | Keterlacakan Produk |
+| Verified Batch | Batch Terverifikasi |
+| Request Order | Ajukan Pesanan |
+| Marketplace | Marketplace B2B |
+| Grade | Grade Mutu |
+| Pending Validation | Menunggu Validasi |
+| Approved | Disetujui |
+| Rejected | Ditolak |
+| Delivered | Terkirim |
 
-Suggested palette:
+## 4. Palet Warna
 
-```txt
-#0F3D2E - Deep green
-#F7F4ED - Warm background
-#E8DDC7 - Beige section
-#1F2933 - Dark text
-#D6E5D8 - Soft green border
-#F5A524 - Accent
-```
+Rekomendasi warna:
 
-## 4. Typography
+- **Primary:** Deep Green `#0F3D2E`
+- **Background:** Warm White `#F7F4ED`
+- **Section Background:** Soft Beige `#E8DDC7`
+- **Text:** Charcoal `#1F2933`
+- **Border:** Soft Gray `#E5E7EB`
+- **Accent:** Amber `#F5A524`
 
-Recommended fonts:
+Catatan: hindari hijau neon dan visual yang terlalu ramai.
 
-- Inter
-- Geist Sans
-- Manrope
+## 5. Tipografi
 
-Use large, clear headings for landing pages and compact, readable typography for dashboards.
+Rekomendasi font:
 
-## 5. Core Pages
+- **Inter** untuk dashboard dan UI utama.
+- **Geist Sans** atau **Manrope** untuk landing page.
 
-### Public Landing Page
+Karakter visual yang diinginkan:
 
-Sections:
+- modern,
+- rapi,
+- profesional,
+- mudah dibaca,
+- tidak terlalu dekoratif.
 
-1. Navbar
-2. Hero section
-3. Problem section
-4. How it works
-5. Traceability preview
-6. Marketplace preview
-7. Farmer and B2B value proposition
-8. Final CTA
+## 6. Struktur Landing Page
 
-### Farmer Dashboard
+### Navbar
 
-Main purpose: help farmers record harvests and monitor validation/order status.
+Menu:
 
-Core sections:
+- Beranda
+- Keterlacakan
+- Marketplace
+- Untuk Petani
+- Untuk Pembeli B2B
+- Masuk
+- Daftar
 
-- Overview cards
-- Recent harvest batches
-- Order requests
-- QR traceability status
+CTA utama:
 
-### B2B Marketplace
+- Mulai Sekarang
 
-Main purpose: help buyers find verified local produce and check product traceability.
+### Hero Section
 
-Core sections:
+Headline:
 
-- Search and filters
-- Product cards
-- Traceability badge
-- Request order CTA
+> Panen lebih transparan. Pasokan lebih terpercaya. Nilai jual petani meningkat.
 
-### Admin Dashboard
+Subheadline:
 
-Main purpose: manage trust layer, validation, grading, and order workflow.
+> AGRI-EYE membantu petani mencatat data hasil panen, membuat QR Code keterlacakan produk, dan menghubungkan hasil panen lokal dengan pembeli B2B.
 
-Core sections:
+CTA:
 
-- Farmer verification
-- Batch validation
-- Product listings
-- Orders
-- Trace logs
+- Mulai sebagai Petani
+- Jelajahi Marketplace
 
-### Public Traceability Page
+### Problem Section
 
-This is the most important trust page.
+Poin masalah:
 
-Core sections:
+- Produk petani sering tidak memiliki bukti asal-usul.
+- Pencatatan panen masih manual.
+- Pembeli B2B sulit memastikan kualitas dan ketersediaan pasokan.
+- Petani memiliki posisi tawar yang lemah.
 
-- Product summary
-- Batch ID
-- Origin
-- Farmer profile
-- Harvest date
-- Grade
-- Traceability timeline
-- AGRI-EYE validation note
-- Disclaimer that this is not official certification
+### How It Works
 
-## 6. Component System
+1. Petani mencatat hasil panen.
+2. AGRI-EYE memvalidasi batch.
+3. Sistem membuat QR Code keterlacakan.
+4. Produk masuk marketplace B2B.
+5. Pembeli mengajukan pesanan.
 
-Recommended components:
+## 7. Dashboard Petani
+
+Sidebar:
+
+- Ringkasan
+- Batch Panen
+- Tambah Batch
+- Pesanan
+- QR Code
+- Profil
+
+Card ringkasan:
+
+- Total Batch
+- Listing Aktif
+- Menunggu Validasi
+- Pesanan Masuk
+- Estimasi Pendapatan
+
+## 8. Dashboard Pembeli B2B
+
+Sidebar:
+
+- Ringkasan
+- Marketplace
+- Pesanan Saya
+- Supplier Tersimpan
+- Keterlacakan
+- Profil Bisnis
+
+Fokus halaman:
+
+- pencarian produk,
+- filter komoditas,
+- lokasi asal,
+- grade mutu,
+- stok,
+- tanggal panen,
+- tombol Ajukan Pesanan.
+
+## 9. Dashboard Admin
+
+Sidebar:
+
+- Ringkasan
+- Verifikasi Petani
+- Validasi Batch
+- Listing Produk
+- Pesanan
+- Catatan Distribusi
+- Pengguna
+
+Fokus admin:
+
+- mengecek data,
+- memvalidasi batch,
+- memberi grade,
+- mengatur status marketplace,
+- mengelola pesanan.
+
+## 10. Halaman QR Keterlacakan
+
+Halaman ini adalah bagian paling penting untuk membangun kepercayaan.
+
+Isi utama:
+
+- nama produk,
+- Batch ID,
+- nama petani/kelompok tani,
+- lokasi asal,
+- tanggal panen,
+- grade mutu,
+- foto produk,
+- status validasi,
+- timeline keterlacakan,
+- disclaimer bahwa AGRI-EYE bukan sertifikasi resmi.
+
+Disclaimer:
+
+> AGRI-EYE menyediakan catatan keterlacakan digital berdasarkan data petani dan validasi platform. Halaman ini bukan sertifikasi resmi produk.
+
+## 11. Komponen UI Prioritas
 
 - Navbar
-- Sidebar
-- Dashboard card
+- Sidebar dashboard
 - Product card
 - Batch card
 - Status badge
-- Traceability timeline
-- QR card
 - Data table
-- Form section
+- QR card
+- Timeline keterlacakan
+- Form input batch
+- Modal validasi admin
+- Filter marketplace
 - Empty state
-- Detail drawer
-- Validation modal
-
-## 7. Status Badge Labels
-
-| Status | Label |
-|---|---|
-| PENDING | Waiting Validation |
-| APPROVED | Verified Batch |
-| REVISION | Needs Revision |
-| REJECTED | Rejected |
-| LISTED | Marketplace Active |
-| ORDERED | Order Requested |
-| DELIVERED | Delivered |
-
-## 8. Landing Page Copy Direction
-
-### Hero Headline
-
-Traceable harvests. Trusted supply. Better value for local farmers.
-
-### Hero Subheadline
-
-AGRI-EYE helps farmers digitize harvest data, generate QR-based food traceability, and connect verified produce with B2B buyers.
-
-### CTA
-
-- Start as Farmer
-- Explore Marketplace
-
-### Final CTA
-
-Turn harvest data into market trust.
-
-## 9. Important Disclaimer
-
-AGRI-EYE is not an official certification body. It provides digital traceability records based on farmer input and platform validation.
