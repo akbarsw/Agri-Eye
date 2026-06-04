@@ -37,6 +37,19 @@ select {
   font: inherit;
 }
 
+/* Fallback branding: old Leaf-logo containers now show the uploaded AGRI-EYE logo. */
+a[href="/"] > span.flex:first-child,
+a[href="#top"] > span.flex:first-child {
+  background: #ffffff url('/agri-eye-logo.svg') center / 132% no-repeat !important;
+  color: transparent !important;
+  border: 1px solid #e8ddc7;
+}
+
+a[href="/"] > span.flex:first-child svg,
+a[href="#top"] > span.flex:first-child svg {
+  display: none !important;
+}
+
 /* Landing page fallback styles. Dashboard tetap memakai Tailwind utility classes. */
 .page-shell {
   min-height: 100vh;
@@ -71,8 +84,9 @@ select {
   height: 34px;
   place-items: center;
   border-radius: 12px;
-  background: var(--primary);
-  color: white;
+  background: #ffffff url('/agri-eye-logo.svg') center / 132% no-repeat;
+  color: transparent;
+  border: 1px solid #e8ddc7;
 }
 
 .nav-links {
