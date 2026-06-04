@@ -1,10 +1,20 @@
-/* Final AGRI-EYE branding override uses transparent SVG asset without boxed container. */
+/* Final AGRI-EYE branding override for legacy logo containers only. */
 a[href="/"] > span.flex:first-child,
 a[href="#top"] > span.flex:first-child {
-  width: 56px !important;
-  height: 56px !important;
-  background: transparent url('/agri-eye-logo.svg') center / 120% no-repeat !important;
+  width: 64px !important;
+  height: 64px !important;
+  background: transparent url('/agri-eye-logo.svg') center / 135% no-repeat !important;
   color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+a[href="/"] > span.inline-flex:first-child,
+a[href="#top"] > span.inline-flex:first-child {
+  width: auto !important;
+  height: auto !important;
+  background: transparent !important;
+  color: inherit !important;
   border: none !important;
   box-shadow: none !important;
 }
@@ -15,9 +25,9 @@ a[href="#top"] > span.flex:first-child svg {
 }
 
 .logo-mark {
-  width: 48px;
-  height: 48px;
-  background: transparent url('/agri-eye-logo.svg') center / 120% no-repeat !important;
+  width: 56px;
+  height: 56px;
+  background: transparent url('/agri-eye-logo.svg') center / 135% no-repeat !important;
   color: transparent !important;
   border: none !important;
   box-shadow: none !important;
