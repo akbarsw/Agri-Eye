@@ -1,62 +1,67 @@
 # AGRI-EYE
 
-**AGRI-EYE** is a digital food traceability and B2B agrimarketplace platform that helps local farmers record harvest data, generate QR-based traceability records, and connect verified produce with business buyers.
+**AGRI-EYE** adalah platform **keterlacakan pangan (food traceability)** dan **marketplace B2B hasil pertanian** yang membantu petani lokal mencatat data hasil panen, membuat QR Code keterlacakan produk, dan menghubungkan hasil panen tersebut dengan pembeli bisnis.
 
-## Product Vision
+## Visi Produk
 
-AGRI-EYE helps local farmers turn harvests into transparent, trusted, data-backed products that are ready for B2B markets.
+AGRI-EYE membantu petani lokal mengubah hasil panen dari komoditas biasa menjadi produk berbasis data yang lebih transparan, terpercaya, dan siap dipasarkan ke pembeli B2B.
 
-## Core Concept
+## Konsep Utama
 
-AGRI-EYE combines three main functions:
+AGRI-EYE menggabungkan tiga fungsi inti:
 
-1. **Harvest Data Recording**  
-   Farmers input harvest details such as commodity, harvest date, quantity, origin, photos, and expected price.
+1. **Pencatatan Data Panen**  
+   Petani memasukkan data hasil panen seperti jenis komoditas, tanggal panen, jumlah, lokasi asal, foto produk, dan harga harapan.
 
-2. **QR Code Traceability**  
-   Each approved harvest batch receives a QR Code that opens a public traceability page.
+2. **QR Code Keterlacakan Produk**  
+   Setiap batch panen yang disetujui akan mendapatkan QR Code yang mengarah ke halaman publik berisi informasi asal-usul produk.
 
-3. **B2B Marketplace**  
-   Verified harvest batches are listed for B2B buyers such as restaurants, hotels, caterers, food MSMEs, modern vegetable stores, and distributors.
+3. **Marketplace B2B**  
+   Batch panen yang sudah divalidasi dapat ditampilkan ke pembeli B2B seperti restoran, hotel, katering, UMKM pangan, toko sayur modern, dan distributor.
 
-## User Roles
+## Peran Pengguna
 
-- **Farmer**: Creates harvest batches, uploads product data, receives QR traceability, and manages orders.
-- **B2B Buyer**: Searches verified produce, checks traceability, and requests orders.
-- **Admin**: Validates farmers, reviews harvest batches, assigns grade, and manages orders.
+- **Petani**: membuat batch panen, mengunggah data produk, mendapatkan QR Code, dan menerima pesanan.
+- **Pembeli B2B**: mencari produk pertanian, melihat data keterlacakan, dan mengajukan pesanan.
+- **Admin AGRI-EYE**: memverifikasi petani, memvalidasi batch panen, memberi grade mutu, dan mengelola pesanan.
 
-## MVP Features
+## Fitur MVP
 
-- Multi-role authentication
-- Farmer harvest batch submission
-- Admin batch validation and grading
-- QR traceability page
-- B2B marketplace listing
-- B2B request order flow
-- Admin order status management
+- Autentikasi multi-role: Petani, Pembeli B2B, dan Admin
+- Dashboard Petani
+- Form input batch panen
+- Upload foto hasil panen
+- Validasi batch oleh Admin
+- Pemberian grade mutu produk
+- Generate QR Code keterlacakan
+- Halaman publik keterlacakan produk
+- Marketplace B2B sederhana
+- Pengajuan pesanan oleh Pembeli B2B
+- Manajemen status pesanan oleh Admin
 
-## Tech Stack Plan
+## Rencana Tech Stack
 
 - **Framework**: Next.js App Router
-- **Language**: TypeScript
+- **Bahasa**: TypeScript
 - **Styling**: Tailwind CSS
+- **Komponen UI**: shadcn/ui
 - **Database**: PostgreSQL
 - **ORM**: Prisma
-- **Auth**: Auth.js / NextAuth or Supabase Auth
-- **Storage**: Supabase Storage or Cloudinary
-- **QR Code**: `qrcode`
+- **Auth**: Auth.js / NextAuth atau Supabase Auth
+- **Storage Foto**: Supabase Storage atau Cloudinary
+- **QR Code**: qrcode
 - **Deployment**: Vercel
 
-## Repository Structure
+## Struktur Repo
 
 ```txt
-app/                  Next.js app routes
-components/           Reusable UI components
-docs/                 Product and planning documents
-lib/                  Utilities and shared logic
-prisma/               Database schema
+app/                  Route utama Next.js
+components/           Komponen UI reusable
+docs/                 Dokumen produk dan perencanaan
+lib/                  Utility dan shared logic
+prisma/               Schema database
 ```
 
-## Current Status
+## Status Saat Ini
 
-This repository is in the planning and MVP setup phase.
+Repo ini berada pada tahap perencanaan produk dan persiapan MVP awal.
