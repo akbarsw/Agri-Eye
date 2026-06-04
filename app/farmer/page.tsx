@@ -20,9 +20,9 @@ import {
 
 const stats = [
   {
-    label: 'Total Batch',
+    label: 'Total Data Panen',
     value: '18',
-    caption: 'batch panen tercatat',
+    caption: 'data panen tercatat',
     icon: ClipboardList,
   },
   {
@@ -32,9 +32,9 @@ const stats = [
     icon: Clock3,
   },
   {
-    label: 'QR Aktif',
+    label: 'QR Produk Aktif',
     value: '12',
-    caption: 'batch siap dipindai',
+    caption: 'produk siap dipindai',
     icon: QrCode,
   },
   {
@@ -45,7 +45,7 @@ const stats = [
   },
 ];
 
-const batches = [
+const harvestData = [
   {
     name: 'Cabai Merah Grade A',
     code: 'AGRI-2026-001',
@@ -93,7 +93,7 @@ const orders = [
   },
 ];
 
-const navItems = ['Ringkasan', 'Batch Panen', 'Tambah Batch', 'Pesanan', 'QR Code', 'Profil'];
+const navItems = ['Ringkasan', 'Data Panen', 'Tambah Data Panen', 'Pesanan', 'QR Produk', 'Profil'];
 
 export default function FarmerPage() {
   return (
@@ -131,7 +131,7 @@ export default function FarmerPage() {
               <p className="text-sm font-bold">Profil Terverifikasi</p>
             </div>
             <p className="mt-3 text-sm leading-6 text-slate-500">
-              Data petani sudah lengkap. Batch yang kamu input bisa lebih cepat masuk proses validasi admin.
+              Data petani sudah lengkap. Data panen yang kamu input bisa lebih cepat masuk proses validasi admin.
             </p>
           </div>
         </aside>
@@ -145,7 +145,7 @@ export default function FarmerPage() {
                   Kelola hasil panen dan keterlacakan produkmu.
                 </h1>
                 <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-500">
-                  Input data panen, pantau status validasi, dapatkan QR Code, dan lihat pesanan dari pembeli B2B.
+                  Input data panen, pantau status validasi, dapatkan QR Produk, dan lihat pesanan dari pembeli B2B.
                 </p>
               </div>
 
@@ -157,7 +157,7 @@ export default function FarmerPage() {
                 </button>
                 <button className="inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 text-sm font-bold text-white shadow-sm transition-all duration-200 ease-in-out hover:bg-emerald-700 hover:shadow-md">
                   <Plus className="h-4 w-4" />
-                  Tambah Batch
+                  Tambah Data Panen
                 </button>
                 <button className="inline-flex items-center gap-3 rounded-2xl border border-[#E8DDC7] bg-white px-3 py-2 shadow-sm transition-all duration-200 ease-in-out hover:shadow-md">
                   <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0F3D2E] text-white">
@@ -196,7 +196,7 @@ export default function FarmerPage() {
             <article className="rounded-[2rem] border border-[#E8DDC7] bg-white/85 p-6 shadow-sm backdrop-blur lg:p-8">
               <div className="flex items-center justify-between gap-4">
                 <div>
-                  <p className="text-sm font-bold text-emerald-600">Input Batch Baru</p>
+                  <p className="text-sm font-bold text-emerald-600">Tambah Data Panen</p>
                   <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900">Data hasil panen</h2>
                 </div>
                 <Sprout className="h-6 w-6 text-emerald-600" />
@@ -249,7 +249,7 @@ export default function FarmerPage() {
                 </button>
 
                 <button type="button" className="mt-2 inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-5 py-4 text-sm font-bold text-white shadow-sm transition-all duration-200 ease-in-out hover:bg-emerald-700 hover:shadow-md">
-                  Simpan Batch Panen
+                  Simpan Data Panen
                   <ArrowRight className="h-4 w-4" />
                 </button>
               </form>
@@ -259,23 +259,23 @@ export default function FarmerPage() {
               <article className="rounded-[2rem] border border-[#E8DDC7] bg-white/85 p-6 shadow-sm backdrop-blur lg:p-8">
                 <div className="flex items-center justify-between gap-4">
                   <div>
-                    <p className="text-sm font-bold text-emerald-600">Batch Panen</p>
+                    <p className="text-sm font-bold text-emerald-600">Data Panen</p>
                     <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900">Status terbaru</h2>
                   </div>
                   <a href="#" className="text-sm font-bold text-emerald-600">Lihat semua</a>
                 </div>
 
                 <div className="mt-6 grid gap-3">
-                  {batches.map((batch) => (
-                    <div key={batch.code} className="rounded-2xl border border-[#E8DDC7] bg-white/80 p-4 transition-all duration-200 ease-in-out hover:bg-white hover:shadow-sm">
+                  {harvestData.map((item) => (
+                    <div key={item.code} className="rounded-2xl border border-[#E8DDC7] bg-white/80 p-4 transition-all duration-200 ease-in-out hover:bg-white hover:shadow-sm">
                       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                         <div>
-                          <p className="text-sm font-bold text-slate-900">{batch.name}</p>
-                          <p className="mt-1 text-xs font-medium text-slate-500">{batch.code} · {batch.location}</p>
+                          <p className="text-sm font-bold text-slate-900">{item.name}</p>
+                          <p className="mt-1 text-xs font-medium text-slate-500">Kode Panen: {item.code} · {item.location}</p>
                         </div>
                         <div className="flex flex-wrap items-center gap-2">
-                          <span className="rounded-full bg-[#FBFAF6] px-3 py-1 text-xs font-bold text-slate-600">{batch.quantity}</span>
-                          <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700">{batch.badge}</span>
+                          <span className="rounded-full bg-[#FBFAF6] px-3 py-1 text-xs font-bold text-slate-600">{item.quantity}</span>
+                          <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700">{item.badge}</span>
                         </div>
                       </div>
                     </div>
