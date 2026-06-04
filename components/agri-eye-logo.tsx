@@ -7,14 +7,14 @@ type AgriEyeLogoProps = {
 
 export default function AgriEyeLogo({ subtitle, compact = false }: AgriEyeLogoProps) {
   return (
-    <span className="flex items-center gap-3">
-      <span className="relative flex h-14 w-14 shrink-0 items-center justify-center bg-transparent">
+    <span className="inline-flex items-center gap-3">
+      <span className="relative flex h-16 w-16 shrink-0 items-center justify-center bg-transparent">
         <Image
           src="/agri-eye-logo.svg"
           alt="AGRI-EYE"
-          width={72}
-          height={72}
-          className="h-16 w-16 object-contain"
+          width={88}
+          height={88}
+          className="h-20 w-20 object-contain"
           priority
         />
       </span>
