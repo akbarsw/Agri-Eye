@@ -1,9 +1,12 @@
-/* Final AGRI-EYE branding override uses transparent SVG asset. */
+/* Final AGRI-EYE branding override uses transparent SVG asset without boxed container. */
 a[href="/"] > span.flex:first-child,
 a[href="#top"] > span.flex:first-child {
-  background: transparent url('/agri-eye-logo.svg') center / contain no-repeat !important;
+  width: 56px !important;
+  height: 56px !important;
+  background: transparent url('/agri-eye-logo.svg') center / 120% no-repeat !important;
   color: transparent !important;
   border: none !important;
+  box-shadow: none !important;
 }
 
 a[href="/"] > span.flex:first-child svg,
@@ -12,7 +15,10 @@ a[href="#top"] > span.flex:first-child svg {
 }
 
 .logo-mark {
-  background: transparent url('/agri-eye-logo.svg') center / contain no-repeat !important;
+  width: 48px;
+  height: 48px;
+  background: transparent url('/agri-eye-logo.svg') center / 120% no-repeat !important;
   color: transparent !important;
   border: none !important;
+  box-shadow: none !important;
 }
