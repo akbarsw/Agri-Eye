@@ -1,102 +1,104 @@
 # Mini PRD — AGRI-EYE
 
-## 1. Product Overview
+## 1. Ringkasan Produk
 
-**Product Name:** AGRI-EYE
+**Nama Produk:** AGRI-EYE
 
-**Short Description:** AGRI-EYE is a food traceability and B2B agrimarketplace platform that helps farmers record harvest data, generate QR-based traceability records, and connect verified harvest batches with business buyers.
+**Deskripsi Singkat:**  
+AGRI-EYE adalah platform keterlacakan pangan dan marketplace B2B hasil pertanian yang membantu petani mencatat data hasil panen, membuat QR Code keterlacakan, serta menghubungkan produk pertanian lokal dengan pembeli bisnis.
 
-**Tagline:** Digital traceability to increase the market value of local harvests.
+**Tagline:**  
+Keterlacakan digital untuk meningkatkan nilai jual hasil panen petani lokal.
 
-## 2. Problem Statement
+## 2. Masalah Utama
 
-Local farmers often sell harvests as undifferentiated commodities because their products lack proof of origin, quality, harvest history, and distribution records. Meanwhile, B2B buyers need reliable supply, transparent product information, and clearer quality assurance. AGRI-EYE bridges this gap through digital harvest records, QR traceability, and B2B marketplace access.
+Petani lokal sering menjual hasil panen sebagai komoditas biasa karena produk tidak memiliki bukti asal-usul, kualitas, riwayat panen, dan catatan distribusi yang jelas. Kondisi ini membuat posisi tawar petani lemah. Di sisi lain, pembeli B2B membutuhkan pasokan yang lebih transparan, konsisten, dan terpercaya.
 
-## 3. Goals
+## 3. Tujuan Produk
 
-1. Help farmers digitize harvest data.
-2. Create QR traceability for every approved harvest batch.
-3. Provide transparent origin and quality records for B2B buyers.
-4. Help farmers access business buyers more directly.
-5. Increase trust, bargaining power, and product value for local farmers.
+1. Membantu petani mencatat data hasil panen secara digital.
+2. Membuat setiap batch panen memiliki QR Code keterlacakan.
+3. Memberikan bukti asal-usul dan kualitas produk kepada pembeli B2B.
+4. Membantu petani mendapatkan akses ke pembeli bisnis.
+5. Meningkatkan kepercayaan, posisi tawar, dan nilai jual produk petani lokal.
 
-## 4. Target Users
+## 4. Target Pengguna
 
-### Farmer
-Local farmers or farmer groups that want to record harvest data and sell produce to B2B markets.
+### Petani
+Petani lokal atau kelompok tani yang ingin mencatat hasil panen dan menjual produk ke pasar B2B.
 
-### B2B Buyer
-Restaurants, hotels, caterers, food MSMEs, modern vegetable stores, distributors, and other business buyers.
+### Pembeli B2B
+Restoran, hotel, katering, UMKM pangan, toko sayur modern, distributor, dan pembeli bisnis lainnya.
 
-### Admin
-AGRI-EYE internal team responsible for farmer verification, batch validation, grading, and order monitoring.
+### Admin AGRI-EYE
+Tim internal AGRI-EYE yang bertugas melakukan verifikasi petani, validasi batch panen, pemberian grade mutu, dan monitoring pesanan.
 
-## 5. Core User Flows
+## 5. Alur Pengguna Utama
 
-### Farmer Flow
+### Alur Petani
 
-Farmer registers → completes profile → creates harvest batch → uploads product data and photo → waits for validation → receives QR Code → product is listed in marketplace → receives order requests.
+Petani daftar → melengkapi profil → membuat batch panen → mengunggah data dan foto produk → menunggu validasi → menerima QR Code → produk tampil di marketplace → menerima pengajuan pesanan.
 
-### B2B Buyer Flow
+### Alur Pembeli B2B
 
-Buyer registers → completes business profile → browses marketplace → views traceability details → requests order → waits for confirmation → receives product → scans QR traceability page.
+Pembeli daftar → melengkapi profil bisnis → melihat marketplace → membuka detail keterlacakan produk → mengajukan pesanan → menunggu konfirmasi → menerima produk → memindai QR Code.
 
-### Admin Flow
+### Alur Admin
 
-Admin logs in → reviews new farmers → validates harvest batches → assigns grade → activates marketplace listing → manages order status → updates trace logs.
+Admin masuk → meninjau petani baru → memvalidasi batch panen → memberi grade mutu → mengaktifkan produk di marketplace → mengelola status pesanan → memperbarui catatan distribusi.
 
-## 6. MVP Scope
+## 6. Scope MVP
 
 ### Must Have
 
-1. Multi-role authentication: Farmer, Buyer, Admin.
-2. Farmer profile management.
-3. Harvest batch creation form.
-4. Product photo upload placeholder.
-5. Admin batch validation.
-6. Product grading: A, B, C.
-7. QR Code generation for approved batches.
-8. Public traceability page.
-9. B2B marketplace listing.
-10. Buyer request order flow.
-11. Admin order status management.
+1. Autentikasi multi-role: Petani, Pembeli B2B, Admin.
+2. Manajemen profil petani.
+3. Form pembuatan batch panen.
+4. Placeholder upload foto produk.
+5. Validasi batch oleh admin.
+6. Pemberian grade mutu: A, B, C.
+7. Generate QR Code untuk batch yang disetujui.
+8. Halaman publik keterlacakan produk.
+9. Listing produk pada marketplace B2B.
+10. Alur pengajuan pesanan oleh pembeli.
+11. Manajemen status pesanan oleh admin.
 
 ### Should Have
 
-1. Marketplace filters.
-2. Farmer order history.
-3. Buyer purchase history.
-4. Simple traceability timeline.
-5. Farmer profile preview on trace page.
+1. Filter produk di marketplace.
+2. Riwayat pesanan petani.
+3. Riwayat pembelian pembeli B2B.
+4. Timeline keterlacakan sederhana.
+5. Preview profil petani pada halaman keterlacakan.
 
 ### Nice to Have
 
-1. Price recommendation.
-2. Sell readiness score.
-3. Farmer sales insight.
-4. Payment gateway integration.
-5. WhatsApp or email notification.
-6. AI assistant for B2B target recommendation.
+1. Rekomendasi harga.
+2. Skor kesiapan jual.
+3. Insight penjualan petani.
+4. Integrasi payment gateway.
+5. Notifikasi WhatsApp atau email.
+6. AI assistant untuk rekomendasi target pembeli B2B.
 
-## 7. Out of Scope for MVP
+## 7. Di Luar Scope MVP
 
-1. Official certification system.
-2. Real-time logistics tracking.
-3. Native mobile app.
-4. IoT integration.
-5. Blockchain implementation.
-6. Complex AI pricing prediction.
-7. Multi-warehouse logistics.
+1. Sistem sertifikasi resmi.
+2. Tracking logistik real-time.
+3. Aplikasi mobile native.
+4. Integrasi IoT.
+5. Implementasi blockchain.
+6. Prediksi harga berbasis AI yang kompleks.
+7. Sistem multi-gudang.
 
-## 8. Success Metrics
+## 8. Metrik Keberhasilan MVP
 
-1. Farmers can create harvest batches.
-2. Admin can validate and grade batches.
-3. QR traceability pages can be generated and opened publicly.
-4. Approved batches appear in the B2B marketplace.
-5. Buyers can request orders.
-6. Admin can update order and distribution statuses.
+1. Petani dapat membuat batch panen.
+2. Admin dapat memvalidasi dan memberi grade batch.
+3. Halaman QR keterlacakan dapat dibuat dan dibuka publik.
+4. Batch yang disetujui tampil di marketplace B2B.
+5. Pembeli dapat mengajukan pesanan.
+6. Admin dapat memperbarui status pesanan dan distribusi.
 
-## 9. Product Vision Statement
+## 9. Pernyataan Visi Produk
 
-AGRI-EYE helps local farmers transform harvests into transparent, trusted, data-backed products that are ready for B2B buyers through QR Code traceability and digital marketplace access.
+AGRI-EYE membantu petani lokal mengubah hasil panen menjadi produk berbasis data yang transparan, terpercaya, dan siap dipasarkan kepada pembeli B2B melalui QR Code keterlacakan dan marketplace digital.
