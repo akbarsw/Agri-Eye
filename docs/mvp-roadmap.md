@@ -1,192 +1,183 @@
-# MVP Roadmap — AGRI-EYE
+# Roadmap MVP — AGRI-EYE
 
-## Phase 0 — Product Foundation
+## Fase 0 — Fondasi Produk
 
-Goal: define what should be built before writing production code.
+Tujuan fase ini adalah memastikan konsep produk jelas sebelum masuk ke implementasi kode.
 
-Tasks:
+Output:
 
-- Finalize mini PRD
-- Define user roles
-- Define MVP scope
-- Define UI/UX direction
-- Define database schema
-- Define initial route structure
+- Mini PRD
+- Arah UI/UX
+- Alur pengguna utama
+- Daftar fitur MVP
+- Rancangan awal database
 
-Deliverables:
+## Fase 1 — Setup Proyek Next.js
 
-- `docs/mini-prd.md`
-- `docs/ui-ux-direction.md`
-- `docs/mvp-roadmap.md`
-- `prisma/schema.prisma`
+Tujuan fase ini adalah membuat fondasi teknis aplikasi.
 
-## Phase 1 — Next.js Project Setup
+Pekerjaan:
 
-Goal: prepare the base application structure.
+- Setup Next.js App Router dengan TypeScript
+- Setup Tailwind CSS
+- Setup struktur folder
+- Setup komponen UI awal
+- Setup environment variable
+- Setup halaman landing page awal
 
-Tasks:
+Output:
 
-- Initialize Next.js App Router with TypeScript
-- Install Tailwind CSS
-- Add shadcn/ui
-- Setup base layout
-- Create landing page structure
-- Setup route groups for public, farmer, buyer, and admin areas
+- Aplikasi Next.js berjalan lokal
+- Landing page awal AGRI-EYE
+- Struktur proyek siap dikembangkan
 
-Suggested routes:
+## Fase 2 — Autentikasi dan Role Pengguna
 
-```txt
-/
-/login
-/register
-/marketplace
-/marketplace/[productId]
-/trace/[batchId]
-/farmer/dashboard
-/farmer/batches
-/farmer/batches/create
-/farmer/orders
-/buyer/dashboard
-/buyer/orders
-/admin/dashboard
-/admin/farmers
-/admin/batches
-/admin/orders
-```
+Tujuan fase ini adalah membuat sistem pengguna berdasarkan peran.
 
-## Phase 2 — Database and Auth
+Role:
 
-Goal: enable user accounts and role-based access.
+- Petani
+- Pembeli B2B
+- Admin
 
-Tasks:
+Pekerjaan:
 
-- Setup PostgreSQL
-- Setup Prisma
-- Run initial migration
-- Implement user model
-- Add role enum: FARMER, BUYER, ADMIN
-- Add login/register flow
-- Add protected routes
-- Add role-based redirects
+- Register
+- Login
+- Role selector
+- Proteksi route berdasarkan role
+- Redirect dashboard sesuai role
 
-## Phase 3 — Farmer MVP
+Output:
 
-Goal: allow farmers to create harvest batches.
+- Petani masuk ke dashboard petani
+- Pembeli B2B masuk ke dashboard pembeli
+- Admin masuk ke dashboard admin
 
-Tasks:
+## Fase 3 — Dashboard Petani dan Batch Panen
 
-- Farmer profile form
-- Create harvest batch form
-- Harvest batch list
-- Harvest batch detail page
-- Batch status display
-- Photo upload placeholder or storage integration
+Tujuan fase ini adalah membuat petani dapat mencatat hasil panen.
 
-Core statuses:
+Pekerjaan:
 
-- DRAFT
-- PENDING_REVIEW
-- APPROVED
-- NEEDS_REVISION
-- REJECTED
-- LISTED
+- Dashboard Petani
+- Form tambah batch panen
+- Daftar batch panen
+- Detail batch panen
+- Status batch: Draft, Menunggu Validasi, Disetujui, Ditolak
 
-## Phase 4 — Admin Validation MVP
+Data batch:
 
-Goal: create trust layer through admin review.
+- komoditas,
+- tanggal panen,
+- jumlah,
+- satuan,
+- harga per satuan,
+- lokasi asal,
+- deskripsi,
+- foto produk,
+- status validasi.
 
-Tasks:
+## Fase 4 — Dashboard Admin dan Validasi Batch
 
-- Admin farmer list
-- Admin batch review list
-- Batch detail review page
-- Approve batch
-- Reject batch
-- Request revision
-- Assign grade: A, B, C
-- Add admin validation note
+Tujuan fase ini adalah membuat admin dapat mengontrol lapisan kepercayaan platform.
 
-## Phase 5 — QR Traceability MVP
+Pekerjaan:
 
-Goal: generate public traceability record for approved batches.
+- Dashboard Admin
+- Daftar petani
+- Daftar batch menunggu validasi
+- Detail batch untuk review
+- Tombol setujui, minta revisi, tolak
+- Pemberian grade mutu A/B/C
+- Aktivasi produk ke marketplace
 
-Tasks:
+Output:
 
-- Generate QR value from batch ID
-- Create public traceability route: `/trace/[batchId]`
-- Show product summary
-- Show farmer and origin data
-- Show grade and harvest date
-- Show simple traceability timeline
-- Add disclaimer: not official certification
+- Batch yang disetujui dapat tampil di marketplace
+- Batch memiliki status validasi dan grade mutu
 
-## Phase 6 — Marketplace MVP
+## Fase 5 — QR Code dan Halaman Keterlacakan
 
-Goal: allow B2B buyers to browse verified produce.
+Tujuan fase ini adalah membuat bukti digital produk.
 
-Tasks:
+Pekerjaan:
 
-- Marketplace listing page
-- Product detail page
-- Filter by commodity, location, grade, and availability
-- Display traceability badge
-- Request order CTA
+- Generate QR Code untuk batch yang disetujui
+- Membuat URL publik `/trace/[batchId]`
+- Halaman keterlacakan produk
+- Timeline keterlacakan sederhana
+- Disclaimer non-sertifikasi
 
-## Phase 7 — Order Request MVP
+Output:
 
-Goal: connect buyer demand with farmer supply.
+- Setiap batch valid memiliki QR Code
+- QR mengarah ke halaman publik keterlacakan
 
-Tasks:
+## Fase 6 — Marketplace B2B
 
-- Buyer request order form
-- Create order record
-- Farmer sees order request
-- Admin monitors order
-- Admin updates order status
+Tujuan fase ini adalah membuat pembeli bisnis dapat melihat produk yang tersedia.
 
-Order statuses:
+Pekerjaan:
 
-- REQUESTED
-- CONFIRMED
-- PROCESSING
-- SHIPPED
-- DELIVERED
-- CANCELLED
+- Halaman marketplace
+- Product card
+- Filter sederhana
+- Halaman detail produk
+- Tombol Ajukan Pesanan
 
-## Phase 8 — Demo Polish
+Filter awal:
 
-Goal: make the app ready for presentation and business plan demo.
+- komoditas,
+- lokasi,
+- grade mutu,
+- stok tersedia,
+- tanggal panen.
 
-Tasks:
+## Fase 7 — Alur Pesanan
 
-- Add demo seed data
-- Improve landing page copy
-- Improve dashboard cards
-- Add empty states
-- Add loading states
-- Add responsive design
-- Prepare demo flow
+Tujuan fase ini adalah membuat alur transaksi sederhana tanpa payment gateway otomatis.
 
-Recommended demo flow:
+Pekerjaan:
 
-1. Farmer creates chili harvest batch.
-2. Admin validates and assigns Grade A.
-3. QR traceability page is generated.
-4. Product appears in B2B marketplace.
-5. Buyer requests order.
-6. Admin updates order status.
-7. Buyer scans traceability page.
+- Pembeli mengajukan pesanan
+- Petani melihat pesanan masuk
+- Admin mengonfirmasi status pesanan
+- Status pesanan: Menunggu Konfirmasi, Dikonfirmasi, Diproses, Dikirim, Selesai, Dibatalkan
 
-## Phase 9 — Future Enhancements
+Output:
 
-Potential features after MVP:
+- Pembeli dapat request order
+- Admin dapat mengatur status order
+- Petani dapat melihat pesanan yang masuk
 
-- Payment gateway
-- WhatsApp notifications
-- Price recommendation
-- Sell readiness score
-- AI-based product matching
-- Distribution partner module
-- Farmer group management
-- Inventory forecasting
-- Analytics dashboard
+## Fase 8 — Polishing MVP
+
+Tujuan fase ini adalah membuat demo terlihat layak untuk business plan dan presentasi.
+
+Pekerjaan:
+
+- Perapian UI landing page
+- Empty state
+- Loading state
+- Status badge
+- Validasi form
+- Data dummy demo
+- Responsif mobile dan desktop
+
+Output:
+
+- MVP siap untuk demo lomba
+- Alur end-to-end dapat dipresentasikan
+
+## Urutan Demo MVP
+
+1. Petani login.
+2. Petani input batch panen cabai merah.
+3. Admin memvalidasi batch dan memberi Grade A.
+4. Sistem membuat QR Code.
+5. Produk tampil di marketplace B2B.
+6. Pembeli B2B mengajukan pesanan.
+7. Admin mengubah status pesanan.
+8. Halaman QR menampilkan asal-usul dan riwayat produk.
