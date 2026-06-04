@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "AGRI-EYE",
-  description: "Digital food traceability and B2B agrimarketplace for local farmers.",
+  description: "Platform keterlacakan pangan dan marketplace B2B hasil pertanian untuk petani lokal.",
 };
 
 export default function RootLayout({
@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="id">
       <body>{children}</body>
     </html>
   );
