@@ -71,7 +71,7 @@ export default function AgriProcessBeam() {
                   >
                     <div className="absolute -left-[2.1rem] top-7 hidden h-4 w-4 rounded-full border-4 border-[#F7F4ED] bg-emerald-500 shadow-[0_0_0_6px_rgba(16,185,129,0.12)] md:block" />
                     <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
-                      <div className="flex h-13 w-13 shrink-0 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600 transition-all duration-300 group-hover:bg-emerald-600 group-hover:text-white">
+                      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600 transition-all duration-300 group-hover:bg-emerald-600 group-hover:text-white">
                         <Icon className="h-5 w-5" />
                       </div>
                       <div>
