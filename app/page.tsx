@@ -1,4 +1,5 @@
 import AgriEyeLogo from '@/components/agri-eye-logo';
+import AgriNavHeader from '@/components/ui/agri-nav-header';
 import AgriProcessBeam from '@/components/ui/agri-process-beam';
 import AgriScrollVelocity from '@/components/ui/agri-scroll-velocity';
 import AgriTestimonials from '@/components/ui/agri-testimonials';
@@ -51,12 +52,10 @@ export default function Home() {
             <AgriEyeLogo compact />
           </a>
 
-          <div className="hidden items-center gap-8 text-sm font-medium text-slate-500 lg:flex">
-            <a href="#platform" className="transition-colors hover:text-slate-900">Platform</a>
-            <a href="#workflow" className="transition-colors hover:text-slate-900">Alur</a>
-            <a href="#trace" className="transition-colors hover:text-slate-900">Keterlacakan</a>
-            <a href="#market" className="transition-colors hover:text-slate-900">Marketplace</a>
-            <a href="/farmer" className="transition-colors hover:text-slate-900">Petani</a>
+          <div className="hidden flex-1 justify-end lg:flex">
+            <div className="mr-3">
+              <AgriNavHeader />
+            </div>
           </div>
 
           <div className="flex shrink-0 items-center gap-3">
@@ -71,12 +70,8 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="mx-auto flex max-w-7xl gap-6 overflow-x-auto px-4 pb-4 text-sm font-medium text-slate-500 scrollbar-hide sm:px-6 lg:hidden">
-          <a href="#platform" className="shrink-0 transition-colors hover:text-slate-900">Platform</a>
-          <a href="#workflow" className="shrink-0 transition-colors hover:text-slate-900">Alur</a>
-          <a href="#trace" className="shrink-0 transition-colors hover:text-slate-900">Keterlacakan</a>
-          <a href="#market" className="shrink-0 transition-colors hover:text-slate-900">Marketplace</a>
-          <a href="/farmer" className="shrink-0 transition-colors hover:text-slate-900">Petani</a>
+        <div className="mx-auto flex max-w-7xl overflow-x-auto px-4 pb-4 sm:px-6 lg:hidden">
+          <AgriNavHeader compact />
         </div>
       </nav>
 
