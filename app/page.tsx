@@ -1,5 +1,6 @@
 import AgriEyeLogo from '@/components/agri-eye-logo';
 import AgriProcessBeam from '@/components/ui/agri-process-beam';
+import AgriScrollVelocity from '@/components/ui/agri-scroll-velocity';
 import AgriTestimonials from '@/components/ui/agri-testimonials';
 import AgriTypewriter from '@/components/ui/agri-typewriter';
 import {
@@ -159,6 +160,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <AgriScrollVelocity />
 
       <section id="platform" className="px-6 py-10 lg:px-8 lg:py-12">
         <div className="mx-auto max-w-7xl">
