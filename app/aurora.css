@@ -7,7 +7,7 @@
   }
 }
 
-@keyframes agri-scroll-marquee {
+@keyframes agri-scroll-marquee-left {
   0% {
     transform: translateX(0);
   }
@@ -16,11 +16,25 @@
   }
 }
 
-.agri-scroll-track {
-  animation: agri-scroll-marquee 28s linear infinite;
+@keyframes agri-scroll-marquee-right {
+  0% {
+    transform: translateX(-33.333%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
-.agri-scroll-track:hover {
+.agri-card-marquee-left {
+  animation: agri-scroll-marquee-left 34s linear infinite;
+}
+
+.agri-card-marquee-right {
+  animation: agri-scroll-marquee-right 38s linear infinite;
+}
+
+.agri-card-marquee-left:hover,
+.agri-card-marquee-right:hover {
   animation-play-state: paused;
 }
 
@@ -55,7 +69,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .agri-scroll-track,
+  .agri-card-marquee-left,
+  .agri-card-marquee-right,
   .agri-testimonial-track {
     animation: none;
   }
