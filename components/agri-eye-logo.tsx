@@ -6,15 +6,23 @@ type AgriEyeLogoProps = {
 };
 
 export default function AgriEyeLogo({ subtitle, compact = false }: AgriEyeLogoProps) {
+  const markWrapClass = compact
+    ? 'relative flex h-16 w-16 shrink-0 items-center justify-center bg-transparent sm:h-20 sm:w-20 lg:h-24 lg:w-24'
+    : 'relative flex h-16 w-16 shrink-0 items-center justify-center bg-transparent';
+
+  const markImageClass = compact
+    ? 'h-20 w-20 object-contain sm:h-24 sm:w-24 lg:h-28 lg:w-28'
+    : 'h-20 w-20 object-contain';
+
   return (
     <span className="inline-flex items-center gap-3">
-      <span className="relative flex h-16 w-16 shrink-0 items-center justify-center bg-transparent">
+      <span className={markWrapClass}>
         <Image
           src="/agri-eye-logo.svg"
           alt="AGRI-EYE"
-          width={88}
-          height={88}
-          className="h-20 w-20 object-contain"
+          width={128}
+          height={128}
+          className={markImageClass}
           priority
         />
       </span>
