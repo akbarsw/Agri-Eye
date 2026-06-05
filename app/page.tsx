@@ -1,4 +1,5 @@
 import AgriEyeLogo from '@/components/agri-eye-logo';
+import AgriProcessBeam from '@/components/ui/agri-process-beam';
 import {
   ArrowRight,
   BarChart3,
@@ -50,14 +51,15 @@ export default function Home() {
 
           <div className="hidden items-center gap-8 text-sm font-medium text-slate-500 lg:flex">
             <a href="#platform" className="transition-colors hover:text-slate-900">Platform</a>
+            <a href="#workflow" className="transition-colors hover:text-slate-900">Alur</a>
             <a href="#trace" className="transition-colors hover:text-slate-900">Keterlacakan</a>
             <a href="#market" className="transition-colors hover:text-slate-900">Marketplace</a>
             <a href="/farmer" className="transition-colors hover:text-slate-900">Petani</a>
           </div>
 
           <div className="flex items-center gap-3">
-            <a href="/dashboard" className="hidden rounded-2xl border border-[#E8DDC7] bg-white/80 px-4 py-3 text-sm font-medium text-slate-600 shadow-sm transition-all duration-200 ease-in-out hover:bg-white hover:shadow-md sm:inline-flex">
-              Lihat Demo
+            <a href="/buyer" className="hidden rounded-2xl border border-[#E8DDC7] bg-white/80 px-4 py-3 text-sm font-medium text-slate-600 shadow-sm transition-all duration-200 ease-in-out hover:bg-white hover:shadow-md sm:inline-flex">
+              Pembeli B2B
             </a>
             <a href="/farmer" className="inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 text-sm font-bold text-white shadow-sm transition-all duration-200 ease-in-out hover:bg-emerald-700 hover:shadow-md">
               Mulai sebagai Petani
@@ -90,8 +92,8 @@ export default function Home() {
                 Mulai sebagai Petani
                 <ArrowRight className="h-4 w-4" />
               </a>
-              <a href="/dashboard" className="inline-flex items-center justify-center rounded-2xl border border-[#E8DDC7] bg-white/80 px-6 py-4 text-sm font-bold text-slate-700 shadow-sm transition-all duration-200 ease-in-out hover:bg-white hover:shadow-md">
-                Buka Dashboard Demo
+              <a href="/buyer" className="inline-flex items-center justify-center rounded-2xl border border-[#E8DDC7] bg-white/80 px-6 py-4 text-sm font-bold text-slate-700 shadow-sm transition-all duration-200 ease-in-out hover:bg-white hover:shadow-md">
+                Masuk sebagai Pembeli B2B
               </a>
             </div>
 
@@ -176,6 +178,10 @@ export default function Home() {
         </div>
       </section>
 
+      <div id="workflow">
+        <AgriProcessBeam />
+      </div>
+
       <section id="trace" className="px-6 py-16 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="rounded-[2rem] bg-[#0F3D2E] p-8 text-white shadow-sm">
@@ -212,8 +218,8 @@ export default function Home() {
               <p className="text-sm font-bold text-emerald-600">Marketplace B2B</p>
               <h2 className="mt-3 text-4xl font-bold tracking-[-0.05em] text-slate-900">Produk lokal yang siap dipasok.</h2>
             </div>
-            <a href="/farmer" className="inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 text-sm font-bold text-white transition-all duration-200 ease-in-out hover:bg-emerald-700 hover:shadow-md">
-              Kelola Data Panen
+            <a href="/marketplace" className="inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 text-sm font-bold text-white transition-all duration-200 ease-in-out hover:bg-emerald-700 hover:shadow-md">
+              Lihat Marketplace
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
