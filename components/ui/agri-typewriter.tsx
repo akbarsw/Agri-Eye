@@ -1,12 +1,12 @@
 'use client';
 
-import { Playfair_Display } from 'next/font/google';
+import { Roboto } from 'next/font/google';
 import { useEffect, useState } from 'react';
 
-const playfair = Playfair_Display({
+const roboto = Roboto({
   subsets: ['latin'],
   display: 'swap',
-  weight: ['400', '500', '600', '700', '800', '900'],
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
 });
 
 const headline = 'Platform pintar penyedia produk pertanian yang jelas asalnya dan terverifikasi.';
@@ -31,7 +31,7 @@ export default function AgriTypewriter() {
   return (
     <h1
       aria-label={headline}
-      className={`${playfair.className} mt-8 max-w-4xl text-4xl font-semibold leading-[1.05] tracking-[-0.035em] text-slate-800 sm:text-6xl lg:text-7xl`}
+      className={`${roboto.className} mt-8 max-w-4xl text-4xl font-semibold leading-[1.05] tracking-[-0.035em] text-slate-800 sm:text-6xl lg:text-7xl`}
     >
       <span>{visibleText || headline}</span>
       <span className="ml-1 inline-block h-9 w-[4px] translate-y-1 rounded-full bg-emerald-600 align-baseline animate-pulse sm:h-12 lg:h-16" />
