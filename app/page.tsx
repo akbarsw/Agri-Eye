@@ -79,10 +79,10 @@ export default function Home() {
         </div>
       </nav>
 
-      <section id="top" className="relative overflow-hidden px-6 py-16 lg:px-8 lg:py-24">
+      <section id="top" className="relative overflow-hidden px-6 py-10 lg:px-8 lg:py-14">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_18%,rgba(16,185,129,0.13),transparent_30%),radial-gradient(circle_at_80%_12%,rgba(232,221,199,0.9),transparent_30%),radial-gradient(circle_at_50%_90%,rgba(255,255,255,0.8),transparent_28%)]" />
 
-        <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="mx-auto grid max-w-7xl items-start gap-10 lg:grid-cols-[0.95fr_1.05fr]">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-[#E8DDC7] bg-white/80 px-4 py-2 text-sm font-medium text-emerald-700 shadow-sm">
               <CheckCircle2 className="h-4 w-4" />
@@ -91,11 +91,11 @@ export default function Home() {
 
             <AgriTypewriter />
 
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-500">
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-500">
               AGRI-EYE membantu petani mencatat Data Panen, membuat QR Produk, dan menjual produk terverifikasi ke pembeli B2B secara lebih transparan.
             </p>
 
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a href="/farmer" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-6 py-4 text-sm font-bold text-white shadow-sm transition-all duration-200 ease-in-out hover:bg-emerald-700 hover:shadow-md">
                 Mulai sebagai Petani
                 <ArrowRight className="h-4 w-4" />
@@ -105,7 +105,7 @@ export default function Home() {
               </a>
             </div>
 
-            <div className="mt-12 grid max-w-xl grid-cols-3 gap-4">
+            <div className="mt-10 grid max-w-xl grid-cols-3 gap-4">
               {stats.map((item) => (
                 <div key={item.label} className="rounded-2xl border border-[#E8DDC7] bg-white/80 p-5 shadow-sm backdrop-blur transition-all duration-200 ease-in-out hover:bg-white hover:shadow-md">
                   <p className="text-2xl font-bold tracking-tight text-slate-900">{item.value}</p>
@@ -126,7 +126,7 @@ export default function Home() {
                   <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700">Live</span>
                 </div>
 
-                <div className="relative h-[430px] bg-[#F2EEE4]">
+                <div className="relative h-[360px] bg-[#F2EEE4]">
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_30%,rgba(16,185,129,0.22),transparent_20%),radial-gradient(circle_at_75%_28%,rgba(16,185,129,0.13),transparent_22%),radial-gradient(circle_at_52%_72%,rgba(15,23,42,0.08),transparent_24%)]" />
                   <div className="absolute left-8 top-8 rounded-2xl border border-[#E8DDC7] bg-white/90 p-4 shadow-sm backdrop-blur">
                     <div className="flex items-center gap-2 text-emerald-600">
@@ -151,7 +151,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="absolute -bottom-8 left-6 hidden w-72 rounded-2xl border border-[#E8DDC7] bg-white/90 p-5 shadow-sm backdrop-blur lg:block">
+            <div className="absolute -bottom-5 left-6 hidden w-72 rounded-2xl border border-[#E8DDC7] bg-white/90 p-5 shadow-sm backdrop-blur lg:block">
               <p className="text-xs font-medium text-slate-500">Data Panen terbaru</p>
               <p className="mt-2 text-base font-bold text-slate-900">Cabai Merah Grade A</p>
               <p className="mt-1 text-sm font-medium text-slate-500">Boyolali · 100 kg · QR aktif</p>
@@ -160,7 +160,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="platform" className="px-6 py-16 lg:px-8">
+      <section id="platform" className="px-6 py-10 lg:px-8 lg:py-12">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-2xl">
             <p className="text-sm font-bold text-emerald-600">Platform</p>
@@ -169,7 +169,7 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
+          <div className="mt-8 grid gap-6 lg:grid-cols-3">
             {features.map((feature) => {
               const Icon = feature.icon;
               return (
@@ -190,8 +190,8 @@ export default function Home() {
         <AgriProcessBeam />
       </div>
 
-      <section id="trace" className="px-6 py-16 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.85fr_1.15fr]">
+      <section id="trace" className="px-6 py-10 lg:px-8 lg:py-12">
+        <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="rounded-[2rem] bg-[#0F3D2E] p-8 text-white shadow-sm">
             <p className="text-sm font-bold text-emerald-200">QR Produk</p>
             <h2 className="mt-4 text-4xl font-bold tracking-[-0.05em] lg:text-5xl">
@@ -219,7 +219,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="market" className="px-6 py-16 lg:px-8">
+      <section id="market" className="px-6 py-10 lg:px-8 lg:py-12">
         <div className="mx-auto max-w-7xl rounded-[2rem] border border-[#E8DDC7] bg-white/85 p-6 shadow-sm backdrop-blur lg:p-8">
           <div className="flex flex-col gap-4 border-b border-[#E8DDC7] pb-6 lg:flex-row lg:items-end lg:justify-between">
             <div>
