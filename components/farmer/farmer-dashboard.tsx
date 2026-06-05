@@ -3,17 +3,24 @@
 import { FormEvent, useMemo, useState } from 'react';
 import {
   ArrowRight,
+  Award,
+  BadgeCheck,
   CalendarDays,
   CheckCircle2,
   ChevronDown,
   ClipboardList,
   Clock3,
+  CreditCard,
+  Download,
+  Eye,
+  FileCheck2,
   ImagePlus,
   Leaf,
   MapPin,
   PackageCheck,
   Plus,
   QrCode,
+  ShieldCheck,
   Sprout,
   Truck,
   UserRound,
@@ -93,7 +100,33 @@ const orders = [
   },
 ];
 
-const navItems = ['Ringkasan', 'Data Panen', 'Tambah Data Panen', 'Pesanan', 'QR Produk', 'Profil'];
+const navItems = [
+  { label: 'Ringkasan', href: '#ringkasan' },
+  { label: 'Data Panen', href: '#data-panen' },
+  { label: 'Tambah Data Panen', href: '#tambah-data-panen' },
+  { label: 'Pesanan', href: '#pesanan' },
+  { label: 'QR Produk', href: '#data-panen' },
+  { label: 'Sertifikat Saya', href: '#sertifikat-saya' },
+  { label: 'Profil', href: '#profil' },
+];
+
+const certificateSteps = [
+  {
+    title: 'Pembayaran Mitra',
+    status: 'Sudah dibayar',
+    icon: CreditCard,
+  },
+  {
+    title: 'Verifikasi Admin',
+    status: 'Menunggu review',
+    icon: ShieldCheck,
+  },
+  {
+    title: 'Sertifikat Terbit',
+    status: 'Siap ditampilkan',
+    icon: FileCheck2,
+  },
+];
 
 const emptyForm: HarvestForm = {
   commodity: '',
@@ -112,6 +145,7 @@ export default function FarmerDashboard() {
   const [harvestData, setHarvestData] = useState<HarvestItem[]>(initialHarvestData);
   const [form, setForm] = useState<HarvestForm>(emptyForm);
   const [formMessage, setFormMessage] = useState('');
+  const [certificateMessage, setCertificateMessage] = useState('');
 
   const stats = useMemo(
     () => [
@@ -134,10 +168,10 @@ export default function FarmerDashboard() {
         icon: QrCode,
       },
       {
-        label: 'Pesanan Masuk',
-        value: '7',
-        caption: 'dari pembeli B2B',
-        icon: PackageCheck,
+        label: 'Sertifikat Mitra',
+        value: 'Proses',
+        caption: 'pengajuan mitra resmi',
+        icon: Award,
       },
     ],
     [harvestData],
@@ -172,12 +206,16 @@ export default function FarmerDashboard() {
     setFormMessage('Data Panen berhasil disimpan dan masuk ke status Menunggu Validasi.');
   }
 
+  function handleCertificateRequest() {
+    setCertificateMessage('Pengajuan Sertifikat Mitra berhasil dikirim. Admin akan mengecek pembayaran, profil, dan riwayat Data Panen kamu.');
+  }
+
   return (
     <main className="min-h-screen bg-[#F7F4ED] text-slate-900 antialiased">
       <div className="flex min-h-screen">
         <aside className="hidden w-72 shrink-0 border-r border-[#E8DDC7] bg-white/75 p-6 shadow-sm backdrop-blur lg:flex lg:flex-col">
           <a href="/" className="flex items-center gap-3">
-            <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-600 text-white shadow-sm">
+            <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#25B866] text-white shadow-sm">
               <Leaf className="h-5 w-5" />
             </span>
             <span>
@@ -189,20 +227,20 @@ export default function FarmerDashboard() {
           <nav className="mt-10 space-y-2">
             {navItems.map((item, index) => (
               <a
-                key={item}
-                href="#"
+                key={item.label}
+                href={item.href}
                 className={`flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium transition-all duration-200 ease-in-out hover:bg-white hover:shadow-sm ${
-                  index === 0 ? 'bg-emerald-50 text-emerald-700' : 'text-slate-500 hover:text-slate-900'
+                  index === 0 ? 'bg-[#EAF8F0] text-[#1FA653]' : 'text-slate-500 hover:text-slate-900'
                 }`}
               >
-                <span className={`h-2 w-2 rounded-full ${index === 0 ? 'bg-emerald-600' : 'bg-slate-300'}`} />
-                {item}
+                <span className={`h-2 w-2 rounded-full ${index === 0 ? 'bg-[#25B866]' : 'bg-slate-300'}`} />
+                {item.label}
               </a>
             ))}
           </nav>
 
-          <div className="mt-auto rounded-2xl border border-[#E8DDC7] bg-[#FBFAF6] p-5">
-            <div className="flex items-center gap-2 text-emerald-600">
+          <div id="profil" className="mt-auto rounded-2xl border border-[#E8DDC7] bg-[#FBFAF6] p-5">
+            <div className="flex items-center gap-2 text-[#25B866]">
               <CheckCircle2 className="h-4 w-4" />
               <p className="text-sm font-bold">Profil Terverifikasi</p>
             </div>
@@ -213,10 +251,10 @@ export default function FarmerDashboard() {
         </aside>
 
         <section className="flex-1 p-4 sm:p-6 lg:p-8">
-          <header className="rounded-[2rem] border border-[#E8DDC7] bg-white/85 p-6 shadow-sm backdrop-blur lg:p-8">
+          <header id="ringkasan" className="rounded-[2rem] border border-[#E8DDC7] bg-white/85 p-6 shadow-sm backdrop-blur lg:p-8">
             <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
               <div>
-                <p className="text-sm font-bold text-emerald-600">Panel Petani</p>
+                <p className="text-sm font-bold text-[#25B866]">Panel Petani</p>
                 <h1 className="mt-3 text-3xl font-bold tracking-[-0.04em] text-slate-900 lg:text-4xl">
                   Kelola hasil panen dan keterlacakan produkmu.
                 </h1>
@@ -227,16 +265,16 @@ export default function FarmerDashboard() {
 
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                 <button className="inline-flex items-center gap-2 rounded-2xl border border-[#E8DDC7] bg-white px-4 py-3 text-sm font-medium text-slate-600 shadow-sm transition-all duration-200 ease-in-out hover:shadow-md">
-                  <CalendarDays className="h-4 w-4 text-emerald-600" />
+                  <CalendarDays className="h-4 w-4 text-[#25B866]" />
                   Musim Panen Juni
                   <ChevronDown className="h-4 w-4 text-slate-400" />
                 </button>
-                <a href="#tambah-data-panen" className="inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 text-sm font-bold text-white shadow-sm transition-all duration-200 ease-in-out hover:bg-emerald-700 hover:shadow-md">
+                <a href="#tambah-data-panen" className="inline-flex items-center gap-2 rounded-2xl bg-[#25B866] px-5 py-3 text-sm font-bold text-white shadow-sm transition-all duration-200 ease-in-out hover:bg-[#1FA653] hover:shadow-md">
                   <Plus className="h-4 w-4" />
                   Tambah Data Panen
                 </a>
                 <button className="inline-flex items-center gap-3 rounded-2xl border border-[#E8DDC7] bg-white px-3 py-2 shadow-sm transition-all duration-200 ease-in-out hover:shadow-md">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0F3D2E] text-white">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#25B866] text-white">
                     <UserRound className="h-4 w-4" />
                   </span>
                   <span className="text-left">
@@ -252,13 +290,13 @@ export default function FarmerDashboard() {
             {stats.map((item) => {
               const Icon = item.icon;
               return (
-                <article key={item.label} className="rounded-2xl border border-[#E8DDC7] bg-white/85 p-6 shadow-sm backdrop-blur transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:bg-white hover:shadow-md">
+                <article key={item.label} className="rounded-2xl border border-[#E8DDC7] bg-white/85 p-6 shadow-sm backdrop-blur transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:border-[#BFE8CC] hover:bg-white hover:shadow-md">
                   <div className="flex items-start justify-between gap-4">
                     <div>
                       <p className="text-sm font-medium text-slate-500">{item.label}</p>
                       <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900">{item.value}</h2>
                     </div>
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#EAF8F0] text-[#25B866]">
                       <Icon className="h-5 w-5" />
                     </div>
                   </div>
@@ -268,14 +306,116 @@ export default function FarmerDashboard() {
             })}
           </section>
 
+          <section id="sertifikat-saya" className="mt-6 grid gap-6 xl:grid-cols-[0.9fr_1.1fr]">
+            <article className="rounded-[2rem] border border-[#BFE8CC] bg-white/85 p-6 shadow-sm backdrop-blur lg:p-8">
+              <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
+                <div>
+                  <p className="text-sm font-bold text-[#25B866]">Sertifikat Saya</p>
+                  <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900">Ajukan Sertifikat Mitra AGRI-EYE</h2>
+                  <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-500">
+                    Petani yang sudah menyelesaikan pembayaran dapat mengajukan sertifikat resmi sebagai Mitra AGRI-EYE Terverifikasi. Sertifikat ini dapat dilihat oleh pembeli untuk meningkatkan kepercayaan pada profil petani.
+                  </p>
+                </div>
+                <span className="inline-flex w-fit items-center gap-2 rounded-full bg-[#EAF8F0] px-4 py-2 text-xs font-bold text-[#1FA653]">
+                  <BadgeCheck className="h-4 w-4" />
+                  Pembayaran Tercatat
+                </span>
+              </div>
+
+              <div className="mt-6 grid gap-3">
+                {certificateSteps.map((step, index) => {
+                  const Icon = step.icon;
+                  return (
+                    <div key={step.title} className="flex items-center justify-between gap-4 rounded-2xl border border-[#E8DDC7] bg-[#FBFAF6] p-4">
+                      <div className="flex items-center gap-3">
+                        <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${index === 0 ? 'bg-[#25B866] text-white' : 'bg-white text-[#25B866]'}`}>
+                          <Icon className="h-4 w-4" />
+                        </div>
+                        <div>
+                          <p className="text-sm font-bold text-slate-900">{step.title}</p>
+                          <p className="mt-0.5 text-xs font-medium text-slate-500">{step.status}</p>
+                        </div>
+                      </div>
+                      <span className={`rounded-full px-3 py-1 text-xs font-bold ${index === 0 ? 'bg-[#EAF8F0] text-[#1FA653]' : 'bg-white text-slate-500'}`}>
+                        Tahap {index + 1}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {certificateMessage ? (
+                <p className="mt-5 rounded-2xl bg-[#EAF8F0] px-4 py-3 text-sm font-medium text-[#1FA653]">
+                  {certificateMessage}
+                </p>
+              ) : null}
+
+              <button
+                type="button"
+                onClick={handleCertificateRequest}
+                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-[#25B866] px-5 py-4 text-sm font-bold text-white shadow-sm transition-all duration-200 ease-in-out hover:bg-[#1FA653] hover:shadow-md sm:w-auto"
+              >
+                Ajukan Sertifikat Mitra
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            </article>
+
+            <article className="relative overflow-hidden rounded-[2rem] border border-[#E8DDC7] bg-[#FBFAF6] p-6 shadow-sm lg:p-8">
+              <div className="absolute right-6 top-6 rounded-full bg-[#EAF8F0] px-4 py-2 text-xs font-bold text-[#1FA653]">
+                Preview Publik
+              </div>
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#25B866] text-white shadow-sm">
+                <Award className="h-7 w-7" />
+              </div>
+
+              <div className="mt-8 rounded-[1.75rem] border border-[#E8DDC7] bg-white p-6 shadow-sm">
+                <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#25B866]">Sertifikat Mitra</p>
+                <h3 className="mt-4 text-3xl font-bold tracking-[-0.04em] text-slate-900">AGRI-EYE Terverifikasi</h3>
+                <p className="mt-4 text-sm leading-7 text-slate-500">
+                  Diberikan kepada petani yang telah melengkapi profil, menyelesaikan pembayaran mitra, dan lolos proses verifikasi AGRI-EYE.
+                </p>
+
+                <div className="mt-6 grid gap-3 rounded-2xl bg-[#F7F4ED] p-4">
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="text-xs font-medium text-slate-500">Nama Mitra</span>
+                    <span className="text-sm font-bold text-slate-900">Pak Suyanto</span>
+                  </div>
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="text-xs font-medium text-slate-500">Kategori</span>
+                    <span className="text-sm font-bold text-slate-900">Petani Horti</span>
+                  </div>
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="text-xs font-medium text-slate-500">Nomor Sertifikat</span>
+                    <span className="text-sm font-bold text-slate-900">CERT-AGRI-2026-008</span>
+                  </div>
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="text-xs font-medium text-slate-500">Status</span>
+                    <span className="rounded-full bg-[#EAF8F0] px-3 py-1 text-xs font-bold text-[#1FA653]">Menunggu Verifikasi</span>
+                  </div>
+                </div>
+
+                <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                  <button className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#E8DDC7] bg-white px-4 py-3 text-sm font-bold text-slate-700 transition-all duration-200 hover:shadow-sm">
+                    <Eye className="h-4 w-4 text-[#25B866]" />
+                    Lihat Sertifikat
+                  </button>
+                  <button className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#E8DDC7] bg-white px-4 py-3 text-sm font-bold text-slate-700 transition-all duration-200 hover:shadow-sm">
+                    <Download className="h-4 w-4 text-[#25B866]" />
+                    Unduh PDF
+                  </button>
+                </div>
+              </div>
+            </article>
+          </section>
+
           <section className="mt-6 grid gap-6 xl:grid-cols-[0.9fr_1.1fr]">
             <article id="tambah-data-panen" className="rounded-[2rem] border border-[#E8DDC7] bg-white/85 p-6 shadow-sm backdrop-blur lg:p-8">
               <div className="flex items-center justify-between gap-4">
                 <div>
-                  <p className="text-sm font-bold text-emerald-600">Tambah Data Panen</p>
+                  <p className="text-sm font-bold text-[#25B866]">Tambah Data Panen</p>
                   <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900">Data hasil panen</h2>
                 </div>
-                <Sprout className="h-6 w-6 text-emerald-600" />
+                <Sprout className="h-6 w-6 text-[#25B866]" />
               </div>
 
               <form className="mt-6 grid gap-4" onSubmit={handleSubmit}>
@@ -284,7 +424,7 @@ export default function FarmerDashboard() {
                   <input
                     value={form.commodity}
                     onChange={(event) => updateForm('commodity', event.target.value)}
-                    className="rounded-2xl border border-[#E8DDC7] bg-[#FBFAF6] px-4 py-3 text-sm outline-none transition-all duration-200 focus:border-emerald-500 focus:bg-white"
+                    className="rounded-2xl border border-[#E8DDC7] bg-[#FBFAF6] px-4 py-3 text-sm outline-none transition-all duration-200 focus:border-[#25B866] focus:bg-white"
                     placeholder="Contoh: Cabai Merah"
                   />
                 </label>
@@ -295,7 +435,7 @@ export default function FarmerDashboard() {
                     <input
                       value={form.quantity}
                       onChange={(event) => updateForm('quantity', event.target.value)}
-                      className="rounded-2xl border border-[#E8DDC7] bg-[#FBFAF6] px-4 py-3 text-sm outline-none transition-all duration-200 focus:border-emerald-500 focus:bg-white"
+                      className="rounded-2xl border border-[#E8DDC7] bg-[#FBFAF6] px-4 py-3 text-sm outline-none transition-all duration-200 focus:border-[#25B866] focus:bg-white"
                       placeholder="100"
                     />
                   </label>
@@ -304,7 +444,7 @@ export default function FarmerDashboard() {
                     <select
                       value={form.unit}
                       onChange={(event) => updateForm('unit', event.target.value)}
-                      className="rounded-2xl border border-[#E8DDC7] bg-[#FBFAF6] px-4 py-3 text-sm outline-none transition-all duration-200 focus:border-emerald-500 focus:bg-white"
+                      className="rounded-2xl border border-[#E8DDC7] bg-[#FBFAF6] px-4 py-3 text-sm outline-none transition-all duration-200 focus:border-[#25B866] focus:bg-white"
                     >
                       <option>kg</option>
                       <option>ton</option>
@@ -321,7 +461,7 @@ export default function FarmerDashboard() {
                       type="date"
                       value={form.harvestDate}
                       onChange={(event) => updateForm('harvestDate', event.target.value)}
-                      className="rounded-2xl border border-[#E8DDC7] bg-[#FBFAF6] px-4 py-3 text-sm outline-none transition-all duration-200 focus:border-emerald-500 focus:bg-white"
+                      className="rounded-2xl border border-[#E8DDC7] bg-[#FBFAF6] px-4 py-3 text-sm outline-none transition-all duration-200 focus:border-[#25B866] focus:bg-white"
                     />
                   </label>
                   <label className="grid gap-2">
@@ -329,7 +469,7 @@ export default function FarmerDashboard() {
                     <input
                       value={form.expectedPrice}
                       onChange={(event) => updateForm('expectedPrice', event.target.value)}
-                      className="rounded-2xl border border-[#E8DDC7] bg-[#FBFAF6] px-4 py-3 text-sm outline-none transition-all duration-200 focus:border-emerald-500 focus:bg-white"
+                      className="rounded-2xl border border-[#E8DDC7] bg-[#FBFAF6] px-4 py-3 text-sm outline-none transition-all duration-200 focus:border-[#25B866] focus:bg-white"
                       placeholder="Rp32.000/kg"
                     />
                   </label>
@@ -342,24 +482,24 @@ export default function FarmerDashboard() {
                     <input
                       value={form.originLocation}
                       onChange={(event) => updateForm('originLocation', event.target.value)}
-                      className="w-full rounded-2xl border border-[#E8DDC7] bg-[#FBFAF6] py-3 pl-11 pr-4 text-sm outline-none transition-all duration-200 focus:border-emerald-500 focus:bg-white"
+                      className="w-full rounded-2xl border border-[#E8DDC7] bg-[#FBFAF6] py-3 pl-11 pr-4 text-sm outline-none transition-all duration-200 focus:border-[#25B866] focus:bg-white"
                       placeholder="Kecamatan, Kabupaten, Provinsi"
                     />
                   </div>
                 </label>
 
-                <button type="button" className="flex items-center justify-center gap-2 rounded-2xl border border-dashed border-[#D6C7A9] bg-[#FBFAF6] px-4 py-6 text-sm font-bold text-slate-500 transition-all duration-200 ease-in-out hover:border-emerald-300 hover:bg-white hover:text-emerald-600">
+                <button type="button" className="flex items-center justify-center gap-2 rounded-2xl border border-dashed border-[#D6C7A9] bg-[#FBFAF6] px-4 py-6 text-sm font-bold text-slate-500 transition-all duration-200 ease-in-out hover:border-[#BFE8CC] hover:bg-white hover:text-[#25B866]">
                   <ImagePlus className="h-5 w-5" />
                   Upload foto hasil panen
                 </button>
 
                 {formMessage ? (
-                  <p className={`rounded-2xl px-4 py-3 text-sm font-medium ${formMessage.includes('berhasil') ? 'bg-emerald-50 text-emerald-700' : 'bg-amber-50 text-amber-700'}`}>
+                  <p className={`rounded-2xl px-4 py-3 text-sm font-medium ${formMessage.includes('berhasil') ? 'bg-[#EAF8F0] text-[#1FA653]' : 'bg-amber-50 text-amber-700'}`}>
                     {formMessage}
                   </p>
                 ) : null}
 
-                <button type="submit" className="mt-2 inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-5 py-4 text-sm font-bold text-white shadow-sm transition-all duration-200 ease-in-out hover:bg-emerald-700 hover:shadow-md">
+                <button type="submit" className="mt-2 inline-flex items-center justify-center gap-2 rounded-2xl bg-[#25B866] px-5 py-4 text-sm font-bold text-white shadow-sm transition-all duration-200 ease-in-out hover:bg-[#1FA653] hover:shadow-md">
                   Simpan Data Panen
                   <ArrowRight className="h-4 w-4" />
                 </button>
@@ -367,13 +507,13 @@ export default function FarmerDashboard() {
             </article>
 
             <div className="grid gap-6">
-              <article className="rounded-[2rem] border border-[#E8DDC7] bg-white/85 p-6 shadow-sm backdrop-blur lg:p-8">
+              <article id="data-panen" className="rounded-[2rem] border border-[#E8DDC7] bg-white/85 p-6 shadow-sm backdrop-blur lg:p-8">
                 <div className="flex items-center justify-between gap-4">
                   <div>
-                    <p className="text-sm font-bold text-emerald-600">Data Panen</p>
+                    <p className="text-sm font-bold text-[#25B866]">Data Panen</p>
                     <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900">Status terbaru</h2>
                   </div>
-                  <a href="#" className="text-sm font-bold text-emerald-600">Lihat semua</a>
+                  <a href="#" className="text-sm font-bold text-[#25B866]">Lihat semua</a>
                 </div>
 
                 <div className="mt-6 grid gap-3">
@@ -387,7 +527,7 @@ export default function FarmerDashboard() {
                         </div>
                         <div className="flex flex-wrap items-center gap-2">
                           <span className="rounded-full bg-[#FBFAF6] px-3 py-1 text-xs font-bold text-slate-600">{item.quantity}</span>
-                          <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700">{item.badge}</span>
+                          <span className="rounded-full bg-[#EAF8F0] px-3 py-1 text-xs font-bold text-[#1FA653]">{item.badge}</span>
                         </div>
                       </div>
                     </div>
@@ -395,13 +535,13 @@ export default function FarmerDashboard() {
                 </div>
               </article>
 
-              <article className="rounded-[2rem] border border-[#E8DDC7] bg-white/85 p-6 shadow-sm backdrop-blur lg:p-8">
+              <article id="pesanan" className="rounded-[2rem] border border-[#E8DDC7] bg-white/85 p-6 shadow-sm backdrop-blur lg:p-8">
                 <div className="flex items-center justify-between gap-4">
                   <div>
-                    <p className="text-sm font-bold text-emerald-600">Pesanan B2B</p>
+                    <p className="text-sm font-bold text-[#25B866]">Pesanan B2B</p>
                     <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900">Pesanan masuk</h2>
                   </div>
-                  <Truck className="h-6 w-6 text-emerald-600" />
+                  <Truck className="h-6 w-6 text-[#25B866]" />
                 </div>
 
                 <div className="mt-6 grid gap-3">
