@@ -1,9 +1,9 @@
 'use client';
 
-import { Roboto } from 'next/font/google';
+import { Nunito } from 'next/font/google';
 import { useEffect, useState } from 'react';
 
-const roboto = Roboto({
+const nunito = Nunito({
   subsets: ['latin'],
   display: 'swap',
   weight: ['300', '400', '500', '600', '700', '800', '900'],
@@ -31,7 +31,7 @@ export default function AgriTypewriter() {
   return (
     <h1
       aria-label={headline}
-      className={`${roboto.className} mt-8 max-w-4xl text-4xl font-semibold leading-[1.05] tracking-[-0.035em] text-slate-800 sm:text-6xl lg:text-7xl`}
+      className={`${nunito.className} mt-8 max-w-4xl text-4xl font-bold leading-[1.05] tracking-[-0.035em] text-slate-800 sm:text-6xl lg:text-7xl`}
     >
       <span>{visibleText || headline}</span>
       <span className="ml-1 inline-block h-9 w-[4px] translate-y-1 rounded-full bg-[#25B866] align-baseline animate-pulse sm:h-12 lg:h-16" />
