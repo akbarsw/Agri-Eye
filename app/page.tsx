@@ -1,6 +1,7 @@
 import AgriEyeLogo from '@/components/agri-eye-logo';
 import AgriProcessBeam from '@/components/ui/agri-process-beam';
 import AgriTestimonials from '@/components/ui/agri-testimonials';
+import AgriTypewriter from '@/components/ui/agri-typewriter';
 import {
   ArrowRight,
   CheckCircle2,
@@ -88,9 +89,7 @@ export default function Home() {
               Food traceability untuk hasil panen lokal
             </div>
 
-            <h1 className="mt-8 max-w-4xl text-5xl font-bold tracking-[-0.06em] text-slate-900 sm:text-6xl lg:text-7xl">
-              Kelola panen, asal produk, dan pasar B2B dalam satu platform cerdas.
-            </h1>
+            <AgriTypewriter />
 
             <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-500">
               AGRI-EYE membantu petani mencatat Data Panen, membuat QR Produk, dan menjual produk terverifikasi ke pembeli B2B secara lebih transparan.
