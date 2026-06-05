@@ -1,26 +1,95 @@
-const items = [
-  'Data Panen Terverifikasi',
-  'QR Produk',
-  'Marketplace B2B',
-  'Asal Produk Jelas',
-  'Petani Lokal',
-  'Produk Siap Pasok',
+const products = [
+  {
+    title: 'Cabai Merah Grade A',
+    meta: 'Boyolali · QR aktif',
+    image: 'https://images.unsplash.com/photo-1583119022894-919a68a3d0e3?auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    title: 'Sawi Segar',
+    meta: 'Bandung · Siap pasok',
+    image: 'https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    title: 'Kopi Arabika',
+    meta: 'Kintamani · Grade A',
+    image: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    title: 'Tomat Lokal',
+    meta: 'Karo · Tervalidasi',
+    image: 'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    title: 'Produk Terverifikasi',
+    meta: 'Asal produk jelas',
+    image: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600&q=80',
+  },
 ];
 
+const partners = [
+  {
+    title: 'Petani Lokal',
+    meta: 'Data panen tercatat',
+    image: 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    title: 'Marketplace B2B',
+    meta: 'Pembeli bisnis terhubung',
+    image: 'https://images.unsplash.com/photo-1601593768797-9f5be7d36a28?auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    title: 'QR Produk',
+    meta: 'Keterlacakan digital',
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    title: 'Rantai Pasok',
+    meta: 'Transparan dan rapi',
+    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    title: 'Produk Siap Pasok',
+    meta: 'Fresh product B2B',
+    image: 'https://images.unsplash.com/photo-1610348725531-843dff563e2c?auto=format&fit=crop&w=600&q=80',
+  },
+];
+
+function VelocityCard({ item }: { item: (typeof products)[number] }) {
+  return (
+    <article className="group flex w-[280px] shrink-0 items-center gap-4 rounded-[1.5rem] border border-[#E8DDC7] bg-white/80 p-3 shadow-sm backdrop-blur transition-all duration-300 hover:bg-white hover:shadow-md sm:w-[340px]">
+      <div className="h-20 w-24 shrink-0 overflow-hidden rounded-[1.15rem] bg-[#F1EBDD] sm:h-24 sm:w-28">
+        <img
+          src={item.image}
+          alt={item.title}
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
+      <div className="min-w-0">
+        <p className="truncate text-base font-bold tracking-tight text-slate-800 sm:text-lg">{item.title}</p>
+        <p className="mt-1 text-sm font-medium text-slate-500">{item.meta}</p>
+        <span className="mt-3 inline-flex rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700">
+          AGRI-EYE
+        </span>
+      </div>
+    </article>
+  );
+}
+
 export default function AgriScrollVelocity() {
-  const repeatedItems = [...items, ...items, ...items];
+  const firstRow = [...products, ...products, ...products];
+  const secondRow = [...partners, ...partners, ...partners];
 
   return (
-    <section className="overflow-hidden border-y border-[#E8DDC7] bg-[#F7F4ED] py-5">
-      <div className="agri-scroll-track flex w-max items-center gap-6 whitespace-nowrap">
-        {repeatedItems.map((item, index) => (
-          <span
-            key={`${item}-${index}`}
-            className="inline-flex items-center gap-6 text-xl font-bold uppercase tracking-[-0.04em] text-slate-800 sm:text-2xl lg:text-4xl"
-          >
-            {item}
-            <span className="h-2 w-2 rounded-full bg-emerald-600" />
-          </span>
+    <section className="overflow-hidden border-y border-[#E8DDC7] bg-[#F1EBDD]/55 py-8">
+      <div className="mb-5 flex w-max items-center gap-5 agri-card-marquee-left">
+        {firstRow.map((item, index) => (
+          <VelocityCard key={`product-${item.title}-${index}`} item={item} />
+        ))}
+      </div>
+
+      <div className="flex w-max items-center gap-5 agri-card-marquee-right">
+        {secondRow.map((item, index) => (
+          <VelocityCard key={`partner-${item.title}-${index}`} item={item} />
         ))}
       </div>
     </section>
