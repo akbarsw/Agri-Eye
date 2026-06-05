@@ -7,6 +7,23 @@
   }
 }
 
+@keyframes agri-scroll-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+.agri-scroll-track {
+  animation: agri-scroll-marquee 28s linear infinite;
+}
+
+.agri-scroll-track:hover {
+  animation-play-state: paused;
+}
+
 .agri-testimonial-track {
   animation: agri-testimonial-scroll 26s linear infinite;
 }
@@ -38,6 +55,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .agri-scroll-track,
   .agri-testimonial-track {
     animation: none;
   }
