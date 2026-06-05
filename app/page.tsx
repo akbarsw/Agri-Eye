@@ -188,35 +188,6 @@ export default function Home() {
         <AgriProcessBeam />
       </div>
 
-      <section id="trace" className="px-6 py-10 lg:px-8 lg:py-12">
-        <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.85fr_1.15fr]">
-          <div className="rounded-[2rem] bg-[#0F3D2E] p-8 text-white shadow-sm">
-            <p className="text-sm font-bold text-emerald-200">QR Produk</p>
-            <h2 className="mt-4 text-4xl font-bold tracking-[-0.05em] lg:text-5xl">
-              Bukti asal produk yang mudah dipindai.
-            </h2>
-            <p className="mt-6 text-sm leading-7 text-white/70">
-              Setiap Data Panen memiliki halaman publik yang menampilkan asal produk, tanggal panen, petani, grade mutu, dan status distribusi tanpa mengklaim sebagai sertifikasi resmi.
-            </p>
-          </div>
-
-          <div className="rounded-[2rem] border border-[#E8DDC7] bg-white/85 p-8 shadow-sm backdrop-blur">
-            <div className="flex items-center justify-between gap-6">
-              <div>
-                <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700">Data Panen Terverifikasi</span>
-                <h3 className="mt-5 text-2xl font-bold tracking-tight text-slate-900">Kopi Arabika — Kode Panen #AGRI-2026-014</h3>
-                <p className="mt-2 text-sm font-medium text-slate-500">Kintamani, Bali · Grade A · Panen 04 Jun 2026</p>
-              </div>
-              <div className="grid h-24 w-24 shrink-0 grid-cols-4 gap-1 rounded-2xl bg-[#0F3D2E] p-3">
-                {Array.from({ length: 16 }).map((_, index) => (
-                  <span key={index} className={`rounded-sm bg-white ${index % 3 === 0 ? 'opacity-40' : 'opacity-95'}`} />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section id="market" className="px-6 py-10 lg:px-8 lg:py-12">
         <div className="mx-auto max-w-7xl rounded-[2rem] border border-[#E8DDC7] bg-white/85 p-6 shadow-sm backdrop-blur lg:p-8">
           <div className="flex flex-col gap-4 border-b border-[#E8DDC7] pb-6 lg:flex-row lg:items-end lg:justify-between">
