@@ -31,9 +31,20 @@ export default function AgriNavHeader({ compact = false }: { compact?: boolean }
 
   return (
     <ul
-      className="relative flex w-fit items-center overflow-hidden rounded-full border border-[#E8DDC7] bg-white/80 p-1 shadow-sm backdrop-blur"
+      className="relative isolate flex w-fit items-center overflow-hidden rounded-full border border-[#E8DDC7] bg-white/80 p-1 shadow-sm backdrop-blur"
       onMouseLeave={resetCursor}
     >
+      <li
+        aria-hidden="true"
+        className="pointer-events-none absolute z-[1] rounded-full bg-[#0F3D2E] transition-all duration-300 ease-out"
+        style={{
+          left: position.left,
+          width: position.width,
+          opacity: position.opacity,
+          height: compact ? 32 : 40,
+        }}
+      />
+
       {tabs.map((tab) => (
         <Tab
           key={tab.href}
@@ -46,17 +57,6 @@ export default function AgriNavHeader({ compact = false }: { compact?: boolean }
           {tab.label}
         </Tab>
       ))}
-
-      <li
-        aria-hidden="true"
-        className="absolute z-0 rounded-full bg-[#0F3D2E] transition-all duration-300 ease-out"
-        style={{
-          left: position.left,
-          width: position.width,
-          opacity: position.opacity,
-          height: compact ? 32 : 40,
-        }}
-      />
     </ul>
   );
 }
@@ -94,14 +94,16 @@ function Tab({
     <li
       ref={ref}
       onMouseEnter={activateTab}
+      onClick={activateTab}
       onFocus={activateTab}
       onTouchStart={activateTab}
-      className="relative z-10 shrink-0"
+      className="relative z-[2] shrink-0"
     >
       <a
         href={href}
+        style={{ color: active ? '#ffffff' : undefined }}
         className={`block rounded-full font-semibold transition-colors duration-200 ${
-          active ? 'text-white' : 'text-slate-500 hover:text-white'
+          active ? '!text-white' : 'text-slate-500 hover:!text-white'
         } ${compact ? 'px-3 py-2 text-xs' : 'px-4 py-2.5 text-sm'}`}
       >
         {children}
