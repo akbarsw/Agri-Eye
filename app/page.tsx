@@ -47,13 +47,13 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#F7F4ED] text-slate-900 antialiased">
       <nav className="sticky top-0 z-50 border-b border-[#E8DDC7]/70 bg-[#F7F4ED]/85 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex min-w-0 items-center gap-4">
-            <a href="#top" className="shrink-0">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-2 sm:px-6 lg:px-8">
+          <div className="flex min-w-0 items-center gap-3 sm:gap-4 lg:gap-5">
+            <a href="#top" className="flex shrink-0 items-center">
               <AgriEyeLogo compact />
             </a>
 
-            <div className="hidden lg:block">
+            <div className="hidden lg:flex lg:items-center">
               <AgriNavHeader />
             </div>
           </div>
@@ -70,7 +70,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="mx-auto flex max-w-7xl overflow-x-auto px-4 pb-4 sm:px-6 lg:hidden">
+        <div className="mx-auto flex max-w-7xl overflow-x-auto px-4 pb-3 sm:px-6 lg:hidden">
           <AgriNavHeader compact />
         </div>
       </nav>
