@@ -5,7 +5,6 @@ import { useRef, useState } from 'react';
 const tabs = [
   { label: 'Platform', href: '#platform' },
   { label: 'Alur', href: '#workflow' },
-  { label: 'Keterlacakan', href: '#trace' },
   { label: 'Marketplace', href: '#market' },
   { label: 'Petani', href: '/farmer' },
 ];
