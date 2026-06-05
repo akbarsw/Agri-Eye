@@ -1,5 +1,6 @@
 import AgriEyeLogo from '@/components/agri-eye-logo';
 import AgriProcessBeam from '@/components/ui/agri-process-beam';
+import AgriTestimonials from '@/components/ui/agri-testimonials';
 import {
   ArrowRight,
   BarChart3,
@@ -239,6 +240,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <AgriTestimonials />
 
       <section id="start" className="px-6 py-20 lg:px-8">
         <div className="mx-auto max-w-7xl rounded-[2rem] bg-[#0F3D2E] p-8 text-white shadow-sm lg:p-12">
