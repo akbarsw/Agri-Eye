@@ -56,8 +56,8 @@ const partners = [
 
 function VelocityCard({ item }: { item: (typeof products)[number] }) {
   return (
-    <article className="group flex w-[280px] shrink-0 items-center gap-4 rounded-[1.5rem] border border-[#E8DDC7] bg-white/80 p-3 shadow-sm backdrop-blur transition-all duration-300 hover:bg-white hover:shadow-md sm:w-[340px]">
-      <div className="h-20 w-24 shrink-0 overflow-hidden rounded-[1.15rem] bg-[#F1EBDD] sm:h-24 sm:w-28">
+    <article className="group flex w-[260px] shrink-0 items-center gap-3 rounded-[1.35rem] border border-[#E8DDC7] bg-white/80 p-2.5 shadow-sm backdrop-blur transition-all duration-300 hover:bg-white hover:shadow-md sm:w-[320px]">
+      <div className="h-16 w-20 shrink-0 overflow-hidden rounded-[1rem] bg-[#F1EBDD] sm:h-20 sm:w-24">
         <img
           src={item.image}
           alt={item.title}
@@ -65,9 +65,9 @@ function VelocityCard({ item }: { item: (typeof products)[number] }) {
         />
       </div>
       <div className="min-w-0">
-        <p className="truncate text-base font-bold tracking-tight text-slate-800 sm:text-lg">{item.title}</p>
-        <p className="mt-1 text-sm font-medium text-slate-500">{item.meta}</p>
-        <span className="mt-3 inline-flex rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700">
+        <p className="truncate text-sm font-bold tracking-tight text-slate-800 sm:text-base">{item.title}</p>
+        <p className="mt-1 text-xs font-medium text-slate-500 sm:text-sm">{item.meta}</p>
+        <span className="mt-2 inline-flex rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-bold text-emerald-700">
           AGRI-EYE
         </span>
       </div>
@@ -80,14 +80,14 @@ export default function AgriScrollVelocity() {
   const secondRow = [...partners, ...partners, ...partners];
 
   return (
-    <section className="overflow-hidden border-y border-[#E8DDC7] bg-[#F1EBDD]/55 py-8">
-      <div className="mb-5 flex w-max items-center gap-5 agri-card-marquee-left">
+    <section className="overflow-hidden border-y border-[#E8DDC7] bg-[#F1EBDD]/55 py-5 lg:py-6">
+      <div className="mb-3 flex w-max items-center gap-4 agri-card-marquee-left">
         {firstRow.map((item, index) => (
           <VelocityCard key={`product-${item.title}-${index}`} item={item} />
         ))}
       </div>
 
-      <div className="flex w-max items-center gap-5 agri-card-marquee-right">
+      <div className="flex w-max items-center gap-4 agri-card-marquee-right">
         {secondRow.map((item, index) => (
           <VelocityCard key={`partner-${item.title}-${index}`} item={item} />
         ))}
