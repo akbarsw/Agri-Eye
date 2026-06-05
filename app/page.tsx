@@ -3,7 +3,6 @@ import AgriProcessBeam from '@/components/ui/agri-process-beam';
 import AgriTestimonials from '@/components/ui/agri-testimonials';
 import {
   ArrowRight,
-  BarChart3,
   CheckCircle2,
   Map,
   PackageCheck,
@@ -242,23 +241,6 @@ export default function Home() {
       </section>
 
       <AgriTestimonials />
-
-      <section id="start" className="px-6 py-20 lg:px-8">
-        <div className="mx-auto max-w-7xl rounded-[2rem] bg-[#0F3D2E] p-8 text-white shadow-sm lg:p-12">
-          <div className="grid gap-8 lg:grid-cols-[1fr_0.45fr] lg:items-center">
-            <div>
-              <h2 className="text-4xl font-bold tracking-[-0.05em] lg:text-6xl">Ubah data panen menjadi kepercayaan pasar.</h2>
-              <p className="mt-6 max-w-2xl text-sm leading-7 text-white/75">
-                AGRI-EYE membantu petani dan pembeli B2B bekerja dengan data yang lebih jelas, transparan, dan mudah diverifikasi.
-              </p>
-            </div>
-            <a href="/farmer" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-6 py-4 text-sm font-bold text-emerald-700 transition-all duration-200 ease-in-out hover:shadow-md">
-              Masuk Dashboard Petani
-              <BarChart3 className="h-4 w-4" />
-            </a>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }
