@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 import "./logo.css";
 import "./aurora.css";
 
-const inter = Inter({
+const manrope = Manrope({
   subsets: ["latin"],
   display: "swap",
 });
@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
-      <body className={`${inter.className} bg-slate-50 text-slate-900 antialiased`}>
+      <body className={`${manrope.className} bg-slate-50 text-slate-900 antialiased`}>
         {children}
       </body>
     </html>
