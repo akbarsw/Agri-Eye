@@ -22,16 +22,27 @@ export default function AgriNavHeader({ compact = false }: { compact?: boolean }
     width: 0,
     opacity: 0,
   });
+  const [activeHref, setActiveHref] = useState<string | null>(null);
+
+  const resetCursor = () => {
+    setPosition((previous) => ({ ...previous, opacity: 0 }));
+    setActiveHref(null);
+  };
 
   return (
     <ul
-      className={`relative flex w-fit items-center overflow-hidden rounded-full border border-[#E8DDC7] bg-white/80 p-1 shadow-sm backdrop-blur ${
-        compact ? 'gap-0' : 'gap-0'
-      }`}
-      onMouseLeave={() => setPosition((previous) => ({ ...previous, opacity: 0 }))}
+      className="relative flex w-fit items-center overflow-hidden rounded-full border border-[#E8DDC7] bg-white/80 p-1 shadow-sm backdrop-blur"
+      onMouseLeave={resetCursor}
     >
       {tabs.map((tab) => (
-        <Tab key={tab.href} href={tab.href} compact={compact} setPosition={setPosition}>
+        <Tab
+          key={tab.href}
+          href={tab.href}
+          compact={compact}
+          active={activeHref === tab.href}
+          setActiveHref={setActiveHref}
+          setPosition={setPosition}
+        >
           {tab.label}
         </Tab>
       ))}
@@ -54,35 +65,44 @@ function Tab({
   children,
   href,
   compact,
+  active,
+  setActiveHref,
   setPosition,
 }: {
   children: string;
   href: string;
   compact: boolean;
+  active: boolean;
+  setActiveHref: (href: string) => void;
   setPosition: (position: CursorPosition) => void;
 }) {
   const ref = useRef<HTMLLIElement>(null);
 
+  const activateTab = () => {
+    if (!ref.current) return;
+
+    const { width } = ref.current.getBoundingClientRect();
+    setActiveHref(href);
+    setPosition({
+      width,
+      opacity: 1,
+      left: ref.current.offsetLeft,
+    });
+  };
+
   return (
     <li
       ref={ref}
-      onMouseEnter={() => {
-        if (!ref.current) return;
-
-        const { width } = ref.current.getBoundingClientRect();
-        setPosition({
-          width,
-          opacity: 1,
-          left: ref.current.offsetLeft,
-        });
-      }}
+      onMouseEnter={activateTab}
+      onFocus={activateTab}
+      onTouchStart={activateTab}
       className="relative z-10 shrink-0"
     >
       <a
         href={href}
-        className={`block rounded-full font-semibold text-slate-500 mix-blend-normal transition-colors duration-200 hover:text-white ${
-          compact ? 'px-3 py-2 text-xs' : 'px-4 py-2.5 text-sm'
-        }`}
+        className={`block rounded-full font-semibold transition-colors duration-200 ${
+          active ? 'text-white' : 'text-slate-500 hover:text-white'
+        } ${compact ? 'px-3 py-2 text-xs' : 'px-4 py-2.5 text-sm'}`}
       >
         {children}
       </a>
