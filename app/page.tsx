@@ -50,31 +50,21 @@ export default function Home() {
     <main className="min-h-screen bg-[#F7F4ED] text-slate-900 antialiased">
       <nav className="sticky top-0 z-50 border-b border-[#E8DDC7]/70 bg-[#F7F4ED]/85 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-2 sm:px-6 lg:px-8">
-          <div className="flex min-w-0 items-center gap-3 sm:gap-4 lg:gap-5">
-            <a href="#top" className="flex shrink-0 items-center">
-              <AgriEyeLogo compact />
-            </a>
+          <a href="#top" className="flex shrink-0 items-center">
+            <AgriEyeLogo compact />
+          </a>
 
-            <div className="hidden lg:flex lg:items-center">
-              <AgriNavHeader />
-            </div>
-          </div>
+          <AgriNavHeader />
 
-          <div className="flex shrink-0 items-center gap-3">
-            <a href="/buyer" className="hidden rounded-2xl border border-[#E8DDC7] bg-white/80 px-4 py-3 text-sm font-medium text-slate-600 shadow-sm transition-all duration-200 ease-in-out hover:bg-white hover:shadow-md sm:inline-flex">
+          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+            <a href="/buyer" className="rounded-2xl border border-[#E8DDC7] bg-white/80 px-3 py-2 text-xs font-medium text-slate-600 shadow-sm transition-all duration-200 ease-in-out hover:bg-white hover:shadow-md sm:px-4 sm:py-2.5 sm:text-sm">
               Pembeli B2B
             </a>
-            <a href="/farmer" className="inline-flex items-center gap-2 rounded-2xl bg-[#25B866] px-4 py-3 text-xs font-bold text-white shadow-sm transition-all duration-200 ease-in-out hover:bg-[#1FA653] hover:shadow-md sm:px-5 sm:text-sm">
-              Mulai
-              <span className="hidden sm:inline"> sebagai Petani</span>
-              <ArrowRight className="h-4 w-4" />
+            <a href="/farmer" className="inline-flex items-center gap-1.5 rounded-2xl bg-[#25B866] px-3 py-2 text-xs font-bold text-white shadow-sm transition-all duration-200 ease-in-out hover:bg-[#1FA653] hover:shadow-md sm:px-4 sm:text-sm">
+              Mulai <span className="hidden sm:inline">sebagai Petani</span>
+              <ArrowRight className="h-3.5 w-3.5" />
             </a>
           </div>
-        </div>
-
-        <div className="mx-auto flex max-w-7xl overflow-x-auto px-4 pb-3 sm:px-6 lg:hidden">
-          <AgriNavHeader compact />
-        </div>
       </nav>
 
       <section id="top" className="relative overflow-hidden px-6 py-7 lg:px-8 lg:py-10">
