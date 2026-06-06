@@ -1,13 +1,31 @@
 import { CheckCircle2, Map, Route, UserRound } from 'lucide-react';
 
 const mapPoints = [
-  { name: 'Boyolali', left: '50%', top: '46%', active: true },
-  { name: 'Kudus', left: '67%', top: '37%' },
-  { name: 'Semarang', left: '58%', top: '33%', active: true },
-  { name: 'Magelang', left: '41%', top: '56%' },
-  { name: 'Solo', left: '55%', top: '62%', active: true },
-  { name: 'Pati', left: '78%', top: '40%' },
-  { name: 'Purworejo', left: '34%', top: '70%' },
+  { name: 'Semarang', left: '54%', top: '43%', active: true },
+  { name: 'Boyolali', left: '47%', top: '55%', active: true },
+  { name: 'Kudus', left: '64%', top: '39%' },
+  { name: 'Magelang', left: '38%', top: '58%' },
+  { name: 'Solo', left: '53%', top: '66%', active: true },
+  { name: 'Pati', left: '75%', top: '42%' },
+  { name: 'Purworejo', left: '31%', top: '72%' },
+  { name: 'Tegal', left: '25%', top: '35%' },
+  { name: 'Kebumen', left: '39%', top: '76%' },
+];
+
+const districts = [
+  'M80 95 L152 72 L222 92 L210 158 L136 176 L76 144 Z',
+  'M222 92 L302 78 L370 112 L352 176 L274 186 L210 158 Z',
+  'M370 112 L458 92 L535 126 L510 196 L430 200 L352 176 Z',
+  'M535 126 L626 104 L718 142 L690 206 L596 224 L510 196 Z',
+  'M76 144 L136 176 L132 254 L58 286 L34 210 Z',
+  'M136 176 L210 158 L274 186 L260 268 L174 292 L132 254 Z',
+  'M274 186 L352 176 L430 200 L418 286 L330 306 L260 268 Z',
+  'M430 200 L510 196 L596 224 L570 310 L486 330 L418 286 Z',
+  'M596 224 L690 206 L770 256 L724 332 L628 342 L570 310 Z',
+  'M58 286 L132 254 L174 292 L156 370 L72 390 L24 342 Z',
+  'M174 292 L260 268 L330 306 L304 388 L218 402 L156 370 Z',
+  'M330 306 L418 286 L486 330 L454 404 L366 418 L304 388 Z',
+  'M486 330 L570 310 L628 342 L594 404 L512 414 L454 404 Z',
 ];
 
 export default function AgriTraceMap() {
@@ -24,24 +42,37 @@ export default function AgriTraceMap() {
           </div>
 
           <div className="relative h-[360px] overflow-hidden bg-[#0F8F5D] lg:h-[430px]">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(255,255,255,0.5),transparent_22%),radial-gradient(circle_at_72%_22%,rgba(255,255,255,0.22),transparent_24%),linear-gradient(135deg,#0E7651_0%,#17A46A_48%,#0B6448_100%)]" />
-            <div className="absolute inset-0 opacity-45 [background-image:linear-gradient(rgba(255,255,255,0.14)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:42px_42px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_12%,rgba(255,255,255,0.42),transparent_22%),radial-gradient(circle_at_74%_18%,rgba(255,255,255,0.18),transparent_25%),linear-gradient(135deg,#0C704F_0%,#18A86C_50%,#0A5B42_100%)]" />
+            <div className="absolute inset-0 opacity-35 [background-image:linear-gradient(rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] [background-size:42px_42px]" />
 
             <svg className="absolute inset-0 h-full w-full" viewBox="0 0 800 430" fill="none" aria-hidden="true">
-              <path
-                d="M54 96C124 37 232 52 296 88C358 122 396 81 468 84C552 88 588 148 670 118C730 96 768 128 786 171C812 233 760 292 690 304C618 317 596 388 510 386C438 384 404 328 340 350C260 378 202 358 168 306C132 252 62 264 42 208C26 164 20 124 54 96Z"
-                fill="rgba(255,255,255,0.22)"
-                stroke="rgba(255,255,255,0.62)"
-                strokeWidth="2"
-              />
-              <path d="M120 125C190 148 234 110 286 148C344 191 410 134 478 158C528 176 575 205 646 178C700 158 744 190 756 232" stroke="rgba(255,255,255,0.34)" strokeWidth="1.5" />
-              <path d="M188 304C248 242 320 236 402 258C502 286 596 258 700 292" stroke="rgba(255,255,255,0.28)" strokeWidth="1.5" />
-              <path d="M238 78L278 148L260 260L340 350" stroke="rgba(255,255,255,0.24)" strokeWidth="1.4" />
-              <path d="M468 84L452 170L510 386" stroke="rgba(255,255,255,0.24)" strokeWidth="1.4" />
-              <path d="M400 190C332 148 276 142 200 182" stroke="rgba(255,255,255,0.72)" strokeWidth="2" strokeLinecap="round" />
-              <path d="M400 190C470 160 538 142 628 162" stroke="rgba(255,255,255,0.62)" strokeWidth="2" strokeLinecap="round" />
-              <path d="M400 190C438 236 514 278 626 292" stroke="rgba(255,255,255,0.58)" strokeWidth="2" strokeLinecap="round" />
-              <path d="M400 190C352 238 292 285 222 310" stroke="rgba(255,255,255,0.58)" strokeWidth="2" strokeLinecap="round" />
+              <g filter="url(#softShadow)">
+                {districts.map((path, index) => (
+                  <path
+                    key={path}
+                    d={path}
+                    fill={index % 3 === 0 ? 'rgba(216,245,190,0.48)' : index % 3 === 1 ? 'rgba(255,255,255,0.25)' : 'rgba(130,204,132,0.42)'}
+                    stroke="rgba(255,255,255,0.72)"
+                    strokeWidth="1.5"
+                  />
+                ))}
+              </g>
+
+              <path d="M58 286 C148 242 230 236 318 266 C422 302 536 286 724 332" stroke="rgba(255,255,255,0.6)" strokeWidth="1.6" strokeLinecap="round" />
+              <path d="M152 72 C252 138 344 164 430 200 C520 238 610 220 718 142" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" strokeLinecap="round" />
+              <path d="M302 78 C308 174 320 250 304 388" stroke="rgba(255,255,255,0.42)" strokeWidth="1.4" strokeLinecap="round" />
+              <path d="M458 92 C448 184 430 274 366 418" stroke="rgba(255,255,255,0.38)" strokeWidth="1.4" strokeLinecap="round" />
+
+              <path d="M430 200 C368 172 306 154 222 168" stroke="rgba(255,255,255,0.78)" strokeWidth="2" strokeLinecap="round" />
+              <path d="M430 200 C502 162 584 142 690 206" stroke="rgba(255,255,255,0.68)" strokeWidth="2" strokeLinecap="round" />
+              <path d="M430 200 C452 258 512 314 628 342" stroke="rgba(255,255,255,0.6)" strokeWidth="2" strokeLinecap="round" />
+              <path d="M430 200 C370 246 300 298 218 402" stroke="rgba(255,255,255,0.55)" strokeWidth="2" strokeLinecap="round" />
+
+              <defs>
+                <filter id="softShadow" x="-20" y="-20" width="850" height="480" filterUnits="userSpaceOnUse">
+                  <feDropShadow dx="0" dy="12" stdDeviation="16" floodColor="#064E3B" floodOpacity="0.25" />
+                </filter>
+              </defs>
             </svg>
 
             {mapPoints.map((point) => (
@@ -52,7 +83,7 @@ export default function AgriTraceMap() {
               </div>
             ))}
 
-            <div className="absolute left-5 top-5 w-[235px] rounded-[1.4rem] border border-white/60 bg-white/70 p-4 shadow-[0_20px_50px_rgba(15,23,42,0.18)] backdrop-blur-xl">
+            <div className="absolute left-5 top-5 w-[235px] rounded-[1.4rem] border border-white/60 bg-white/72 p-4 shadow-[0_20px_50px_rgba(15,23,42,0.18)] backdrop-blur-xl">
               <div className="flex items-center justify-between gap-3">
                 <div className="flex items-center gap-2 text-[#0F8F5D]">
                   <Map className="h-5 w-5" />
@@ -64,7 +95,7 @@ export default function AgriTraceMap() {
               <p className="mt-1 text-sm font-medium text-slate-600">126 Data Panen tervalidasi</p>
             </div>
 
-            <div className="absolute bottom-5 left-5 w-[270px] rounded-[1.35rem] border border-white/60 bg-white/68 p-4 shadow-[0_20px_50px_rgba(15,23,42,0.18)] backdrop-blur-xl">
+            <div className="absolute bottom-5 left-5 w-[270px] rounded-[1.35rem] border border-white/60 bg-white/70 p-4 shadow-[0_20px_50px_rgba(15,23,42,0.18)] backdrop-blur-xl">
               <p className="text-xs font-medium text-slate-600">Data Panen terbaru</p>
               <div className="mt-2 flex items-center justify-between gap-3">
                 <div>
@@ -79,7 +110,7 @@ export default function AgriTraceMap() {
               </div>
             </div>
 
-            <div className="absolute bottom-10 right-7 w-[270px] rounded-[1.35rem] border border-white/60 bg-white/48 p-4 text-white shadow-[0_20px_55px_rgba(15,23,42,0.22)] backdrop-blur-2xl">
+            <div className="absolute bottom-10 right-7 w-[270px] rounded-[1.35rem] border border-white/60 bg-white/45 p-4 text-white shadow-[0_20px_55px_rgba(15,23,42,0.22)] backdrop-blur-2xl">
               <p className="text-sm font-medium text-white/85">Skor kesiapan jual</p>
               <div className="mt-3 flex items-end justify-between">
                 <p className="text-4xl font-bold tracking-tight">87</p>
