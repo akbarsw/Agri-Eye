@@ -1,6 +1,7 @@
 import AgriEyeLogo from '@/components/agri-eye-logo';
 import AgriFaq from '@/components/ui/agri-faq';
 import AgriFooter from '@/components/ui/agri-footer';
+import AgriLoginSelect from '@/components/ui/agri-login-select';
 import AgriNavHeader from '@/components/ui/agri-nav-header';
 import AgriProcessBeam from '@/components/ui/agri-process-beam';
 import AgriScrollVelocity from '@/components/ui/agri-scroll-velocity';
@@ -61,10 +62,7 @@ export default function Home() {
           </div>
 
           <div className="flex shrink-0 items-center">
-            <a href="/farmer" className="inline-flex items-center gap-2 rounded-2xl bg-[#25B866] px-5 py-3 text-sm font-bold text-white shadow-sm transition-all duration-200 ease-in-out hover:bg-[#1FA653] hover:shadow-md">
-              Masuk
-              <ArrowRight className="h-4 w-4" />
-            </a>
+            <AgriLoginSelect />
           </div>
         </div>
 
