@@ -1,4 +1,5 @@
 import AgriEyeLogo from '@/components/agri-eye-logo';
+import AgriAnimatedNumber from '@/components/ui/agri-animated-number';
 import AgriFaq from '@/components/ui/agri-faq';
 import AgriFooter from '@/components/ui/agri-footer';
 import AgriLoginSelect from '@/components/ui/agri-login-select';
@@ -88,7 +89,7 @@ export default function Home() {
             </p>
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <a href="/farmer" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#25B866] px-6 py-4 text-sm font-bold text-white shadow-sm transition-all duration-200 ease-in-out hover:bg-[#1FA653] hover:shadow-md">
+              <a href="/farmer" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#25B866] px-6 py-4 text-sm font-bold !text-white shadow-sm transition-all duration-200 ease-in-out hover:bg-[#1FA653] hover:shadow-md">
                 Mulai sebagai Petani
                 <ArrowRight className="h-4 w-4" />
               </a>
@@ -100,7 +101,9 @@ export default function Home() {
             <div className="mt-7 grid max-w-xl grid-cols-3 gap-3">
               {stats.map((item) => (
                 <div key={item.label} className="rounded-2xl border border-[#E8DDC7] bg-white/80 p-4 shadow-sm backdrop-blur transition-all duration-200 ease-in-out hover:border-[#BFE8CC] hover:bg-white hover:shadow-md">
-                  <p className="text-xl font-bold tracking-tight text-slate-900 lg:text-2xl">{item.value}</p>
+                  <p className="overflow-hidden text-xl font-bold tracking-tight text-slate-900 lg:text-2xl">
+                    <AgriAnimatedNumber value={item.value} />
+                  </p>
                   <p className="mt-1.5 text-xs font-medium leading-5 text-slate-500">{item.label}</p>
                 </div>
               ))}
@@ -129,10 +132,10 @@ export default function Home() {
                     <p className="mt-1 text-xs font-medium text-slate-500">126 Data Panen tervalidasi</p>
                   </div>
 
-                  <div className="absolute bottom-6 right-6 w-60 rounded-2xl bg-[#25B866] p-4 text-white shadow-sm">
+                  <div className="absolute bottom-6 right-6 w-60 rounded-2xl bg-[#25B866] p-4 !text-white shadow-sm">
                     <p className="text-xs font-medium text-white/80">Skor kesiapan jual</p>
                     <div className="mt-3 flex items-end justify-between">
-                      <p className="text-3xl font-bold">87</p>
+                      <p className="text-3xl font-bold text-white">87</p>
                       <p className="text-sm font-medium text-white/85">+12%</p>
                     </div>
                     <div className="mt-3 h-2 rounded-full bg-white/20">
@@ -191,7 +194,7 @@ export default function Home() {
               <p className="text-sm font-bold text-[#25B866]">Marketplace B2B</p>
               <h2 className="mt-2 text-3xl font-bold tracking-[-0.05em] text-slate-900 lg:text-5xl">Produk lokal yang siap dipasok.</h2>
             </div>
-            <a href="/marketplace" className="inline-flex items-center gap-2 rounded-2xl bg-[#25B866] px-5 py-3 text-sm font-bold text-white transition-all duration-200 ease-in-out hover:bg-[#1FA653] hover:shadow-md">
+            <a href="/marketplace" className="inline-flex items-center gap-2 rounded-2xl bg-[#25B866] px-5 py-3 text-sm font-bold !text-white transition-all duration-200 ease-in-out hover:bg-[#1FA653] hover:shadow-md">
               Lihat Marketplace
               <ArrowRight className="h-4 w-4" />
             </a>
