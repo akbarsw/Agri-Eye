@@ -30,17 +30,17 @@ export default function AgriNavHeader({ compact = false }: { compact?: boolean }
 
   return (
     <ul
-      className="relative isolate flex w-fit items-center overflow-hidden rounded-full border border-[#E8DDC7] bg-white/80 p-1 shadow-sm backdrop-blur"
+      className="relative isolate flex w-fit items-center gap-1 overflow-visible bg-transparent p-0"
       onMouseLeave={resetCursor}
     >
       <li
         aria-hidden="true"
-        className="pointer-events-none absolute z-[1] rounded-full bg-[#0F3D2E] transition-all duration-300 ease-out"
+        className="pointer-events-none absolute z-[1] rounded-full bg-[#25B866] transition-all duration-300 ease-out"
         style={{
           left: position.left,
           width: position.width,
           opacity: position.opacity,
-          height: compact ? 32 : 40,
+          height: compact ? 34 : 42,
         }}
       />
 
@@ -102,8 +102,8 @@ function Tab({
         href={href}
         style={{ color: active ? '#ffffff' : undefined }}
         className={`block rounded-full font-semibold transition-colors duration-200 ${
-          active ? '!text-white' : 'text-slate-500 hover:!text-white'
-        } ${compact ? 'px-3 py-2 text-xs' : 'px-4 py-2.5 text-sm'}`}
+          active ? '!text-white' : 'text-slate-600 hover:!text-white'
+        } ${compact ? 'px-3.5 py-2 text-sm' : 'px-4 py-2.5 text-sm'}`}
       >
         {children}
       </a>
