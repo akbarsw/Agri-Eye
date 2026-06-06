@@ -7,11 +7,11 @@ import AgriNavHeader from '@/components/ui/agri-nav-header';
 import AgriProcessBeam from '@/components/ui/agri-process-beam';
 import AgriScrollVelocity from '@/components/ui/agri-scroll-velocity';
 import AgriTestimonials from '@/components/ui/agri-testimonials';
+import AgriTraceMap from '@/components/ui/agri-trace-map';
 import AgriTypewriter from '@/components/ui/agri-typewriter';
 import {
   ArrowRight,
   CheckCircle2,
-  Map,
   PackageCheck,
   QrCode,
   Sprout,
@@ -110,48 +110,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative">
-            <div className="rounded-[1.75rem] border border-[#E8DDC7] bg-white/85 p-3 shadow-sm backdrop-blur lg:p-4">
-              <div className="overflow-hidden rounded-[1.35rem] border border-[#E8DDC7] bg-[#FBFAF6]">
-                <div className="flex items-center justify-between border-b border-[#E8DDC7]/80 bg-white/90 px-4 py-3">
-                  <div>
-                    <p className="text-sm font-bold text-slate-900">Peta Keterlacakan</p>
-                    <p className="text-xs font-medium text-slate-500">Monitoring Data Panen aktif</p>
-                  </div>
-                  <span className="rounded-full bg-[#EAF8F0] px-3 py-1 text-xs font-bold text-[#1FA653]">Live</span>
-                </div>
-
-                <div className="relative h-[300px] bg-[#F2EEE4] lg:h-[330px]">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_30%,rgba(37,184,102,0.22),transparent_20%),radial-gradient(circle_at_75%_28%,rgba(37,184,102,0.13),transparent_22%),radial-gradient(circle_at_52%_72%,rgba(15,23,42,0.08),transparent_24%)]" />
-                  <div className="absolute left-6 top-6 rounded-2xl border border-[#E8DDC7] bg-white/90 p-3 shadow-sm backdrop-blur">
-                    <div className="flex items-center gap-2 text-[#25B866]">
-                      <Map className="h-4 w-4" />
-                      <span className="text-xs font-bold uppercase tracking-wide">Area prioritas</span>
-                    </div>
-                    <p className="mt-2 text-base font-bold text-slate-900">Jawa Tengah</p>
-                    <p className="mt-1 text-xs font-medium text-slate-500">126 Data Panen tervalidasi</p>
-                  </div>
-
-                  <div className="absolute bottom-6 right-6 w-60 rounded-2xl bg-[#25B866] p-4 !text-white shadow-sm">
-                    <p className="text-xs font-medium text-white/80">Skor kesiapan jual</p>
-                    <div className="mt-3 flex items-end justify-between">
-                      <p className="text-3xl font-bold text-white">87</p>
-                      <p className="text-sm font-medium text-white/85">+12%</p>
-                    </div>
-                    <div className="mt-3 h-2 rounded-full bg-white/20">
-                      <div className="h-2 w-[87%] rounded-full bg-white" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="absolute -bottom-4 left-5 hidden w-68 rounded-2xl border border-[#E8DDC7] bg-white/90 p-4 shadow-sm backdrop-blur lg:block">
-              <p className="text-xs font-medium text-slate-500">Data Panen terbaru</p>
-              <p className="mt-1.5 text-sm font-bold text-slate-900">Cabai Merah Grade A</p>
-              <p className="mt-1 text-xs font-medium text-slate-500">Boyolali · 100 kg · QR aktif</p>
-            </div>
-          </div>
+          <AgriTraceMap />
         </div>
       </section>
 
