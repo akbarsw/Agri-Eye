@@ -36,18 +36,18 @@ export default function AgriFooter() {
   return (
     <footer className="border-t border-[#DCD0B8] bg-[#F7F4ED] px-6 py-7 lg:px-8 lg:py-8">
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-6 md:grid-cols-[1fr_1fr] lg:grid-cols-[1.15fr_1.9fr] lg:gap-10">
+        <div className="grid gap-6 md:grid-cols-[0.9fr_1.1fr] lg:grid-cols-[0.95fr_2.05fr] lg:gap-10">
           <div>
             <a href="#top" className="inline-flex items-center">
               <AgriEyeLogo compact />
             </a>
-            <p className="mt-3 max-w-sm text-sm font-medium leading-6 text-[#5F584B]">
+            <p className="mt-3 max-w-xs text-sm font-medium leading-6 text-[#5F584B]">
               Platform pintar penyedia produk pertanian yang jelas asalnya, terverifikasi, dan siap terhubung ke pembeli B2B.
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-3 lg:justify-items-start lg:gap-8">
-            <div>
+          <div className="grid gap-6 sm:grid-cols-3 lg:ml-auto lg:w-[82%] lg:justify-items-start lg:gap-7">
+            <div className="lg:pt-1.5">
               <h3 className="text-sm font-bold text-[#4E473B]">Produk</h3>
               <div className="mt-3 grid gap-2.5">
                 {products.map((item) => (
