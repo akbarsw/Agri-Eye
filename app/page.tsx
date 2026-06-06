@@ -7,7 +7,6 @@ import AgriNavHeader from '@/components/ui/agri-nav-header';
 import AgriProcessBeam from '@/components/ui/agri-process-beam';
 import AgriScrollVelocity from '@/components/ui/agri-scroll-velocity';
 import AgriTestimonials from '@/components/ui/agri-testimonials';
-import AgriTraceMap from '@/components/ui/agri-trace-map';
 import AgriTypewriter from '@/components/ui/agri-typewriter';
 import {
   ArrowRight,
@@ -72,11 +71,11 @@ export default function Home() {
         </div>
       </nav>
 
-      <section id="top" className="relative overflow-hidden px-6 py-7 lg:px-8 lg:py-10">
+      <section id="top" className="relative overflow-hidden px-6 py-8 lg:px-8 lg:py-12">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_18%,rgba(37,184,102,0.13),transparent_30%),radial-gradient(circle_at_80%_12%,rgba(232,221,199,0.9),transparent_30%),radial-gradient(circle_at_50%_90%,rgba(255,255,255,0.8),transparent_28%)]" />
 
-        <div className="mx-auto grid max-w-7xl items-start gap-7 lg:grid-cols-[0.95fr_1.05fr]">
-          <div>
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-5xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#E8DDC7] bg-white/80 px-4 py-2 text-sm font-medium text-[#1FA653] shadow-sm">
               <CheckCircle2 className="h-4 w-4" />
               Food traceability untuk hasil panen lokal
@@ -109,8 +108,6 @@ export default function Home() {
               ))}
             </div>
           </div>
-
-          <AgriTraceMap />
         </div>
       </section>
 
