@@ -1,4 +1,5 @@
 import AgriEyeLogo from '@/components/agri-eye-logo';
+import AgriFaq from '@/components/ui/agri-faq';
 import AgriNavHeader from '@/components/ui/agri-nav-header';
 import AgriProcessBeam from '@/components/ui/agri-process-beam';
 import AgriScrollVelocity from '@/components/ui/agri-scroll-velocity';
@@ -218,6 +219,7 @@ export default function Home() {
       </section>
 
       <AgriTestimonials />
+      <AgriFaq />
     </main>
   );
 }
