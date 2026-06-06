@@ -60,13 +60,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex shrink-0 items-center gap-3">
-            <a href="/buyer" className="hidden rounded-2xl border border-[#E8DDC7] bg-white/80 px-4 py-3 text-sm font-medium text-slate-600 shadow-sm transition-all duration-200 ease-in-out hover:bg-white hover:shadow-md sm:inline-flex">
-              Pembeli B2B
-            </a>
-            <a href="/farmer" className="inline-flex items-center gap-2 rounded-2xl bg-[#25B866] px-4 py-3 text-xs font-bold text-white shadow-sm transition-all duration-200 ease-in-out hover:bg-[#1FA653] hover:shadow-md sm:px-5 sm:text-sm">
-              Mulai
-              <span className="hidden sm:inline"> sebagai Petani</span>
+          <div className="flex shrink-0 items-center">
+            <a href="/farmer" className="inline-flex items-center gap-2 rounded-2xl bg-[#25B866] px-5 py-3 text-sm font-bold text-white shadow-sm transition-all duration-200 ease-in-out hover:bg-[#1FA653] hover:shadow-md">
+              Masuk
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
