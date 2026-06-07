@@ -7,7 +7,7 @@ import AgriNavHeader from '@/components/ui/agri-nav-header';
 import AgriProcessBeam from '@/components/ui/agri-process-beam';
 import AgriScrollVelocity from '@/components/ui/agri-scroll-velocity';
 import AgriTestimonials from '@/components/ui/agri-testimonials';
-import AgriTraceMap from '@/components/ui/agri-trace-map';
+import AgriTraceMapFrame from '@/components/ui/agri-trace-map-frame';
 import AgriTypewriter from '@/components/ui/agri-typewriter';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
@@ -87,7 +87,7 @@ export default function Home() {
           </div>
 
           <div className="min-w-0 pt-1 sm:pt-2 xl:pt-0 [&>div]:mx-auto [&>div]:scale-[0.82] [&>div]:origin-top sm:[&>div]:scale-[0.88] xl:[&>div]:scale-[0.82]">
-            <AgriTraceMap />
+            <AgriTraceMapFrame />
           </div>
         </div>
       </section>
