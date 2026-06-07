@@ -30,6 +30,7 @@ Aturan WAJIB:
 - Gunakan bahasa Indonesia casual
 - Emoji 1-2 saja, jangan berlebihan
 - JANGAN PERNAH sebut nomor WhatsApp, nomor telepon, atau suruh hubungi kontak manapun
+- JANGAN gunakan markdown (**, ***, _, __, \`) — tulis biasa saja tanpa formatting
 - Jika tidak tahu jawabannya: "Maaf, saya belum punya info itu. Coba tanya hal lain ya 😊"
 
 Contoh jawaban bagus:
@@ -67,9 +68,19 @@ A: "Klik 'Mulai sebagai Petani' di halaman utama, isi data diri, dan tunggu veri
     }
 
     const data = await res.json();
-    const reply =
+    let reply =
       data.choices?.[0]?.message?.content ||
       "Maaf, saya tidak bisa memproses pesan itu.";
+
+    // Strip markdown bold/italic artifacts
+    reply = reply
+      .replace(/\*\*\*(.*?)\*\*\*/g, "$1")
+      .replace(/\*\*(.*?)\*\*/g, "$1")
+      .replace(/\*(.*?)\*/g, "$1")
+      .replace(/__(.*?)__/g, "$1")
+      .replace(/_(.*?)_/g, "$1")
+      .replace(/`(.*?)`/g, "$1")
+      .trim();
 
     return NextResponse.json({ reply });
   } catch (error) {
