@@ -43,7 +43,7 @@ export default function HomePage() {
         <div className="mx-auto flex max-w-7xl overflow-x-auto px-4 pb-3 sm:px-6 lg:hidden"><AgriNavHeader compact /></div>
       </nav>
 
-      <section id="top" className="relative overflow-hidden px-6 py-8 lg:px-8 lg:py-12">
+      <section id="top" className="relative overflow-hidden px-6 py-4 lg:px-8 lg:py-6">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_18%,rgba(37,184,102,0.13),transparent_30%),radial-gradient(circle_at_80%_12%,rgba(232,221,199,0.9),transparent_30%),radial-gradient(circle_at_50%_90%,rgba(255,255,255,0.8),transparent_28%)]" />
         <div className="mx-auto grid max-w-7xl items-center gap-7 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
@@ -65,7 +65,7 @@ export default function HomePage() {
       </section>
 
       <AgriScrollVelocity />
-      <section id="platform" className="px-6 py-7 lg:px-8 lg:py-8">
+      <section id="platform" className="px-6 py-4 lg:px-8 lg:py-5">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-2xl"><p className="text-sm font-bold text-[#25B866]">Platform</p><h2 className="mt-2 text-3xl font-bold tracking-[-0.05em] text-slate-900 lg:text-5xl">Dari catatan panen menjadi data yang bisa dipercaya pasar.</h2></div>
           <div className="mt-6 grid gap-5 lg:grid-cols-3">
@@ -74,7 +74,7 @@ export default function HomePage() {
         </div>
       </section>
       <div id="workflow"><AgriProcessBeam /></div>
-      <section id="market" className="px-6 py-7 lg:px-8 lg:py-8">
+      <section id="market" className="px-6 py-4 lg:px-8 lg:py-5">
         <div className="mx-auto max-w-7xl rounded-[1.75rem] border border-[#E8DDC7] bg-white/85 p-5 shadow-sm backdrop-blur lg:p-6">
           <div className="flex flex-col gap-4 border-b border-[#E8DDC7] pb-5 lg:flex-row lg:items-end lg:justify-between"><div><p className="text-sm font-bold text-[#25B866]">Marketplace B2B</p><h2 className="mt-2 text-3xl font-bold tracking-[-0.05em] text-slate-900 lg:text-5xl">Produk lokal yang siap dipasok.</h2></div><a href="/marketplace" className="inline-flex items-center gap-2 rounded-2xl bg-[#25B866] px-5 py-3 text-sm font-bold !text-white transition-all duration-200 ease-in-out hover:bg-[#1FA653] hover:shadow-md">Lihat Marketplace<ArrowRight className="h-4 w-4" /></a></div>
           <div className="mt-5 grid gap-3">{products.map((product) => <div key={product.name} className="grid gap-3 rounded-2xl border border-[#E8DDC7] bg-white/80 p-4 transition-all duration-200 ease-in-out hover:border-[#BFE8CC] hover:bg-white hover:shadow-sm md:grid-cols-[1.1fr_0.6fr_0.5fr_0.4fr] md:items-center"><div><p className="font-bold text-slate-900">{product.name}</p><p className="mt-1 text-sm font-medium text-slate-500">Asal: {product.origin}</p></div><div className="text-sm font-medium text-slate-500">Stok: <span className="font-bold text-slate-900">{product.stock}</span></div><div><span className="rounded-full bg-[#EAF8F0] px-3 py-1 text-xs font-bold text-[#1FA653]">{product.status}</span></div><div className="md:text-right"><ArrowRight className="inline h-5 w-5 text-slate-400" /></div></div>)}</div>

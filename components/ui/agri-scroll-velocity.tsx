@@ -28,7 +28,7 @@ export default function AgriScrollVelocity() {
   const secondRow = [...partners, ...partners, ...partners];
 
   return (
-    <section className="overflow-hidden border-y border-[#E8DDC7] bg-[#F1EBDD]/55 py-5 lg:py-6">
+    <section className="overflow-hidden border-y border-[#E8DDC7] bg-[#F1EBDD]/55 py-3 lg:py-4">
       <div className="mb-3 flex w-max items-center gap-4 agri-card-marquee-left">{firstRow.map((item, index) => <VelocityCard key={`product-${item.title}-${index}`} item={item} />)}</div>
       <div className="flex w-max items-center gap-4 agri-card-marquee-right">{secondRow.map((item, index) => <VelocityCard key={`partner-${item.title}-${index}`} item={item} />)}</div>
     </section>

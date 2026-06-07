@@ -95,7 +95,7 @@ function TestimonialsColumn({
 
 export default function AgriTestimonials() {
   return (
-    <section className="px-6 py-16 lg:px-8">
+    <section className="px-6 py-8 lg:px-8 lg:py-10">
       <div className="mx-auto max-w-7xl rounded-[2rem] border border-[#E8DDC7] bg-white/55 p-6 shadow-sm backdrop-blur lg:p-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-bold text-emerald-600">Testimoni Pengguna</p>

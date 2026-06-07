@@ -35,7 +35,7 @@ const steps = [
 
 export default function AgriProcessBeam() {
   return (
-    <section className="px-6 py-8 lg:px-8 lg:py-10">
+    <section className="px-6 py-5 lg:px-8 lg:py-6">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-7 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
           <div className="lg:sticky lg:top-28">
