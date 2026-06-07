@@ -33,7 +33,7 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-[#F7F4ED] text-slate-900 antialiased">
       <nav className="sticky top-0 z-50 border-b border-[#E8DDC7]/70 bg-[#F7F4ED]/85 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-2 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8 lg:py-4">
           <div className="flex min-w-0 items-center gap-3 sm:gap-4 lg:gap-5">
             <a href="#top" className="flex shrink-0 items-center"><AgriEyeLogo compact /></a>
             <div className="hidden lg:flex lg:items-center"><AgriNavHeader /></div>

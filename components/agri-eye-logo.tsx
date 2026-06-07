@@ -7,12 +7,12 @@ type AgriEyeLogoProps = {
 
 export default function AgriEyeLogo({ subtitle, compact = false }: AgriEyeLogoProps) {
   const markWrapClass = compact
-    ? 'relative flex h-10 w-10 shrink-0 items-center justify-center bg-transparent sm:h-12 sm:w-12 lg:h-14 lg:w-14'
-    : 'relative flex h-20 w-20 shrink-0 items-center justify-center bg-transparent';
+    ? 'relative flex h-14 w-14 shrink-0 items-center justify-center bg-transparent sm:h-16 sm:w-16 lg:h-20 lg:w-20'
+    : 'relative flex h-24 w-24 shrink-0 items-center justify-center bg-transparent';
 
   const markImageClass = compact
-    ? 'h-12 w-12 object-contain sm:h-14 sm:w-14 lg:h-16 lg:w-16'
-    : 'h-24 w-24 object-contain';
+    ? 'h-16 w-16 object-contain sm:h-18 sm:w-18 lg:h-22 lg:w-22'
+    : 'h-28 w-28 object-contain';
 
   return (
     <span className="inline-flex items-center gap-3">
