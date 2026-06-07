@@ -7,6 +7,7 @@ import AgriNavHeader from '@/components/ui/agri-nav-header';
 import AgriProcessBeam from '@/components/ui/agri-process-beam';
 import AgriScrollVelocity from '@/components/ui/agri-scroll-velocity';
 import AgriTestimonials from '@/components/ui/agri-testimonials';
+import AgriTraceMap from '@/components/ui/agri-trace-map';
 import AgriTypewriter from '@/components/ui/agri-typewriter';
 import {
   ArrowRight,
@@ -71,11 +72,11 @@ export default function Home() {
         </div>
       </nav>
 
-      <section id="top" className="relative overflow-hidden px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
+      <section id="top" className="relative overflow-hidden px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_18%,rgba(37,184,102,0.13),transparent_30%),radial-gradient(circle_at_80%_12%,rgba(232,221,199,0.9),transparent_30%),radial-gradient(circle_at_50%_90%,rgba(255,255,255,0.8),transparent_28%)]" />
 
-        <div className="mx-auto max-w-7xl">
-          <div className="max-w-5xl">
+        <div className="mx-auto grid max-w-7xl items-center gap-7 xl:grid-cols-[0.92fr_1.08fr]">
+          <div className="min-w-0">
             <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-[#E8DDC7] bg-white/80 px-4 py-2 text-sm font-medium text-[#1FA653] shadow-sm">
               <CheckCircle2 className="h-4 w-4 shrink-0" />
               <span className="truncate">Food traceability untuk hasil panen lokal</span>
@@ -83,7 +84,7 @@ export default function Home() {
 
             <AgriTypewriter />
 
-            <p className="mt-5 max-w-2xl text-base leading-7 text-slate-500 lg:text-lg lg:leading-8">
+            <p className="mt-5 max-w-2xl text-base leading-7 text-slate-500 lg:text-[1.05rem] lg:leading-8">
               AGRI-EYE membantu petani mencatat Data Panen, membuat QR Produk, dan menjual produk terverifikasi ke pembeli B2B secara lebih transparan.
             </p>
 
@@ -107,6 +108,10 @@ export default function Home() {
                 </div>
               ))}
             </div>
+          </div>
+
+          <div className="hidden min-w-0 xl:block [&>div]:scale-[0.86] [&>div]:origin-center">
+            <AgriTraceMap />
           </div>
         </div>
       </section>
