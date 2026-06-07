@@ -39,7 +39,7 @@ export default function AgriFaq() {
   const [openItem, setOpenItem] = useState<string | null>('1');
 
   return (
-    <section className="px-6 py-4 lg:px-8 lg:py-5">
+    <section className="px-6 pt-4 pb-10 lg:px-8 lg:pt-5 lg:pb-14">
       <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
         <div>
           <p className="text-sm font-bold text-[#25B866]">FAQ</p>
