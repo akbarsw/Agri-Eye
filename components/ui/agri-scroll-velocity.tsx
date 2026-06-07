@@ -1,5 +1,3 @@
-import AgriTraceMap from '@/components/ui/agri-trace-map';
-
 const products = [
   { title: 'Cabai Merah Grade A', meta: 'Boyolali · QR aktif', image: 'https://images.unsplash.com/photo-1583119022894-919a68a3d0e3?auto=format&fit=crop&w=600&q=80' },
   { title: 'Sawi Segar', meta: 'Bandung · Siap pasok', image: 'https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?auto=format&fit=crop&w=600&q=80' },
@@ -30,14 +28,9 @@ export default function AgriScrollVelocity() {
   const secondRow = [...partners, ...partners, ...partners];
 
   return (
-    <>
-      <section className="px-6 py-6 lg:px-8 lg:py-8">
-        <div className="mx-auto max-w-6xl"><AgriTraceMap /></div>
-      </section>
-      <section className="overflow-hidden border-y border-[#E8DDC7] bg-[#F1EBDD]/55 py-5 lg:py-6">
-        <div className="mb-3 flex w-max items-center gap-4 agri-card-marquee-left">{firstRow.map((item, index) => <VelocityCard key={`product-${item.title}-${index}`} item={item} />)}</div>
-        <div className="flex w-max items-center gap-4 agri-card-marquee-right">{secondRow.map((item, index) => <VelocityCard key={`partner-${item.title}-${index}`} item={item} />)}</div>
-      </section>
-    </>
+    <section className="overflow-hidden border-y border-[#E8DDC7] bg-[#F1EBDD]/55 py-5 lg:py-6">
+      <div className="mb-3 flex w-max items-center gap-4 agri-card-marquee-left">{firstRow.map((item, index) => <VelocityCard key={`product-${item.title}-${index}`} item={item} />)}</div>
+      <div className="flex w-max items-center gap-4 agri-card-marquee-right">{secondRow.map((item, index) => <VelocityCard key={`partner-${item.title}-${index}`} item={item} />)}</div>
+    </section>
   );
 }
