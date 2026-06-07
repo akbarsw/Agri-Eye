@@ -101,9 +101,9 @@ function Tab({
       <a
         href={href}
         style={{ color: active ? '#ffffff' : undefined }}
-        className={`block rounded-full font-semibold transition-colors duration-200 ${
+        className={`block rounded-full text-sm font-bold transition-colors duration-200 ${
           active ? '!text-white' : 'text-slate-600 hover:!text-white'
-        } ${compact ? 'px-3.5 py-2 text-sm' : 'px-4 py-2.5 text-sm'}`}
+        } ${compact ? 'px-3.5 py-2' : 'px-4 py-2.5'}`}
       >
         {children}
       </a>
