@@ -74,14 +74,14 @@ export default function Home() {
               </a>
             </div>
 
-            <div className="mt-7 max-w-2xl">
-              <div className="grid grid-cols-3 divide-x divide-[#CFC4AF]">
+            <div className="mt-7 max-w-xl">
+              <div className="grid grid-cols-3 divide-x divide-[#D7CCB8]">
                 {stats.map((item) => (
-                  <div key={item.label} className="min-w-0 px-3 first:pl-0 sm:px-6 sm:first:pl-0">
-                    <p className="overflow-hidden text-3xl font-black tracking-tight text-[#2F2B24] sm:text-4xl lg:text-5xl">
+                  <div key={item.label} className="flex min-w-0 flex-col items-center px-4 text-center sm:px-6">
+                    <p className="overflow-hidden text-2xl font-semibold tracking-tight text-[#3A352C] sm:text-3xl lg:text-4xl">
                       <AgriAnimatedNumber value={item.value} />
                     </p>
-                    <p className="mt-2 text-[11px] font-semibold leading-4 text-[#6F685B] sm:text-sm sm:leading-5">{item.label}</p>
+                    <p className="mt-1.5 text-[10px] font-medium leading-4 text-[#6F685B] sm:text-xs sm:leading-5">{item.label}</p>
                   </div>
                 ))}
               </div>
