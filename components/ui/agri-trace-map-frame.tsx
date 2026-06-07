@@ -14,10 +14,6 @@ export default function AgriTraceMapFrame() {
         <span className="absolute bottom-5 right-5 h-7 w-7 rounded-br-xl border-b-2 border-r-2 border-white/75" />
       </div>
 
-      <div className="absolute right-7 top-7 z-40 rounded-full border border-white/50 bg-white/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white shadow-sm backdrop-blur-md sm:text-[11px]">
-        Live Trace Map
-      </div>
-
       <div className="relative overflow-hidden rounded-[2.05rem] border border-white/70 bg-[#FBFAF6]/70 p-1.5 shadow-inner backdrop-blur-xl">
         <AgriTraceMap />
       </div>
