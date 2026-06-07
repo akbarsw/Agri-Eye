@@ -31,10 +31,10 @@ export default function AgriTypewriter() {
   return (
     <h1
       aria-label={headline}
-      className={`${nunito.className} mt-8 max-w-4xl text-4xl font-bold leading-[1.05] tracking-[-0.035em] text-slate-650 sm:text-6xl lg:text-7xl`}
+      className={`${nunito.className} mt-7 max-w-3xl text-[2.35rem] font-bold leading-[1.06] tracking-[-0.035em] text-slate-800 sm:text-5xl lg:text-6xl xl:text-[4rem]`}
     >
       <span>{visibleText || headline}</span>
-      <span className="ml-1 inline-block h-9 w-[4px] translate-y-1 rounded-full bg-[#25B866] align-baseline animate-pulse sm:h-12 lg:h-16" />
+      <span className="ml-1 inline-block h-8 w-[4px] translate-y-1 rounded-full bg-[#25B866] align-baseline animate-pulse sm:h-10 lg:h-12" />
     </h1>
   );
 }
