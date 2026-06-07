@@ -1,179 +1,167 @@
-'use client';
+"use client";
 
-import { FormEvent, useEffect, useRef, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import { Bot, MessageCircle, Send, X } from 'lucide-react';
+import { useState, useRef, useEffect, FormEvent } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { MessageCircle, Send, X, Leaf } from "lucide-react";
 
-type ChatMessage = {
-  role: 'user' | 'assistant';
-  content: string;
-};
+type Message = { role: "user" | "assistant"; content: string };
 
-const quickQuestions = [
-  'Cara input Data Panen?',
-  'Apa itu QR Produk?',
-  'Cara ajukan sertifikat?',
-  'Bagaimana pembeli B2B memesan?',
-];
-
-const initialMessages: ChatMessage[] = [
-  {
-    role: 'assistant',
-    content: 'Halo! Aku Asisten AGRI-EYE 👋 Ada yang bisa aku bantu?',
-  },
-];
-
-export default function AgriAssistantWidget() {
+export default function AgriChat() {
   const [open, setOpen] = useState(false);
-  const [input, setInput] = useState('');
+  const [messages, setMessages] = useState<Message[]>([
+    {
+      role: "assistant",
+      content:
+        "Halo! 👋 Saya asisten AGRI-EYE. Ada yang bisa saya bantu tentang keterlacakan produk, cara daftar sebagai petani, atau beli produk lewat marketplace B2B kami?",
+    },
+  ]);
+  const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
-  const [messages, setMessages] = useState<ChatMessage[]>(initialMessages);
-  const bottomRef = useRef<HTMLDivElement>(null);
+  const endRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (open) {
-      bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, [messages, open]);
+    endRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
 
-  async function sendMessage(text: string) {
-    const trimmedText = text.trim();
-    if (!trimmedText || loading) return;
+  const send = async (e: FormEvent) => {
+    e.preventDefault();
+    const text = input.trim();
+    if (!text || loading) return;
 
-    const nextMessages: ChatMessage[] = [...messages, { role: 'user', content: trimmedText }];
-    setMessages(nextMessages);
-    setInput('');
+    const next = [...messages, { role: "user" as const, content: text }];
+    setMessages(next);
+    setInput("");
     setLoading(true);
 
     try {
-      const response = await fetch('/api/agri-assistant', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: nextMessages }),
+      const res = await fetch("/api/agri-assistant", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages: next }),
       });
-      const data = await response.json();
-
-      setMessages((current) => [
-        ...current,
-        {
-          role: 'assistant',
-          content: data.reply || 'Maaf, aku belum bisa menjawab pertanyaan itu.',
-        },
-      ]);
+      const data = await res.json();
+      setMessages([...next, { role: "assistant", content: data.reply }]);
     } catch {
-      setMessages((current) => [
-        ...current,
+      setMessages([
+        ...next,
         {
-          role: 'assistant',
-          content: 'Maaf, koneksi Asisten AGRI-EYE sedang bermasalah. Coba lagi sebentar ya.',
+          role: "assistant",
+          content:
+            "Maaf, terjadi gangguan koneksi. Silakan coba lagi atau hubungi kami via WhatsApp.",
         },
       ]);
     } finally {
       setLoading(false);
     }
-  }
-
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    sendMessage(input);
-  }
+  };
 
   return (
-    <div className="fixed bottom-5 right-5 z-[80] sm:bottom-7 sm:right-7">
+    <>
+      {/* Floating trigger */}
       <AnimatePresence>
-        {open ? (
-          <motion.div
-            initial={{ opacity: 0, y: 24, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 24, scale: 0.96 }}
-            transition={{ duration: 0.22, ease: 'easeOut' }}
-            className="mb-4 w-[calc(100vw-2.5rem)] overflow-hidden rounded-[1.8rem] border border-[#D7EBDD] bg-white shadow-[0_24px_80px_rgba(15,23,42,0.22)] sm:w-[430px]"
+        {!open && (
+          <motion.button
+            key="trigger"
+            onClick={() => setOpen(true)}
+            className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25B866] text-white shadow-lg shadow-emerald-500/30 transition-transform hover:scale-105"
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0, opacity: 0 }}
+            aria-label="Buka chat"
           >
-            <div className="flex items-center justify-between bg-[#21A36A] px-5 py-4 text-white">
-              <div className="flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/18 text-white shadow-inner">
-                  <Bot className="h-6 w-6" />
-                </div>
-                <div>
-                  <p className="text-base font-bold">Asisten AGRI-EYE</p>
-                  <p className="text-sm font-medium text-white/75">Online · Siap membantu</p>
-                </div>
+            <MessageCircle className="h-6 w-6" />
+          </motion.button>
+        )}
+      </AnimatePresence>
+
+      {/* Chat window */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            key="window"
+            className="fixed bottom-6 right-6 z-50 flex w-[360px] max-w-[calc(100vw-3rem)] flex-col overflow-hidden rounded-2xl border border-emerald-200 bg-white shadow-2xl shadow-emerald-900/15"
+            style={{ height: 500 }}
+            initial={{ opacity: 0, y: 24, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 24, scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 320, damping: 28 }}
+          >
+            {/* Header */}
+            <div className="flex shrink-0 items-center gap-3 bg-[#25B866] px-4 py-3">
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/20">
+                <Leaf className="h-5 w-5 text-white" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-bold text-white">Asisten AGRI-EYE</p>
+                <p className="text-[11px] font-medium text-emerald-100">
+                  Siap bantu kapan saja
+                </p>
               </div>
               <button
-                type="button"
                 onClick={() => setOpen(false)}
-                className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/16 transition-colors hover:bg-white/25"
-                aria-label="Tutup Asisten AGRI-EYE"
+                className="flex h-8 w-8 items-center justify-center rounded-full text-white/80 transition-colors hover:bg-white/15 hover:text-white"
+                aria-label="Tutup chat"
               >
-                <X className="h-5 w-5" />
+                <X className="h-4.5 w-4.5" />
               </button>
             </div>
 
-            <div className="max-h-[430px] overflow-y-auto bg-[#FBFEFC] px-5 py-5">
-              <div className="grid gap-3">
-                {messages.map((message, index) => (
+            {/* Messages */}
+            <div className="flex-1 overflow-y-auto px-4 py-3">
+              {messages.map((msg, i) => (
+                <div
+                  key={i}
+                  className={`mb-2 flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+                >
                   <div
-                    key={`${message.role}-${index}`}
-                    className={`max-w-[86%] rounded-[1.25rem] px-4 py-3 text-sm leading-6 shadow-sm ${
-                      message.role === 'assistant'
-                        ? 'justify-self-start border border-[#DDEFE4] bg-white text-slate-700'
-                        : 'justify-self-end bg-[#21A36A] text-white'
+                    className={`max-w-[82%] rounded-2xl px-3.5 py-2.5 text-[13px] leading-relaxed ${
+                      msg.role === "user"
+                        ? "rounded-br-md bg-[#25B866] text-white"
+                        : "rounded-bl-md bg-gray-100 text-gray-800"
                     }`}
                   >
-                    {message.content}
+                    {msg.content}
                   </div>
-                ))}
-
-                {loading ? (
-                  <div className="w-fit rounded-[1.25rem] border border-[#DDEFE4] bg-white px-4 py-3 text-sm font-medium text-slate-500 shadow-sm">
-                    Asisten sedang mengetik...
+                </div>
+              ))}
+              {loading && (
+                <div className="mb-2 flex justify-start">
+                  <div className="rounded-2xl rounded-bl-md bg-gray-100 px-4 py-2.5">
+                    <span className="inline-flex gap-1">
+                      <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-gray-400 [animation-delay:0ms]" />
+                      <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-gray-400 [animation-delay:120ms]" />
+                      <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-gray-400 [animation-delay:240ms]" />
+                    </span>
                   </div>
-                ) : null}
-                <div ref={bottomRef} />
-              </div>
-
-              <div className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-2">
-                {quickQuestions.map((question) => (
-                  <button
-                    key={question}
-                    type="button"
-                    onClick={() => sendMessage(question)}
-                    className="rounded-full border border-[#CFEBDC] bg-white px-4 py-2.5 text-sm font-bold text-[#197A55] transition-all hover:border-[#21A36A] hover:bg-[#EAF8F0]"
-                  >
-                    {question}
-                  </button>
-                ))}
-              </div>
+                </div>
+              )}
+              <div ref={endRef} />
             </div>
 
-            <form onSubmit={handleSubmit} className="flex gap-3 border-t border-[#DDEFE4] bg-white p-4">
+            {/* Input */}
+            <form
+              onSubmit={send}
+              className="flex shrink-0 items-center gap-2 border-t border-gray-100 px-3 py-2.5"
+            >
               <input
                 value={input}
-                onChange={(event) => setInput(event.target.value)}
-                placeholder="Ketik pertanyaan..."
-                className="min-w-0 flex-1 rounded-[1.2rem] border border-[#DDEFE4] bg-white px-4 py-3 text-sm outline-none transition-all focus:border-[#21A36A] focus:ring-4 focus:ring-[#21A36A]/10"
+                onChange={(e) => setInput(e.target.value)}
+                placeholder="Ketik pesan..."
+                className="flex-1 rounded-xl bg-gray-100 px-3.5 py-2 text-[13px] text-gray-800 outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-emerald-300"
+                disabled={loading}
               />
               <button
                 type="submit"
                 disabled={loading || !input.trim()}
-                className="inline-flex items-center justify-center gap-2 rounded-[1.2rem] bg-[#21A36A] px-5 py-3 text-sm font-bold text-white transition-all hover:bg-[#188A58] disabled:cursor-not-allowed disabled:opacity-45"
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#25B866] text-white transition-colors hover:bg-[#1FA653] disabled:opacity-40"
+                aria-label="Kirim"
               >
-                Kirim
                 <Send className="h-4 w-4" />
               </button>
             </form>
           </motion.div>
-        ) : null}
+        )}
       </AnimatePresence>
-
-      <button
-        type="button"
-        onClick={() => setOpen((current) => !current)}
-        className="ml-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#21A36A] text-white shadow-[0_18px_50px_rgba(33,163,106,0.42)] transition-all hover:scale-105 hover:bg-[#188A58]"
-        aria-label="Buka Asisten AGRI-EYE"
-      >
-        {open ? <X className="h-8 w-8" /> : <MessageCircle className="h-8 w-8" />}
-      </button>
-    </div>
+    </>
   );
 }

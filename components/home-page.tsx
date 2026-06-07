@@ -8,7 +8,6 @@ import AgriProcessBeam from '@/components/ui/agri-process-beam';
 import AgriScrollVelocity from '@/components/ui/agri-scroll-velocity';
 import AgriTestimonials from '@/components/ui/agri-testimonials';
 import AgriTraceMap from '@/components/ui/agri-trace-map';
-import AgriChat from '@/components/ui/agri-chat';
 import AgriTypewriter from '@/components/ui/agri-typewriter';
 import { ArrowRight, CheckCircle2, PackageCheck, QrCode, Sprout } from 'lucide-react';
 
@@ -84,7 +83,6 @@ export default function HomePage() {
       <AgriTestimonials />
       <AgriFaq />
       <AgriFooter />
-      <AgriChat />
     </main>
   );
 }

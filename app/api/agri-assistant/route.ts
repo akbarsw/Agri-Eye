@@ -1,66 +1,82 @@
-import { NextResponse } from 'next/server';
+import { NextResponse } from "next/server";
 
-type ChatMessage = {
-  role: 'user' | 'assistant' | 'system';
-  content: string;
-};
-
-const systemPrompt = `Kamu adalah Asisten AGRI-EYE, customer service ramah untuk platform agribisnis AGRI-EYE.
-Jawab dalam bahasa Indonesia yang natural, singkat, jelas, dan membantu.
-Fokus bantuan: fitur petani, fitur pembeli B2B, Data Panen, QR Produk, marketplace, sertifikat mitra, pembayaran, pesanan, dan validasi admin.
-Jika tidak tahu data spesifik pengguna, jangan mengarang. Arahkan pengguna menghubungi admin AGRI-EYE.`;
-
-export async function POST(request: Request) {
+export async function POST(req: Request) {
   try {
-    const body = (await request.json()) as { messages?: ChatMessage[] };
-    const messages = body.messages || [];
+    const { messages } = await req.json();
 
-    if (!Array.isArray(messages) || messages.length === 0) {
-      return NextResponse.json({ error: 'Pesan tidak boleh kosong.' }, { status: 400 });
+    const MIMO_API_KEY = process.env.MIMO_API_KEY;
+    const MIMO_BASE_URL = process.env.MIMO_BASE_URL;
+    const MIMO_MODEL = process.env.MIMO_MODEL || "mimo-v2.5";
+
+    if (!MIMO_API_KEY || !MIMO_BASE_URL) {
+      return NextResponse.json(
+        {
+          reply:
+            "Asisten AGRI-EYE belum aktif. Konfigurasi API belum dipasang di environment variable.",
+        },
+        { status: 200 }
+      );
     }
 
-    const apiKey = process.env.MIMO_API_KEY;
-    const baseUrl = process.env.MIMO_BASE_URL;
-    const model = process.env.MIMO_MODEL || 'mimo-v2.5';
+    const systemMessage = {
+      role: "system",
+      content: `Kamu adalah asisten AI resmi AGRI-EYE, platform agritech keterlacakan pangan Indonesia.
 
-    if (!apiKey || !baseUrl) {
-      return NextResponse.json({
-        reply: 'Asisten AGRI-EYE belum aktif karena konfigurasi Mimo belum dipasang di environment variable.',
-      });
-    }
+Tugasmu:
+- Bantu pengguna memahami cara kerja AGRI-EYE: QR keterlacakan, data panen, marketplace B2B
+- Jawab pertanyaan tentang cara daftar sebagai petani atau pembeli B2B
+- Jelaskan fitur platform: tracking produk dari lahan ke meja, validasi grade, transparansi rantai pasok
+- Bantu arahkan ke kontak jika ada pertanyaan teknis mendalam
 
-    const safeMessages = messages
-      .filter((message) => message.content?.trim())
-      .slice(-10)
-      .map((message) => ({ role: message.role, content: message.content.trim() }));
+Aturan:
+- Selalu ramah, profesional, gunakan bahasa Indonesia
+- Jawaban singkat dan jelas (maksimal 3-4 paragraf)
+- Jika tidak tahu jawaban pasti, arahkan ke WhatsApp atau email resmi
+- Jangan mengarang data teknis yang tidak kamu ketahui
+- Gunakan emoji secukupnya untuk nada ramah
 
-    const response = await fetch(`${baseUrl}/chat/completions`, {
-      method: 'POST',
+Kontak resmi AGRI-EYE:
+- WhatsApp: +62 812-3456-7890
+- Email: hello@agri-eye.id`,
+    };
+
+    const res = await fetch(`${MIMO_BASE_URL}/chat/completions`, {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${MIMO_API_KEY}`,
       },
       body: JSON.stringify({
-        model,
-        messages: [{ role: 'system', content: systemPrompt }, ...safeMessages],
-        temperature: 0.45,
-        max_tokens: 500,
+        model: MIMO_MODEL,
+        messages: [systemMessage, ...messages],
+        temperature: 0.7,
+        max_tokens: 1024,
       }),
     });
 
-    if (!response.ok) {
-      return NextResponse.json({
-        reply: 'Maaf, Asisten AGRI-EYE sedang mengalami kendala koneksi. Silakan coba lagi sebentar.',
-      });
+    if (!res.ok) {
+      const err = await res.text();
+      console.error("MiMo API error:", res.status, err);
+      return NextResponse.json(
+        {
+          reply:
+            "Maaf, asisten sedang mengalami gangguan. Silakan coba beberapa saat lagi.",
+        },
+        { status: 200 }
+      );
     }
 
-    const data = await response.json();
-    const reply = data?.choices?.[0]?.message?.content || 'Maaf, aku belum bisa menjawab pertanyaan itu.';
+    const data = await res.json();
+    const reply =
+      data.choices?.[0]?.message?.content ||
+      "Maaf, saya tidak bisa memproses pesan itu.";
 
     return NextResponse.json({ reply });
-  } catch {
-    return NextResponse.json({
-      reply: 'Maaf, terjadi kendala pada Asisten AGRI-EYE. Silakan coba lagi atau hubungi tim AGRI-EYE.',
-    });
+  } catch (error) {
+    console.error("Chat API error:", error);
+    return NextResponse.json(
+      { reply: "Terjadi kesalahan internal. Silakan coba lagi." },
+      { status: 200 }
+    );
   }
 }
