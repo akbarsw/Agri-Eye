@@ -9,36 +9,12 @@ import AgriScrollVelocity from '@/components/ui/agri-scroll-velocity';
 import AgriTestimonials from '@/components/ui/agri-testimonials';
 import AgriTraceMap from '@/components/ui/agri-trace-map';
 import AgriTypewriter from '@/components/ui/agri-typewriter';
-import {
-  ArrowRight,
-  CheckCircle2,
-  PackageCheck,
-  QrCode,
-  Sprout,
-} from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
 const stats = [
   { label: 'Data Panen Aktif', value: '342' },
   { label: 'Petani Terhubung', value: '128' },
   { label: 'Pembeli B2B', value: '46' },
-];
-
-const features = [
-  {
-    title: 'Catat panen secara digital',
-    text: 'Petani mencatat komoditas, jumlah, tanggal panen, lokasi asal, foto produk, dan harga harapan dalam satu dashboard sederhana.',
-    icon: Sprout,
-  },
-  {
-    title: 'QR Produk per Data Panen',
-    text: 'Setiap Data Panen yang lolos validasi mendapatkan QR Produk berisi asal produk, grade mutu, dan riwayat distribusi.',
-    icon: QrCode,
-  },
-  {
-    title: 'Marketplace B2B berbasis data',
-    text: 'Produk terverifikasi dapat ditawarkan ke restoran, hotel, katering, UMKM pangan, toko modern, dan distributor.',
-    icon: PackageCheck,
-  },
 ];
 
 const products = [
@@ -117,32 +93,6 @@ export default function Home() {
       </section>
 
       <AgriScrollVelocity />
-
-      <section id="platform" className="px-4 py-7 sm:px-6 lg:px-8 lg:py-8">
-        <div className="mx-auto max-w-7xl">
-          <div className="max-w-2xl">
-            <p className="text-sm font-bold text-[#25B866]">Platform</p>
-            <h2 className="mt-2 text-3xl font-bold tracking-[-0.05em] text-slate-900 lg:text-5xl">
-              Dari catatan panen menjadi data yang bisa dipercaya pasar.
-            </h2>
-          </div>
-
-          <div className="mt-6 grid gap-5 lg:grid-cols-3">
-            {features.map((feature) => {
-              const Icon = feature.icon;
-              return (
-                <article key={feature.title} className="rounded-[1.5rem] border border-[#E8DDC7] bg-white/85 p-6 shadow-sm backdrop-blur transition-all duration-200 ease-in-out hover:-translate-y-1 hover:border-[#BFE8CC] hover:bg-white hover:shadow-md">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#EAF8F0] text-[#25B866]">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <h3 className="mt-5 text-lg font-bold tracking-tight text-slate-900">{feature.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-500">{feature.text}</p>
-                </article>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
       <div id="workflow">
         <AgriProcessBeam />
