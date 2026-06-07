@@ -48,27 +48,37 @@ const products = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#F7F4ED] text-slate-900 antialiased">
-      <nav className="sticky top-0 z-50 border-b border-[#E8DDC7]/70 bg-[#F7F4ED]/85 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-2 sm:px-6 lg:px-8">
-          <a href="#top" className="flex shrink-0 items-center">
-            <AgriEyeLogo compact />
-          </a>
+    <main className="min-h-screen overflow-x-hidden bg-[#F7F4ED] text-slate-900 antialiased">
+      <nav className="sticky top-0 z-50 w-full border-b border-[#E8DDC7]/70 bg-[#F7F4ED]/90 backdrop-blur-xl">
+        <div className="mx-auto max-w-7xl px-4 py-2 sm:px-6 lg:px-8">
+          <div className="flex min-w-0 items-center justify-between gap-3">
+            <a href="#top" className="flex min-w-0 shrink-0 items-center">
+              <AgriEyeLogo compact />
+            </a>
 
-          <AgriNavHeader />
+            <div className="hidden min-w-0 flex-1 justify-center md:flex">
+              <AgriNavHeader />
+            </div>
 
-          <AgriLoginSelect />
+            <div className="flex shrink-0 items-center">
+              <AgriLoginSelect />
+            </div>
+          </div>
+
+          <div className="mt-2 flex w-full max-w-full overflow-x-auto pb-1 md:hidden">
+            <AgriNavHeader compact />
+          </div>
         </div>
       </nav>
 
-      <section id="top" className="relative overflow-hidden px-6 py-8 lg:px-8 lg:py-12">
+      <section id="top" className="relative overflow-hidden px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_18%,rgba(37,184,102,0.13),transparent_30%),radial-gradient(circle_at_80%_12%,rgba(232,221,199,0.9),transparent_30%),radial-gradient(circle_at_50%_90%,rgba(255,255,255,0.8),transparent_28%)]" />
 
         <div className="mx-auto max-w-7xl">
           <div className="max-w-5xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#E8DDC7] bg-white/80 px-4 py-2 text-sm font-medium text-[#1FA653] shadow-sm">
-              <CheckCircle2 className="h-4 w-4" />
-              Food traceability untuk hasil panen lokal
+            <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-[#E8DDC7] bg-white/80 px-4 py-2 text-sm font-medium text-[#1FA653] shadow-sm">
+              <CheckCircle2 className="h-4 w-4 shrink-0" />
+              <span className="truncate">Food traceability untuk hasil panen lokal</span>
             </div>
 
             <AgriTypewriter />
@@ -89,7 +99,7 @@ export default function Home() {
 
             <div className="mt-7 grid max-w-xl grid-cols-3 gap-3">
               {stats.map((item) => (
-                <div key={item.label} className="rounded-2xl border border-[#E8DDC7] bg-white/80 p-4 shadow-sm backdrop-blur transition-all duration-200 ease-in-out hover:border-[#BFE8CC] hover:bg-white hover:shadow-md">
+                <div key={item.label} className="min-w-0 rounded-2xl border border-[#E8DDC7] bg-white/80 p-4 shadow-sm backdrop-blur transition-all duration-200 ease-in-out hover:border-[#BFE8CC] hover:bg-white hover:shadow-md">
                   <p className="overflow-hidden text-xl font-bold tracking-tight text-slate-900 lg:text-2xl">
                     <AgriAnimatedNumber value={item.value} />
                   </p>
@@ -103,7 +113,7 @@ export default function Home() {
 
       <AgriScrollVelocity />
 
-      <section id="platform" className="px-6 py-7 lg:px-8 lg:py-8">
+      <section id="platform" className="px-4 py-7 sm:px-6 lg:px-8 lg:py-8">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-2xl">
             <p className="text-sm font-bold text-[#25B866]">Platform</p>
@@ -133,7 +143,7 @@ export default function Home() {
         <AgriProcessBeam />
       </div>
 
-      <section id="market" className="px-6 py-7 lg:px-8 lg:py-8">
+      <section id="market" className="px-4 py-7 sm:px-6 lg:px-8 lg:py-8">
         <div className="mx-auto max-w-7xl rounded-[1.75rem] border border-[#E8DDC7] bg-white/85 p-5 shadow-sm backdrop-blur lg:p-6">
           <div className="flex flex-col gap-4 border-b border-[#E8DDC7] pb-5 lg:flex-row lg:items-end lg:justify-between">
             <div>
