@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
+import AgriAssistantWidget from "@/components/ui/agri-assistant-widget";
 import "./globals.css";
 import "./logo.css";
 import "./aurora.css";
@@ -24,6 +25,7 @@ export default function RootLayout({
     <html lang="id">
       <body className={`${manrope.className} bg-slate-50 text-slate-800 antialiased`}>
         {children}
+        <AgriAssistantWidget />
       </body>
     </html>
   );
