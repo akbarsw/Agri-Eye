@@ -72,10 +72,10 @@ export default function Home() {
         </div>
       </nav>
 
-      <section id="top" className="relative overflow-hidden px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
+      <section id="top" className="relative overflow-hidden px-4 py-7 sm:px-6 lg:px-8 lg:py-9">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_18%,rgba(37,184,102,0.13),transparent_30%),radial-gradient(circle_at_80%_12%,rgba(232,221,199,0.9),transparent_30%),radial-gradient(circle_at_50%_90%,rgba(255,255,255,0.8),transparent_28%)]" />
 
-        <div className="mx-auto grid max-w-7xl items-center gap-7 xl:grid-cols-[0.92fr_1.08fr]">
+        <div className="mx-auto grid max-w-7xl items-center gap-6 xl:grid-cols-[0.88fr_1.12fr]">
           <div className="min-w-0">
             <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-[#E8DDC7] bg-white/80 px-4 py-2 text-sm font-medium text-[#1FA653] shadow-sm">
               <CheckCircle2 className="h-4 w-4 shrink-0" />
@@ -84,11 +84,11 @@ export default function Home() {
 
             <AgriTypewriter />
 
-            <p className="mt-5 max-w-2xl text-base leading-7 text-slate-500 lg:text-[1.05rem] lg:leading-8">
+            <p className="mt-4 max-w-xl text-[0.95rem] leading-7 text-slate-500 lg:text-base lg:leading-8">
               AGRI-EYE membantu petani mencatat Data Panen, membuat QR Produk, dan menjual produk terverifikasi ke pembeli B2B secara lebih transparan.
             </p>
 
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row">
               <a href="/farmer" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#25B866] px-6 py-4 text-sm font-bold !text-white shadow-sm transition-all duration-200 ease-in-out hover:bg-[#1FA653] hover:shadow-md">
                 Mulai sebagai Petani
                 <ArrowRight className="h-4 w-4" />
@@ -98,7 +98,7 @@ export default function Home() {
               </a>
             </div>
 
-            <div className="mt-7 grid max-w-xl grid-cols-3 gap-3">
+            <div className="mt-6 grid max-w-xl grid-cols-3 gap-3">
               {stats.map((item) => (
                 <div key={item.label} className="min-w-0 rounded-2xl border border-[#E8DDC7] bg-white/80 p-4 shadow-sm backdrop-blur transition-all duration-200 ease-in-out hover:border-[#BFE8CC] hover:bg-white hover:shadow-md">
                   <p className="overflow-hidden text-xl font-bold tracking-tight text-slate-900 lg:text-2xl">
@@ -110,7 +110,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hidden min-w-0 xl:block [&>div]:scale-[0.86] [&>div]:origin-center">
+          <div className="min-w-0 pt-1 sm:pt-2 xl:pt-0 [&>div]:mx-auto [&>div]:scale-[0.82] [&>div]:origin-top sm:[&>div]:scale-[0.88] xl:[&>div]:scale-[0.82]">
             <AgriTraceMap />
           </div>
         </div>
