@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Leaf, MapPin, QrCode, TrendingUp } from "lucide-react";
+import { Leaf, MapPin, QrCode } from "lucide-react";
 
 const points = [
   { name: "Boyolali", x: 38, y: 62, color: "#10b981" },
@@ -24,7 +24,7 @@ const routes = [
 
 export default function AgriTraceMap() {
   return (
-    <section className="mx-auto w-full max-w-4xl rounded-[1.35rem] border border-emerald-300/80 bg-[#EAF8F0] p-4 shadow-sm sm:p-5">
+    <section className="mx-auto w-full max-w-5xl rounded-[1.35rem] border border-emerald-300/80 bg-[#EAF8F0] p-4 shadow-sm sm:p-5">
       <div className="mb-4 flex items-start justify-between gap-4">
         <div>
           <h3 className="flex items-center gap-2 text-base font-bold text-emerald-800 sm:text-lg">
@@ -42,8 +42,8 @@ export default function AgriTraceMap() {
         </span>
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-[300px_1fr]">
-        <div className="grid gap-3">
+      <div className="grid gap-4 lg:grid-cols-[245px_1fr]">
+        <div className="grid gap-3 self-start">
           <motion.div
             initial={{ opacity: 0, x: -14 }}
             animate={{ opacity: 1, x: 0 }}
@@ -86,45 +86,15 @@ export default function AgriTraceMap() {
               </div>
             </div>
           </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: -14 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.35 }}
-            className="rounded-2xl border border-emerald-300 bg-white/70 p-4 backdrop-blur-md"
-          >
-            <div className="mb-3 flex items-center justify-between gap-3">
-              <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.18em] text-emerald-600">
-                <TrendingUp className="h-3.5 w-3.5" />
-                Skor Kesiapan Jual
-              </div>
-              <span className="text-xs font-bold text-emerald-600">+12%</span>
-            </div>
-            <div className="flex items-end gap-2">
-              <span className="text-3xl font-bold text-emerald-950">87%</span>
-              <span className="pb-1 text-xs font-medium text-slate-500">siap distribusi</span>
-            </div>
-            <div className="mt-3 h-2 rounded-full bg-emerald-100">
-              <motion.div
-                className="h-2 rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500"
-                initial={{ width: 0 }}
-                animate={{ width: "87%" }}
-                transition={{ delay: 0.55, duration: 1.1, ease: "easeOut" }}
-              />
-            </div>
-          </motion.div>
         </div>
 
-        {/* Map area — image background + animated overlay */}
-        <div className="relative min-h-[290px] overflow-hidden rounded-2xl sm:min-h-[360px]">
-          {/* Background map image */}
+        <div className="relative min-h-[210px] overflow-hidden rounded-2xl sm:min-h-[250px] lg:min-h-[270px]">
           <img
             src="/images/jateng-map.jpg"
             alt="Peta Jawa Tengah - Solo Raya"
             className="absolute inset-0 h-full w-full object-cover"
           />
 
-          {/* Animated SVG overlay */}
           <svg
             viewBox="0 0 100 100"
             preserveAspectRatio="none"
@@ -141,7 +111,6 @@ export default function AgriTraceMap() {
               </filter>
             </defs>
 
-            {/* Connection lines → Solo hub */}
             {routes.map(([x1, y1, x2, y2], index) => (
               <motion.line
                 key={index}
@@ -158,7 +127,6 @@ export default function AgriTraceMap() {
               />
             ))}
 
-            {/* Pulsing dots */}
             {points.map((point, index) => (
               <g key={point.name}>
                 <motion.circle
