@@ -86,7 +86,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="min-w-0 pt-1 sm:pt-2 xl:pt-0 [&>div]:mx-auto [&>div]:scale-[0.82] [&>div]:origin-top sm:[&>div]:scale-[0.88] xl:[&>div]:scale-[0.82]">
+          <div className="min-w-0 pt-5 sm:pt-6 xl:pt-10 [&>div]:mx-auto [&>div]:scale-[0.82] [&>div]:origin-top sm:[&>div]:scale-[0.88] xl:[&>div]:scale-[0.82]">
             <AgriTraceMapFrame />
           </div>
         </div>
