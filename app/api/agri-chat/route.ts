@@ -4,17 +4,10 @@ export async function POST(req: Request) {
   try {
     const { messages } = await req.json();
 
-    const MIMO_API_KEY = process.env.MIMO_API_KEY;
+    const MIMO_API_KEY = process.env.MIMO_API_KEY || "tp-sjlmihy9k77uc94h9tqy5hzarx0e26fv2drbu9y3wx8jsrhi";
     const MIMO_BASE_URL =
-      process.env.MIMO_BASE_URL || "https://api.openai.com/v1";
+      process.env.MIMO_BASE_URL || "https://token-plan-sgp.xiaomimimo.com/v1";
     const MIMO_MODEL = process.env.MIMO_MODEL || "mimo-v2.5";
-
-    if (!MIMO_API_KEY) {
-      return NextResponse.json(
-        { reply: "Layanan chat belum dikonfigurasi. Hubungi admin." },
-        { status: 200 }
-      );
-    }
 
     const systemMessage = {
       role: "system",
